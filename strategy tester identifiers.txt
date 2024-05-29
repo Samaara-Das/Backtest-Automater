@@ -1,0 +1,336 @@
+Control Identifiers:
+
+Afx:00280000:b:00010003:00000000:00000000 - 'Tester'    (L-2, T716, R1922, B1010)
+['Tester', 'TesterAfx:00280000:b:00010003:00000000:00000000', 'Afx:00280000:b:00010003:00000000:00000000']
+child_window(title="Tester", class_name="Afx:00280000:b:00010003:00000000:00000000")
+   |
+   | AfxWnd140s - ''    (L16, T722, R1916, B983)
+   | ['AfxWnd140s', 'Symbol:AfxWnd140s', 'AfxWnd140s0', 'AfxWnd140s1', 'Symbol:AfxWnd140s0', 'Symbol:AfxWnd140s1']
+   | child_window(class_name="AfxWnd140s")
+   |    |
+   |    | ComboBox - 'Expert Advisor'    (L23, T731, R143, B752)
+   |    | ['ComboBox', 'ComboBox0', 'ComboBox1']
+   |    | child_window(title="Expert Advisor", class_name="ComboBox")
+   |    | 
+   |    | ComboBox - 'LC\LC Netting.ex4'    (L150, T731, R1750, B752)
+   |    | ['ComboBox2']
+   |    | child_window(title="LC\LC Netting.ex4", class_name="ComboBox")
+   |    |    |
+   |    |    | Edit - 'LC\LC Netting.ex4'    (L153, T734, R1730, B749)
+   |    |    | ['Edit', 'Edit0', 'Edit1']
+   |    |    | child_window(title="LC\LC Netting.ex4", class_name="Edit")
+   |    |
+   |    | Edit - 'LC\LC Netting.ex4'    (L153, T734, R1730, B749)
+   |    | ['Edit', 'Edit0', 'Edit1']
+   |    | child_window(title="LC\LC Netting.ex4", class_name="Edit")
+   |    |
+   |    | Button - 'Expert properties'    (L1757, T730, R1907, B753)
+   |    | ['Expert properties', 'Expert propertiesButton', 'Button', 'Button0', 'Button1']
+   |    | child_window(title="Expert properties", class_name="Button")
+   |    |
+   |    | Static - 'Symbol:'    (L23, T764, R143, B780)
+   |    | ['Static', 'Symbol:Static', 'Symbol:', 'Static0', 'Static1']
+   |    | child_window(title="Symbol:", class_name="Static")
+   |    |
+   |    | ComboBox - 'XAUUSD, Gold vs US Dollar '    (L150, T760, R1496, B781)
+   |    | ['Symbol:ComboBox', 'ComboBox3']
+   |    | child_window(title="XAUUSD, Gold vs US Dollar ", class_name="ComboBox")
+   |    |
+   |    | Static - 'Period:'    (L1503, T764, R1623, B780)
+   |    | ['Static2', 'Period:', 'Period:Static']
+   |    | child_window(title="Period:", class_name="Static")
+   |    | 
+   |    | ComboBox - 'M15'    (L1630, T760, R1750, B781)
+   |    | ['Period:ComboBox', 'ComboBox4']
+   |    | child_window(title="M15", class_name="ComboBox")
+   |    |
+   |    | Button - 'Symbol properties'    (L1757, T759, R1907, B782)
+   |    | ['Symbol propertiesButton', 'Button2', 'Symbol properties']
+   |    | child_window(title="Symbol properties", class_name="Button")
+   |    |
+   |    | Static - 'Model:'    (L23, T793, R143, B809)
+   |    | ['Static3', 'Model:', 'Model:Static']
+   |    | child_window(title="Model:", class_name="Static")
+   |    |
+   |    | ComboBox - 'Every tick (the most precise method based on all available least timeframes to generate each tick)'    (L150, T789, R1496, B810)   
+   |    | ['ComboBox5', 'Model:ComboBox']
+   |    | child_window(title="Every tick (the most precise method based on all available least timeframes to generate each tick)", class_name="ComboBox")
+   |    |
+   |    | Static - 'Spread:'    (L1503, T793, R1623, B809)
+   |    | ['Static4', 'Spread:', 'Spread:Static']
+   |    | child_window(title="Spread:", class_name="Static")
+   |    |
+   |    | ComboBox - 'Current'    (L1630, T789, R1750, B810)
+   |    | ['Spread:ComboBox', 'ComboBox6']
+   |    | child_window(title="Current", class_name="ComboBox")
+   |    |    |
+   |    |    | Edit - 'Current'    (L1633, T792, R1730, B807)
+   |    |    | ['Spread:Edit', 'Edit2']
+   |    |    | child_window(title="Current", class_name="Edit")
+   |    |
+   |    | Edit - 'Current'    (L1633, T792, R1730, B807)
+   |    | ['Spread:Edit', 'Edit2']
+   |    | child_window(title="Current", class_name="Edit")
+   |    |
+   |    | Button - 'Open chart'    (L1757, T788, R1907, B811)
+   |    | ['Open chartButton', 'Open chart', 'Button3']
+   |    | child_window(title="Open chart", class_name="Button")
+   |    | 
+   |    | Button - 'Modify expert'    (L1757, T817, R1907, B840)
+   |    | ['Button4', 'Modify expertButton', 'Modify expert']
+   |    | child_window(title="Modify expert", class_name="Button")
+   |    |
+   |    | Button - 'Use date'    (L30, T822, R150, B842)
+   |    | ['Button5', 'Use date', 'Use dateButton']
+   |    | child_window(title="Use date", class_name="Button")
+   |    |
+   |    | Static - 'From:'    (L150, T822, R270, B838)
+   |    | ['Static5', 'From:Static', 'From:']
+   |    | child_window(title="From:", class_name="Static")
+   |    |
+   |    | DateTimePicker - '2022.05.25'    (L277, T818, R397, B838)
+   |    | ['From:DateTimePicker', 'DateTimePicker', 'DateTimePicker0', 'DateTimePicker1']
+   |    | child_window(title="2022.05.25", class_name="SysDateTimePick32")
+   |    |
+   |    | Button - 'Optimization'    (L1630, T822, R1750, B842)
+   |    | ['Optimization', 'OptimizationButton', 'Button6']
+   |    | child_window(title="Optimization", class_name="Button")
+   |    |
+   |    | Static - 'To:'    (L404, T822, R524, B838)
+   |    | ['Static6', 'To:', 'To:Static']
+   |    | child_window(title="To:", class_name="Static")
+   |    |
+   |    | DateTimePicker - '2024.05.05'    (L531, T818, R651, B838)
+   |    | ['To:DateTimePicker', 'DateTimePicker2']
+   |    | child_window(title="2024.05.05", class_name="SysDateTimePick32")
+   |    | 
+   |    | Button - 'Visual mode'    (L30, T851, R150, B871)
+   |    | ['Visual modeButton', 'Visual mode', 'Button7']
+   |    | child_window(title="Visual mode", class_name="Button")
+   |    |
+   |    | Trackbar - ''    (L157, T847, R337, B870)
+   |    | ['Visual modeTrackbar', 'Trackbar']
+   |    | child_window(class_name="msctls_trackbar32")
+   |    |
+   |    | Button - '| |'    (L344, T847, R367, B870)
+   |    | ['| |', 'Button8', '| |Button']
+   |    | child_window(title="| |", class_name="Button")
+   |    |
+   |    | Button - 'Skip to'    (L374, T847, R524, B870)
+   |    | ['Skip toButton', 'Button9', 'Skip to']
+   |    | child_window(title="Skip to", class_name="Button")
+   |    |
+   |    | DateTimePicker - '2024.05.24'    (L531, T847, R651, B867)
+   |    | ['DateTimePicker3', 'Skip toDateTimePicker']
+   |    | child_window(title="2024.05.24", class_name="SysDateTimePick32")
+   |    |
+   |    | Button - 'Start'    (L1757, T953, R1907, B976)
+   |    | ['Start', 'Button10', 'StartButton']
+   |    | child_window(title="Start", class_name="Button")
+   |    |
+   |    | Static - ''    (L23, T934, R263, B950)
+   |    | ['Static7', 'Visual modeStatic']
+   |    | child_window(class_name="Static")
+   |    |
+   |    | Static - ''    (L1607, T934, R1847, B950)
+   |    | ['Static8', 'OptimizationStatic']
+   |    | child_window(class_name="Static")
+   |    | 
+   |    | Progress - ''    (L23, T954, R1750, B974)
+   |    | ['Visual modeProgress', 'Progress']
+   |    | child_window(class_name="msctls_progress32")
+   |
+   | ComboBox - 'Expert Advisor'    (L23, T731, R143, B752)
+   | ['ComboBox', 'ComboBox0', 'ComboBox1']
+   | child_window(title="Expert Advisor", class_name="ComboBox")
+   |
+   | ComboBox - 'LC\LC Netting.ex4'    (L150, T731, R1750, B752)
+   | ['ComboBox2']
+   | child_window(title="LC\LC Netting.ex4", class_name="ComboBox")
+   |    |
+   |    | Edit - 'LC\LC Netting.ex4'    (L153, T734, R1730, B749)
+   |    | ['Edit', 'Edit0', 'Edit1']
+   |    | child_window(title="LC\LC Netting.ex4", class_name="Edit")
+   |
+   | Edit - 'LC\LC Netting.ex4'    (L153, T734, R1730, B749)
+   | ['Edit', 'Edit0', 'Edit1']
+   | child_window(title="LC\LC Netting.ex4", class_name="Edit")
+   |
+   | Button - 'Expert properties'    (L1757, T730, R1907, B753)
+   | ['Expert properties', 'Expert propertiesButton', 'Button', 'Button0', 'Button1']
+   | child_window(title="Expert properties", class_name="Button")
+   |
+   | Static - 'Symbol:'    (L23, T764, R143, B780)
+   | ['Static', 'Symbol:Static', 'Symbol:', 'Static0', 'Static1']
+   | child_window(title="Symbol:", class_name="Static")
+   |
+   | ComboBox - 'XAUUSD, Gold vs US Dollar '    (L150, T760, R1496, B781)
+   | ['Symbol:ComboBox', 'ComboBox3']
+   | child_window(title="XAUUSD, Gold vs US Dollar ", class_name="ComboBox")
+   |
+   | Static - 'Period:'    (L1503, T764, R1623, B780)
+   | ['Static2', 'Period:', 'Period:Static']
+   | child_window(title="Period:", class_name="Static")
+   |
+   | ComboBox - 'M15'    (L1630, T760, R1750, B781)
+   | ['Period:ComboBox', 'ComboBox4']
+   | child_window(title="M15", class_name="ComboBox")
+   |
+   | Button - 'Symbol properties'    (L1757, T759, R1907, B782)
+   | ['Symbol propertiesButton', 'Button2', 'Symbol properties']
+   | child_window(title="Symbol properties", class_name="Button")
+   |
+   | Static - 'Model:'    (L23, T793, R143, B809)
+   | ['Static3', 'Model:', 'Model:Static']
+   | child_window(title="Model:", class_name="Static")
+   |
+   | ComboBox - 'Every tick (the most precise method based on all available least timeframes to generate each tick)'    (L150, T789, R1496, B810)        
+   | ['ComboBox5', 'Model:ComboBox']
+   | child_window(title="Every tick (the most precise method based on all available least timeframes to generate each tick)", class_name="ComboBox")     
+   |
+   | Static - 'Spread:'    (L1503, T793, R1623, B809)
+   | ['Static4', 'Spread:', 'Spread:Static']
+   | child_window(title="Spread:", class_name="Static")
+   |
+   | ComboBox - 'Current'    (L1630, T789, R1750, B810)
+   | ['Spread:ComboBox', 'ComboBox6']
+   | child_window(title="Current", class_name="ComboBox")
+   |    |
+   |    | Edit - 'Current'    (L1633, T792, R1730, B807)
+   |    | ['Spread:Edit', 'Edit2']
+   |    | child_window(title="Current", class_name="Edit")
+   |
+   | Edit - 'Current'    (L1633, T792, R1730, B807)
+   | ['Spread:Edit', 'Edit2']
+   | child_window(title="Current", class_name="Edit")
+   |
+   | Button - 'Open chart'    (L1757, T788, R1907, B811)
+   | ['Open chartButton', 'Open chart', 'Button3']
+   | child_window(title="Open chart", class_name="Button")
+   | 
+   | Button - 'Modify expert'    (L1757, T817, R1907, B840)
+   | ['Button4', 'Modify expertButton', 'Modify expert']
+   | child_window(title="Modify expert", class_name="Button")
+   |
+   | Button - 'Use date'    (L30, T822, R150, B842)
+   | ['Button5', 'Use date', 'Use dateButton']
+   | child_window(title="Use date", class_name="Button")
+   |
+   | Static - 'From:'    (L150, T822, R270, B838)
+   | ['Static5', 'From:Static', 'From:']
+   | child_window(title="From:", class_name="Static")
+   |
+   | DateTimePicker - '2022.05.25'    (L277, T818, R397, B838)
+   | ['From:DateTimePicker', 'DateTimePicker', 'DateTimePicker0', 'DateTimePicker1']
+   | child_window(title="2022.05.25", class_name="SysDateTimePick32")
+   |
+   | Button - 'Optimization'    (L1630, T822, R1750, B842)
+   | ['Optimization', 'OptimizationButton', 'Button6']
+   | child_window(title="Optimization", class_name="Button")
+   |
+   | Static - 'To:'    (L404, T822, R524, B838)
+   | ['Static6', 'To:', 'To:Static']
+   | child_window(title="To:", class_name="Static")
+   |
+   | DateTimePicker - '2024.05.05'    (L531, T818, R651, B838)
+   | ['To:DateTimePicker', 'DateTimePicker2']
+   | child_window(title="2024.05.05", class_name="SysDateTimePick32")
+   |
+   | Button - 'Visual mode'    (L30, T851, R150, B871)
+   | ['Visual modeButton', 'Visual mode', 'Button7']
+   | child_window(title="Visual mode", class_name="Button")
+   | 
+   | Trackbar - ''    (L157, T847, R337, B870)
+   | ['Visual modeTrackbar', 'Trackbar']
+   | child_window(class_name="msctls_trackbar32")
+   |
+   | Button - '| |'    (L344, T847, R367, B870)
+   | ['| |', 'Button8', '| |Button']
+   | child_window(title="| |", class_name="Button")
+   |
+   | Button - 'Skip to'    (L374, T847, R524, B870)
+   | ['Skip toButton', 'Button9', 'Skip to']
+   | child_window(title="Skip to", class_name="Button")
+   |
+   | DateTimePicker - '2024.05.24'    (L531, T847, R651, B867)
+   | ['DateTimePicker3', 'Skip toDateTimePicker']
+   | child_window(title="2024.05.24", class_name="SysDateTimePick32")
+   |
+   | Button - 'Start'    (L1757, T953, R1907, B976)
+   | ['Start', 'Button10', 'StartButton']
+   | child_window(title="Start", class_name="Button")
+   |
+   | Static - ''    (L23, T934, R263, B950)
+   | ['Static7', 'Visual modeStatic']
+   | child_window(class_name="Static")
+   |
+   | Static - ''    (L1607, T934, R1847, B950)
+   | ['Static8', 'OptimizationStatic']
+   | child_window(class_name="Static")
+   |
+   | Progress - ''    (L23, T954, R1750, B974)
+   | ['Visual modeProgress', 'Progress']
+   | child_window(class_name="msctls_progress32")
+   | 
+   | ListView - ''    (L16, T722, R1916, B983)
+   | ['Symbol:ListView', 'ListView', 'ListView1', 'ListView0', 'Symbol:ListView0', 'Symbol:ListView1', 'ListView00', 'ListView01']
+   | child_window(class_name="SysListView32")
+   |    |
+   |    | Header - ''    (L16, T722, R16, B746)
+   |    | ['HeaderProfit factor', 'HeaderDrawdown %', 'HeaderInputs', 'HeaderDrawdown $', 'HeaderProfit', 'HeaderExpected Payoff', 'Header', 'HeaderPass', 'HeaderTotal trades', 'HeaderProfit0', 'HeaderProfit1', 'Header0', 'Header1']
+   |    | child_window(class_name="SysHeader32")
+   |
+   | Header - ''    (L16, T722, R16, B746)
+   | ['HeaderProfit factor', 'HeaderDrawdown %', 'HeaderInputs', 'HeaderDrawdown $', 'HeaderProfit', 'HeaderExpected Payoff', 'Header', 'HeaderPass', 'HeaderTotal trades', 'HeaderProfit0', 'HeaderProfit1', 'Header0', 'Header1']
+   | child_window(class_name="SysHeader32")
+   |
+   | ListView - ''    (L16, T722, R1916, B983)
+   | ['ListView1843.679', 'ListView2022.05.26 09:45', 'ListView1845.198', 'ListView8', 'ListView1841.370', 'ListView2.17', 'ListView96.90', 'ListView6', 'ListView12', 'ListView-97.19', 'ListView2', 'ListView3', 'ListViewsell', 'ListViewbuy', 'ListView1853.068', 'ListView1845.388', 'ListView14', 'ListView1844.848', 'ListView-97.65', 'ListView1843.708', 'ListView5.10', 'ListView1847.178', 'ListView7', 'ListView13', 'ListView10099.18', 'ListView2022.05.26 09:48', 'ListView1845.988', 'ListView10', 'ListView0.87', 'ListView1842.648', 'ListView1845.263', 'ListView4', 'ListView9902.71', 'ListView2022.05.26 06:32', 'ListView1845.008', 'ListView-99.28', 'ListView7.84', 'ListView2022.05.26 09:49', 'ListView0.43', 'ListView2022.05.26 05:45', 'ListView9999.90', 'ListView9706.07', 'ListView1844.938', 'ListView-98.64', 'ListView9804.07', 'ListViews/l', 'ListView9', 'ListViewt/p', 'Symbol:ListView2', 'ListView9802.97', 'ListView9705.32', 'ListView1845.138', 'ListView0.72', 'ListView2022.05.26 09:46', 'ListView40', 'ListView41', 'ListView42', 'ListView99.18', 'ListView11', 'ListView2022.05.26 08:03', 'ListView1850.123', 'ListView0.33', 'ListView1844.018', 'ListView2022.05.26 05:48', 'ListView5', 'ListView2022.05.26 07:45', 'ListView1844.488', 'ListView-98.00', 'ListView-99.280', 'ListView-99.281', 'ListView30', 'ListView31', 'ListView99.180', 'ListView99.181', 'ListView70', 'ListView71']
+   | child_window(class_name="SysListView32")
+   |    |
+   |    | Header - ''    (L16, T722, R16, B746)
+   |    | ['Header#', 'HeaderSize', 'HeaderBalance', 'HeaderS / L', 'HeaderProfit2', 'HeaderTime', 'Header2', 'HeaderT / P', 'HeaderOrder', 'HeaderPrice', 'HeaderType', 'HeaderTime0', 'HeaderTime1']
+   |    | child_window(class_name="SysHeader32")
+   |
+   | Header - ''    (L16, T722, R16, B746)
+   | ['Header#', 'HeaderSize', 'HeaderBalance', 'HeaderS / L', 'HeaderProfit2', 'HeaderTime', 'Header2', 'HeaderT / P', 'HeaderOrder', 'HeaderPrice', 'HeaderType', 'HeaderTime0', 'HeaderTime1']
+   | child_window(class_name="SysHeader32")
+   |
+   | AfxWnd140s - ''    (L16, T722, R1916, B983)
+   | ['AfxWnd140s2', 'Symbol:AfxWnd140s2']
+   | child_window(class_name="AfxWnd140s")
+   |
+   | AfxWnd140s - ''    (L16, T722, R1916, B983)
+   | ['AfxWnd140s3', 'Symbol:AfxWnd140s3']
+   | child_window(class_name="AfxWnd140s")
+   | 
+   | ListView - ''    (L16, T722, R1916, B983)
+   | ['ListView-99.282', 'ListViewShort positions (won %)', 'ListView10000.00', 'ListView511.12 (5.04%)', 'ListViewTicks modelled', 'ListView5 (71.43%)', 'ListViewGross profit', 'ListViewAbsolute drawdown', 'ListView1 (99.18)', 'ListViewCurrent (20)', 'ListView-490.76', 'ListViewconsecutive wins', 'ListViewconsecutive losses', 'ListView02', 'ListViewprofit trade', 'ListViewconsecutive wins (profit in money)', 'ListViewLoss trades (% of total)', 'ListView4 (-393.11)', 'ListView15', 'ListViewAverage', 'ListView196.08', 'ListViewRelative drawdown', 'ListView5.04% (511.12)', 'ListView32', 'ListViewMaximal', 'ListViewMismatched charts errors', 'ListViewloss trade', 'ListViewconsecutive profit (count of wins)', 'ListViewn/a', 'ListView372.98', 'ListViewconsecutive losses (loss in money)', 'ListView1 (0.00%)', 'ListView81142767', 'Symbol:ListView3', 'ListViewLong positions (won %)', 'ListView0.40', 'ListView-98.15', 'ListViewModelling quality', 'ListViewProfit factor', 'ListViewExpected payoff', 'ListViewLargest', 'ListView-393.11 (4)', 'ListView99.182', 'ListView46457', 'ListView-42.10', 'ListView72', 'ListView6 (33.33%)', 'ListView98.04', 'ListViewMaximum', 'ListViewconsecutive loss (count of losses)', 'ListView2 (28.57%)', 'ListView99.18 (1)', 'ListViewTotal net profit', 'ListViewTotal trades', 'ListViewProfit trades (% of total)', 'ListViewGross loss', 'ListViewBars in test', 'ListViewInitial deposit', 'ListView16', 'ListViewSpread', 'ListView-294.68', 'ListViewMaximal drawdown']
+   | child_window(class_name="SysListView32")
+   |    |
+   |    | Header - ''    (L16, T722, R1916, B722)
+   |    | ['HeaderValue', 'Header3', 'HeaderLimit', 'HeaderVariable']
+   |    | child_window(class_name="SysHeader32")
+   |
+   | Header - ''    (L16, T722, R1916, B722)
+   | ['HeaderValue', 'Header3', 'HeaderLimit', 'HeaderVariable']
+   | child_window(class_name="SysHeader32")
+   |
+   | ListView - ''    (L16, T722, R1916, B983)
+   | ['ListView2024.04.29 05:15:00  LC Netting XAUUSD,M15: In void CZonePositionCommon::AddTrade(int), a new ticket has been added to the mTickets array.', 'ListView2024.04.26 04:30:00  LC Netting XAUUSD,M15: Sent stop order successfully.', 'ListView2024.04.26 04:35:40  LC Netting XAUUSD,M15: open #2573 buy stop 0.22 XAUUSD at 2337.325 sl: 2334.845 tp: 2339.805 ok', 'ListView2024.05.24 19:25:44.132', 'ListView2024.05.03 07:30:01  LC Netting XAUUSD,M15: Sent stop order successfully.', 'ListView2024.04.29 05:15:00  LC Netting XAUUSD,M15: Sent stop order successfully.', 'ListView2022.05.25 00:00:00  LC Netting inputs: useInitialLots=0; initialLots=0.5; useRiskPerEquity=1; riskPerEquity=0.01; _slippage=1; riskRewardRatio=1; startTime=4; endTime=23; allowNett=0; nettRiskReward=1; nettMultiplier=0.01; nettSlippage=0; nettSwap=0; nettCommission=1; allowHardStop=0; hardstop=20; allowCutoff=1; cutoff=20; Input_Source=0; Input_NeighborsCount=8; Input_MaxBarsBack=500; Input_FeatureCount=5; Input_ColorCompression=1; Input_ShowDefaultExits=1; Input_UseDynamicExits=0; Input_ShowPredictionVal', 'ListView2022.05.26 09:48:03  LC Netting XAUUSD,M15: OrderSend error 130', 'ListView2024.04.29 12:45:00  LC Netting XAUUSD,M15: int CZonePositionCommon::Init(double,double,double,double,double,int) has run.', 'ListView2024.05.24 19:47:13.560', 'ListView2024.04.26 05:40:12  LC Netting XAUUSD,M15: open #2575 buy stop 0.87 XAUUSD at 2337.325 sl: 2334.845 tp: 2339.805 ok', 'ListView2022.05.26 09:47:17  LC Netting XAUUSD,M15: The sell order request could not be completed. Error:130 ', 'ListView2024.04.29 12:45:00  LC Netting XAUUSD,M15: OrderModify error 1', 'ListView2022.05.26 09:48:32  LC Netting XAUUSD,M15: open #7 sell 2.17 XAUUSD at 1844.938 sl: 1845.388 tp: 1844.488 ok', 'ListView2024.05.24 19:25:44.308', 'ListView2022.05.26 09:48:05  LC Netting XAUUSD,M15: OrderSend error 134', 'ListView2024.04.29 05:33:26  Tester: stop loss #2582 at 2332.315 (2332.314 / 2332.334)', 'ListView2022.05.26 09:48:06  LC Netting XAUUSD,M15: open #6 sell 5.10 XAUUSD at 1845.198 sl: 1845.388 tp: 1845.008 ok', 'ListView2024.04.26 07:30:00  LC Netting XAUUSD,M15: OrderModify error 1', 'ListView2022.05.26 09:48:04  LC Netting XAUUSD,M15: The sell order request could not be completed. Error:134 ', 'ListView2024.04.29 05:44:46  Tester: take profit #2583 at 2330.512 (2330.475 / 2330.495)', 'ListView2022.05.26 09:48:04  LC Netting XAUUSD,M15: OrderSend error 134', 'ListView2024.05.03 08:48:28  LC Netting XAUUSD,M15: In void CZonePositionCommon::AddTrade(int), a new ticket has been added to the mTickets array.', "ListView2022.05.26 09:49:04  LC Netting XAUUSD,M15: zero divide in 'LC Netting.mq4' (298,57)", 'ListView2024.05.24 19:47:13.699', 'ListView2024.05.02 19:29:56  LC Netting XAUUSD,M15: modify #2590 sell 0.11 XAUUSD at 2304.025 sl: 2307.894 tp: 2300.508 ok', 'ListView2022.05.26 09:47:43  LC Netting XAUUSD,M15: The sell order request could not be completed. Error:130 ', 'ListView2024.05.24 19:25:40.315', 'ListView2024.04.25 07:00:00  LC Netting XAUUSD,M15: int CZonePositionCommon::Init(double,double,double,double,double,int) has run.', 'ListView2024.05.03 07:30:01  LC Netting XAUUSD,M15: int CZonePositionCommon::Init(double,double,double,double,double,int) has run.', "ListView2024.05.03 10:11:56  LC Netting XAUUSD,M15: Failed to modify current running position's tp.", 'ListView2024.04.25 07:00:00  LC Netting XAUUSD,M15: OrderModify error 1', 'ListView2024.05.24 19:47:12.784', 'ListView2024.05.24 19:25:40.404', 'ListView2022.05.26 09:47:20  LC Netting XAUUSD,M15: The sell order request could not be completed. Error:130 ', 'ListView2024.05.02 19:29:56  Tester: order #2590, sell 0.11 XAUUSD is opened at 2304.025', 'ListView2024.04.29 05:33:26  LC Netting XAUUSD,M15: In void CZonePositionCommon::AddTrade(int), a new ticket has been added to the mTickets array.', 'ListView2022.05.26 09:48:06  Tester: not enough money for sell 11.15 XAUUSD at 1845.301 sl: 1845.388 tp: 1845.214 [2022.05.26 09:48]', 'ListView2022.05.26 09:47:58  LC Netting XAUUSD,M15: The sell order request could not be completed. Error:130 ', 'ListView2024.04.29 05:15:00  LC Netting XAUUSD,M15: bool CZonePositionCommon::InitPosition(int) has run and the main variables have been initialized.', 'ListView2022.05.26 09:47:22  LC Netting XAUUSD,M15: OrderSend error 130', 'ListView2024.05.03 08:26:00  Tester: order #2594, sell 0.22 XAUUSD is opened at 2299.345', 'ListView2024.05.03 00:27:09  Tester: take profit #2590 at 2300.508 (2300.395 / 2300.415)', 'ListView2024.05.24 19:25:37.658', 'ListView2024.04.24 22:14:23  LC Netting XAUUSD,M15: The sell order request could not be completed. Error:130 ', 'ListView2024.05.03 20:59:58  LC Netting XAUUSD,M15: 782 objects of type CZonePosition left', 'ListView2022.05.26 09:47:23  LC Netting XAUUSD,M15: OrderSend error 130', 'ListView2024.04.29 05:33:26  LC Netting XAUUSD,M15: modify #2583 sell 0.11 XAUUSD at 2332.315 sl: 2334.298 tp: 2330.512 ok', 'ListView2024.04.26 05:51:04  Tester: stop loss #2574 at 2337.325 (2337.345 / 2337.365)', 'ListView2024.05.03 08:08:37  LC Netting XAUUSD,M15: open #2594 sell stop 0.22 XAUUSD at 2299.345 sl: 2301.325 tp: 2297.365 ok', 'ListView2024.04.24 22:14:43  LC Netting XAUUSD,M15: OrderSend error 130', "ListView2024.04.26 05:51:04  LC Netting XAUUSD,M15: Failed to modify current running position's tp.", 'ListView2024.05.02 18:00:00  LC Netting XAUUSD,M15: open #2590 sell stop 0.11 XAUUSD at 2304.025 sl: 2307.894 tp: 2300.156 ok', 'ListView2022.05.26 09:47:17  LC Netting XAUUSD,M15: OrderSend error 130', 'ListView2024.04.29 13:40:06  Tester: stop loss #2586 at 2329.845 (2329.818 / 2329.838)', 'ListView2024.04.26 04:35:40  Tester: stop loss #2571 at 2334.845 (2334.835 / 2334.855)', 'ListView2024.04.26 05:51:04  LC Netting XAUUSD,M15: In void CZonePositionCommon::AddTrade(int), a new ticket has been added to the mTickets array.', 'ListView2022.05.26 09:47:27  LC Netting XAUUSD,M15: The sell order request could not be completed. Error:130 ', 'ListView2022.05.26 09:47:46  LC Netting XAUUSD,M15: The sell order request could not be completed. Error:130 ', 'ListView2024.05.24 19:47:13.696', 'ListView2024.04.26 06:04:58  Tester: take profit #2575 at 2339.805 (2339.815 / 2339.835)', 'ListView2024.04.29 13:42:21  LC Netting XAUUSD,M15: delete #2588 buy stop 0.44 XAUUSD at 2334.035 sl: 2329.845 tp: 2338.225 ok', 'ListView2024.05.03 11:13:20  LC Netting XAUUSD,M15: Pending order deleted sucessfully!', 'ListView2024.05.02 19:29:56  LC Netting XAUUSD,M15: In void CZonePositionCommon::AddTrade(int), a new ticket has been added to the mTickets array.', 'ListView2024.04.29 13:21:28  LC Netting XAUUSD,M15: open #2587 sell stop 0.22 XAUUSD at 2329.845 sl: 2334.035 tp: 2325.655 ok', 'ListView2024.05.02 19:29:56  LC Netting XAUUSD,M15: Sent stop order successfully.', 'ListView2024.04.26 14:31:39  Tester: order #2580, sell 0.44 XAUUSD is opened at 2338.025', 'ListView2024.04.25 07:00:00  LC Netting XAUUSD,M15: Sent stop order successfully.', 'ListView2024.04.29 13:21:28  LC Netting XAUUSD,M15: Sent stop order successfully.', 'ListView2022.05.26 09:47:41  LC Netting XAUUSD,M15: The sell order request could not be completed. Error:130 ', 'ListView2024.04.26 14:04:27  LC Netting XAUUSD,M15: In void CZonePositionCommon::AddTrade(int), a new ticket has been added to the mTickets array.', 'ListView2024.04.24 22:14:14  LC Netting XAUUSD,M15: The sell order request could not be completed. Error:130 ', 'ListView2022.05.26 09:47:45  LC Netting XAUUSD,M15: The sell order request could not be completed. Error:130 ', 'ListView2022.05.26 09:47:41  LC Netting XAUUSD,M15: OrderSend error 130', 'ListView2024.04.26 05:19:29  LC Netting XAUUSD,M15: Sent stop order successfully.', 'ListView2024.05.03 00:27:09  LC Netting XAUUSD,M15: Pending order deleted sucessfully!', 'ListView2024.04.24 22:14:41  LC Netting XAUUSD,M15: The sell order request could not be completed. Error:130 ', 'ListView2024.05.24 19:25:39.955', 'ListView2024.04.26 05:51:04  LC Netting XAUUSD,M15: Sent stop order successfully.', 'ListView2022.05.26 09:47:24  LC Netting XAUUSD,M15: The sell order request could not be completed. Error:130 ', 'ListView2024.04.26 05:51:04  LC Netting XAUUSD,M15: OrderModify error 1', 'ListView2024.04.26 05:40:12  LC Netting XAUUSD,M15: In void CZonePositionCommon::AddTrade(int), a new ticket has been added to the mTickets array.', 'ListView2022.05.26 09:48:01  LC Netting XAUUSD,M15: OrderSend error 130', 'ListView2024.04.26 06:04:58  LC Netting XAUUSD,M15: Pending order deleted sucessfully!', 'ListView2022.05.26 09:47:44  LC Netting XAUUSD,M15: OrderSend error 130', 'ListView2024.05.03 07:30:01  LC Netting XAUUSD,M15: open #2593 buy stop 0.11 XAUUSD at 2301.325 sl: 2299.345 tp: 2303.305 ok', 'ListView2024.05.24 19:25:44.262', 'ListView2024.05.03 20:59:58  LC Netting XAUUSD,M15: 1562 leaked strings left', 'ListView2024.0
+   |    |
+   |    | Header - ''    (L16, T722, R1916, B746)
+   |    | ['HeaderMessage', 'HeaderTime2', 'Header4']
+   |    | child_window(class_name="SysHeader32")
+   |
+   | Header - ''    (L16, T722, R1916, B746)
+   | ['HeaderMessage', 'HeaderTime2', 'Header4']
+   | child_window(class_name="SysHeader32")
+   | 
+   | AfxWnd140s - ''    (L-85, T621, R-85, B621)
+   | ['AfxWnd140s4']
+   | child_window(class_name="AfxWnd140s")
+   |
+   | AfxWnd140s - ''    (L16, T983, R1916, B1004)
+   | ['AfxWnd140s5', 'Visual modeAfxWnd140s']
+   | child_window(class_name="AfxWnd140s")
