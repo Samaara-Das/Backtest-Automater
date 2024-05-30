@@ -1,6 +1,7 @@
 from os import path
 import psutil
 import time
+from datetime import datetime
 from openpyxl import load_workbook
 from pywinauto import Application
 from pywinauto.keyboard import send_keys
@@ -315,6 +316,87 @@ def choose_period(strategy_tester, period):
         logger.error(f'Error has occurred when choosing the symbol: {e}')
         return False
 
+def choose_modelling(strategy_tester, model):
+    """
+    Select the Model in the Strategy Tester.
+
+    Args:
+        strategy_tester (WindowSpecification): The Strategy Tester window.
+        model (str): The model to choose.
+    """
+    try:
+        logger.info("Searching for the Model input in the Strategy Tester")
+        combo_boxes = strategy_tester.children(class_name="ComboBox")
+        for combo in combo_boxes:
+            title = combo.window_text()
+            # If the Model input is found
+            if "Every tick" in title or 'Control points' in title or 'Open prices' in title: 
+                logger.info(f'Found Model input: {combo}')
+                if model in title: # If the wanted model has already been selected
+                    logger.info(f'{model} has already been selected.')
+                    return True
+                else:
+                    combo.click()
+                    for i, option in enumerate(combo.item_texts()): # Select the wanted period
+                        if model in option:
+                            combo.select(i)
+                            combo.set_keyboard_focus()
+                            send_keys('{ENTER}')
+                            logger.info(f'Found and selected {model} in the dropdown.')
+                            return True
+
+    except Exception as e:
+        logger.error(f'Error has occurred when choosing the symbol: {e}')
+        return False
+
+def configure_visual_mode(strategy_tester):
+    """
+    Unchecks the Visual mode in the Strategy Tester (if it already isn't unchecked).
+
+    Args:
+        strategy_tester (WindowSpecification): The Strategy Tester window.
+    """
+    try:
+        logger.info("Searching for the Visual mode button in the Strategy Tester")
+        buttons = strategy_tester.children(class_name="Button")
+        for btn in buttons:
+            if btn.window_text() == 'Visual mode':
+                btn.uncheck()
+                logger.info("Visual mode unchecked.")
+                return True
+        
+    except Exception as e:
+        logger.error(f'Error has occurred when unchecking Visual mode: {e}')
+        return False
+
+def configure_dates(strategy_tester, from_date ,to_date):
+    """
+    This checks the Use date button and configures the From and To dates.
+
+    Args:
+        strategy_tester (WindowSpecification): The Strategy Tester window.
+    """
+    try:
+        logger.info("Searching for the Use date button in the Strategy Tester...")
+        buttons = strategy_tester.children(class_name="Button")
+        for btn in buttons:
+            if btn.window_text() == 'Use date':
+                btn.check()
+                logger.info("Use date checked.")
+                break
+
+        logger.info("Searching for the dates in the Strategy Tester...")
+        dates = strategy_tester.children(class_name="SysDateTimePick32")
+
+        _from = datetime.strptime(from_date, '%Y.%m.%d')
+        to = datetime.strptime(to_date, '%Y.%m.%d')
+        dates[0].set_time(year=_from.year, month=_from.month, day=_from.day) # Setting the From date
+        dates[1].set_time(year=to.year, month=to.month, day=to.day) # Setting the To date
+        
+    except Exception as e:
+        logger.error(f'Error has occurred when configuring the dates: {e}')
+        return False
+
 def configure_expert_properties(strategy_tester, app, ea_name, properties_string):
     """
     Configures the expert properties in the Strategy Tester for a given Expert Advisor.
@@ -408,6 +490,23 @@ def main():
                 period = settings['Period'].strip()
                 if not choose_period(strategy_tester, period):
                     logger.error(f"Failed to select period '{period}'. Continuing.")
+                    continue
+                
+                # Select the model
+                model = settings['Model'].strip()
+                if not choose_modelling(strategy_tester, model):
+                    logger.error(f"Failed to select model '{model}'. Continuing.")
+                    continue
+
+                # Configure Visual mode
+                if not configure_visual_mode(strategy_tester):
+                    logger.error(f"Failed to uncheck Visual mode. Continuing.")
+                    continue
+
+                # Configure the dates
+                if not configure_dates(strategy_tester, settings['From'], settings['To']):
+                    logger.error(f"Failed to configure the dates. Continuing.")
+                    continue
 
             except Exception as e:
                 logger.error(f"Exception occurred while configuring the Strategy Tester: {e}")
