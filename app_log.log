@@ -2750,3 +2750,749 @@ __main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4
 __main__.py configure_expert_properties() INFO: Clicked on Expert properties button 05.29.24 15:09:18
 __main__.py ea_base_name() INFO: Converted 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' to 'Nadaraya-Watson Netting' 05.29.24 15:09:18
 __main__.py configure_expert_properties() INFO: Expert properties window opened 05.29.24 15:09:19
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 18:00:18
+__main__.py is_application_running() INFO: Application is already running with PID: 6224 05.29.24 18:00:19
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 6224. 05.29.24 18:00:19
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 18:00:19
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 18:00:19
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 18:00:19
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.29.24 18:00:19
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.29.24 18:00:19
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.29.24 18:00:19
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 18:00:19
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 18:00:20
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 18:00:20
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.29.24 18:00:20
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.29.24 18:00:20
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 18:00:20
+__main__.py choose_symbol() ERROR: It is likely that "EURUSD" has already been chosen 05.29.24 18:00:20
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 18:00:20
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 18:00:22
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 18:00:22
+__main__.py choose_EA() INFO: Navigating through options to find 'martingale_bb_third.ex4' 05.29.24 18:00:22
+__main__.py choose_EA() INFO: Found 'martingale_bb_third.ex4' in the options. 05.29.24 18:00:24
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 18:00:24
+__main__.py choose_symbol() ERROR: It is likely that "GBPJPY" has already been chosen 05.29.24 18:00:24
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 18:00:24
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 18:00:25
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 18:00:25
+__main__.py choose_EA() INFO: Navigating through options to find 'Fib retracement\ao_swing_fib_ret_bo.ex4' 05.29.24 18:00:25
+__main__.py choose_EA() INFO: Found 'Fib retracement\ao_swing_fib_ret_bo.ex4' in the options. 05.29.24 18:00:31
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 18:00:31
+__main__.py choose_symbol() ERROR: It is likely that "EURUSD" has already been chosen 05.29.24 18:00:31
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 18:03:59
+__main__.py is_application_running() INFO: Application is not running. 05.29.24 18:04:00
+__main__.py start_or_connect_application() INFO: Starting the application from path: C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\terminal.exe. 05.29.24 18:04:00
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 18:04:00
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 18:04:16
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 18:04:16
+__main__.py is_strategy_tester_open() ERROR: Exception occurred while checking the Strategy Tester: timed out 05.29.24 18:04:26
+__main__.py main() INFO: Strategy Tester is not open. Trying to open it. 05.29.24 18:04:26
+__main__.py main() ERROR: Exception occurred: Neither GUI element (wrapper) nor wrapper method 'send_keys' were found (typo?) 05.29.24 18:04:26
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 18:10:51
+__main__.py is_application_running() INFO: Application is not running. 05.29.24 18:10:51
+__main__.py start_or_connect_application() INFO: Starting the application from path: C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\terminal.exe. 05.29.24 18:10:51
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 18:10:52
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 18:11:07
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 18:11:08
+__main__.py is_strategy_tester_open() ERROR: Exception occurred while checking the Strategy Tester: timed out 05.29.24 18:11:18
+__main__.py main() INFO: Strategy Tester is not open. Trying to open it. 05.29.24 18:11:18
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 18:11:25
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.29.24 18:11:25
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.29.24 18:11:25
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.29.24 18:11:25
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 18:11:25
+__main__.py select_expert_advisor() INFO: Changing the value of 'Indicator' combo box to 'Expert Advisor'. 05.29.24 18:11:25
+__main__.py select_expert_advisor() INFO: Successfully changed the value to 'Expert Advisor'. 05.29.24 18:11:25
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 18:11:25
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.29.24 18:11:25
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.29.24 18:11:29
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 18:11:29
+__main__.py choose_symbol() ERROR: Error has occurred when choosing the symbol 05.29.24 18:11:29
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 18:11:29
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 18:11:30
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 18:11:30
+__main__.py choose_EA() INFO: Navigating through options to find 'martingale_bb_third.ex4' 05.29.24 18:11:30
+__main__.py choose_EA() INFO: Found 'martingale_bb_third.ex4' in the options. 05.29.24 18:11:32
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 18:11:32
+__main__.py choose_symbol() ERROR: Error has occurred when choosing the symbol 05.29.24 18:11:32
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 18:11:32
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 18:11:33
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 18:11:33
+__main__.py choose_EA() INFO: Navigating through options to find 'Fib retracement\ao_swing_fib_ret_bo.ex4' 05.29.24 18:11:33
+__main__.py choose_EA() INFO: Found 'Fib retracement\ao_swing_fib_ret_bo.ex4' in the options. 05.29.24 18:11:39
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 18:11:39
+__main__.py choose_symbol() ERROR: Error has occurred when choosing the symbol 05.29.24 18:11:39
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 18:13:10
+__main__.py is_application_running() INFO: Application is not running. 05.29.24 18:13:10
+__main__.py start_or_connect_application() INFO: Starting the application from path: C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\terminal.exe. 05.29.24 18:13:10
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 18:13:11
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 18:13:26
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 18:13:26
+__main__.py is_strategy_tester_open() ERROR: Exception occurred while checking the Strategy Tester: timed out 05.29.24 18:13:36
+__main__.py main() INFO: Strategy Tester is not open. Trying to open it. 05.29.24 18:13:36
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 18:13:43
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.29.24 18:13:43
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.29.24 18:13:43
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.29.24 18:13:43
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 18:13:43
+__main__.py select_expert_advisor() INFO: Changing the value of 'Indicator' combo box to 'Expert Advisor'. 05.29.24 18:13:43
+__main__.py select_expert_advisor() INFO: Successfully changed the value to 'Expert Advisor'. 05.29.24 18:13:43
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 18:13:43
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.29.24 18:13:43
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.29.24 18:13:47
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 18:13:47
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 18:15:41
+__main__.py is_application_running() INFO: Application is not running. 05.29.24 18:15:41
+__main__.py start_or_connect_application() INFO: Starting the application from path: C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\terminal.exe. 05.29.24 18:15:41
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 18:15:42
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 18:15:57
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 18:15:57
+__main__.py is_strategy_tester_open() ERROR: Exception occurred while checking the Strategy Tester: timed out 05.29.24 18:16:07
+__main__.py main() INFO: Strategy Tester is not open. Trying to open it. 05.29.24 18:16:07
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 18:16:15
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.29.24 18:16:15
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.29.24 18:16:15
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.29.24 18:16:15
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 18:16:15
+__main__.py select_expert_advisor() INFO: Changing the value of 'Indicator' combo box to 'Expert Advisor'. 05.29.24 18:16:15
+__main__.py select_expert_advisor() INFO: Successfully changed the value to 'Expert Advisor'. 05.29.24 18:16:15
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 18:16:15
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.29.24 18:16:15
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.29.24 18:16:19
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 18:16:19
+__main__.py choose_symbol() INFO: Found Symbol input in the Strategy Tester 05.29.24 18:16:19
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 18:56:11
+__main__.py is_application_running() INFO: Application is already running with PID: 1912 05.29.24 18:56:11
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 1912. 05.29.24 18:56:11
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 18:56:11
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 18:56:11
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 18:56:11
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.29.24 18:56:11
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.29.24 18:56:11
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.29.24 18:56:11
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 18:56:11
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 18:56:12
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 18:56:12
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.29.24 18:56:12
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.29.24 18:56:16
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 18:56:16
+__main__.py choose_symbol() INFO: Found Symbol input in the Strategy Tester 05.29.24 18:56:16
+__main__.py choose_symbol() INFO: Successfully changed the value to '{symbol}'. 05.29.24 18:56:17
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 18:56:17
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 18:56:18
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 18:56:18
+__main__.py choose_EA() INFO: Navigating through options to find 'martingale_bb_third.ex4' 05.29.24 18:56:18
+__main__.py choose_EA() INFO: Found 'martingale_bb_third.ex4' in the options. 05.29.24 18:56:20
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 18:56:20
+__main__.py choose_symbol() INFO: Found Symbol input in the Strategy Tester 05.29.24 18:56:20
+__main__.py choose_symbol() INFO: Successfully changed the value to '{symbol}'. 05.29.24 18:56:20
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 18:56:20
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 18:56:21
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 18:56:21
+__main__.py choose_EA() INFO: Navigating through options to find 'Fib retracement\ao_swing_fib_ret_bo.ex4' 05.29.24 18:56:22
+__main__.py choose_EA() INFO: Found 'Fib retracement\ao_swing_fib_ret_bo.ex4' in the options. 05.29.24 18:56:28
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 18:56:28
+__main__.py choose_symbol() INFO: Found Symbol input in the Strategy Tester 05.29.24 18:56:28
+__main__.py choose_symbol() INFO: Successfully changed the value to '{symbol}'. 05.29.24 18:56:28
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 19:01:08
+__main__.py is_application_running() INFO: Application is already running with PID: 1912 05.29.24 19:01:08
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 1912. 05.29.24 19:01:08
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 19:01:08
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 19:01:08
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 19:01:08
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.29.24 19:01:08
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.29.24 19:01:08
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.29.24 19:01:08
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 19:01:08
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 19:01:09
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 19:01:09
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.29.24 19:01:10
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.29.24 19:01:12
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 19:01:12
+__main__.py choose_symbol() INFO: Found Symbol input in the Strategy Tester 05.29.24 19:01:12
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 19:05:33
+__main__.py is_application_running() INFO: Application is already running with PID: 1912 05.29.24 19:05:33
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 1912. 05.29.24 19:05:33
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 19:05:33
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 19:05:33
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 19:05:34
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.29.24 19:05:34
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.29.24 19:05:34
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.29.24 19:05:34
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 19:05:34
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 19:05:35
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 19:05:35
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.29.24 19:05:35
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.29.24 19:05:35
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 19:05:35
+__main__.py choose_symbol() INFO: Found Symbol input in the Strategy Tester 05.29.24 19:05:35
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 19:06:02
+__main__.py is_application_running() INFO: Application is already running with PID: 1912 05.29.24 19:06:02
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 1912. 05.29.24 19:06:02
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 19:06:02
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 19:06:02
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 19:06:03
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.29.24 19:06:03
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.29.24 19:06:03
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.29.24 19:06:03
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 19:06:03
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 19:06:04
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 19:06:04
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.29.24 19:06:04
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.29.24 19:06:04
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 19:06:04
+__main__.py choose_symbol() INFO: Found Symbol input in the Strategy Tester 05.29.24 19:06:04
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 19:06:39
+__main__.py is_application_running() INFO: Application is already running with PID: 1912 05.29.24 19:06:39
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 1912. 05.29.24 19:06:39
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 19:06:39
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 19:06:39
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 19:06:39
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.29.24 19:06:40
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.29.24 19:06:40
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.29.24 19:06:40
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 19:06:40
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 19:06:41
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 19:06:41
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.29.24 19:06:41
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.29.24 19:06:41
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 19:06:41
+__main__.py choose_symbol() INFO: Found Symbol input in the Strategy Tester 05.29.24 19:06:41
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 19:07:40
+__main__.py is_application_running() INFO: Application is already running with PID: 1912 05.29.24 19:07:40
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 1912. 05.29.24 19:07:40
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 19:07:40
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 19:07:40
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 19:07:40
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.29.24 19:07:40
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.29.24 19:07:40
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.29.24 19:07:41
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 19:07:41
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 19:07:42
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 19:07:42
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.29.24 19:07:42
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.29.24 19:07:42
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 19:07:42
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 19:08:55
+__main__.py is_application_running() INFO: Application is already running with PID: 1912 05.29.24 19:08:55
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 1912. 05.29.24 19:08:55
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 19:08:55
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 19:08:55
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 19:08:55
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.29.24 19:08:55
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.29.24 19:08:55
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.29.24 19:08:55
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 19:08:55
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 19:08:56
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 19:08:56
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.29.24 19:08:56
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.29.24 19:08:56
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 19:08:56
+__main__.py choose_symbol() ERROR: Error has occurred when choosing the symbol 05.29.24 19:09:01
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 19:09:01
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 19:09:03
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 19:09:03
+__main__.py choose_EA() INFO: Navigating through options to find 'martingale_bb_third.ex4' 05.29.24 19:09:03
+__main__.py choose_EA() INFO: Found 'martingale_bb_third.ex4' in the options. 05.29.24 19:09:05
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 19:09:05
+__main__.py choose_symbol() ERROR: Error has occurred when choosing the symbol 05.29.24 19:09:10
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 19:09:10
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 19:09:11
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 19:09:11
+__main__.py choose_EA() INFO: Navigating through options to find 'Fib retracement\ao_swing_fib_ret_bo.ex4' 05.29.24 19:09:11
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 19:09:17
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 19:12:04
+__main__.py is_application_running() INFO: Application is already running with PID: 1912 05.29.24 19:12:04
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 1912. 05.29.24 19:12:04
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 19:12:04
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 19:12:04
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 19:12:04
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.29.24 19:12:05
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.29.24 19:12:05
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.29.24 19:12:05
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 19:12:05
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 19:12:06
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 19:12:06
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.29.24 19:12:06
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.29.24 19:12:08
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 19:12:08
+__main__.py choose_symbol() ERROR: Error has occurred when choosing the symbol 05.29.24 19:12:13
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 19:12:13
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 19:12:14
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 19:12:14
+__main__.py choose_EA() INFO: Navigating through options to find 'martingale_bb_third.ex4' 05.29.24 19:12:14
+__main__.py choose_EA() INFO: Found 'martingale_bb_third.ex4' in the options. 05.29.24 19:12:16
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 19:12:16
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 19:47:07
+__main__.py is_application_running() INFO: Application is already running with PID: 1912 05.29.24 19:47:07
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 1912. 05.29.24 19:47:07
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 19:47:07
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 19:47:07
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 19:47:08
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.29.24 19:47:08
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.29.24 19:47:08
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.29.24 19:47:08
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 19:47:08
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 19:47:09
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 19:47:09
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.29.24 19:47:09
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.29.24 19:47:13
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 19:47:13
+__main__.py choose_symbol() ERROR: Error has occurred when choosing the symbol: {'title': 'Symbol:', 'control_type': 'combo box', 'top_level_only': False, 'parent': <win32_element_info.HwndElementInfo - 'Tester', Afx:00DB0000:b:00010003:00000000:00000000, 5113560>, 'backend': 'win32'} 05.29.24 19:47:18
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 19:47:18
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 19:47:19
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 19:47:19
+__main__.py choose_EA() INFO: Navigating through options to find 'martingale_bb_third.ex4' 05.29.24 19:47:19
+__main__.py choose_EA() INFO: Found 'martingale_bb_third.ex4' in the options. 05.29.24 19:47:21
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 19:47:21
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 19:53:34
+__main__.py is_application_running() INFO: Application is already running with PID: 1912 05.29.24 19:53:34
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 1912. 05.29.24 19:53:34
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 19:53:34
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 19:53:34
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 19:53:34
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.29.24 19:53:34
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.29.24 19:53:34
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.29.24 19:53:34
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 19:53:34
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 19:53:35
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 19:53:35
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.29.24 19:53:36
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.29.24 19:53:40
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 19:53:40
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 19:56:14
+__main__.py is_application_running() INFO: Application is already running with PID: 1912 05.29.24 19:56:14
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 1912. 05.29.24 19:56:14
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 19:56:14
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 19:56:14
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 19:56:14
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.29.24 19:56:14
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.29.24 19:56:14
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.29.24 19:56:14
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 19:56:14
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 19:56:15
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 19:56:15
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.29.24 19:56:16
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.29.24 19:56:16
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 19:56:16
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 19:57:07
+__main__.py is_application_running() INFO: Application is already running with PID: 1912 05.29.24 19:57:08
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 1912. 05.29.24 19:57:08
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 19:57:08
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 19:57:08
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 19:57:08
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.29.24 19:57:08
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.29.24 19:57:08
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.29.24 19:57:08
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 19:57:08
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 19:57:09
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 19:57:09
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.29.24 19:57:09
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.29.24 19:57:09
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 19:57:09
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 20:08:18
+__main__.py is_application_running() INFO: Application is already running with PID: 1912 05.29.24 20:08:18
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 1912. 05.29.24 20:08:18
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 20:08:18
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 20:08:18
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 20:08:18
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.29.24 20:08:18
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.29.24 20:08:18
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.29.24 20:08:19
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 20:08:19
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 20:08:20
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 20:08:20
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.29.24 20:08:20
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.29.24 20:08:20
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 20:08:20
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 20:10:08
+__main__.py is_application_running() INFO: Application is already running with PID: 1912 05.29.24 20:10:08
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 1912. 05.29.24 20:10:08
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 20:10:08
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 20:10:09
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 20:10:09
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.29.24 20:10:09
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.29.24 20:10:09
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.29.24 20:10:09
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 20:10:09
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 20:10:10
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 20:10:10
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.29.24 20:10:10
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.29.24 20:10:10
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 20:10:10
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 20:17:30
+__main__.py is_application_running() INFO: Application is already running with PID: 1912 05.29.24 20:17:30
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 1912. 05.29.24 20:17:30
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 20:17:30
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 20:17:30
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 20:17:30
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.29.24 20:17:30
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.29.24 20:17:30
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.29.24 20:17:30
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 20:17:30
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 20:17:31
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 20:17:31
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.29.24 20:17:31
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.29.24 20:17:31
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 20:17:31
+__main__.py choose_symbol() INFO: found symbol input: win32_controls.ComboBoxWrapper - 'GBPJPY, British Pound vs Japanese Yen', ComboBox 05.29.24 20:17:32
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.29.24 20:22:58
+__main__.py is_application_running() INFO: Application is already running with PID: 1912 05.29.24 20:22:58
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 1912. 05.29.24 20:22:58
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.29.24 20:22:58
+__main__.py wait_for_window() INFO: Window found and ready. 05.29.24 20:22:58
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.29.24 20:22:58
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.29.24 20:22:58
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.29.24 20:22:58
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.29.24 20:22:59
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.29.24 20:22:59
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.29.24 20:23:00
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.29.24 20:23:00
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.29.24 20:23:00
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.29.24 20:23:00
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.29.24 20:23:00
+__main__.py choose_symbol() INFO: found symbol input: win32_controls.ComboBoxWrapper - 'GBPJPY, British Pound vs Japanese Yen', ComboBox 05.29.24 20:23:00
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.30.24 11:10:22
+__main__.py is_application_running() INFO: Application is already running with PID: 2248 05.30.24 11:10:23
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 2248. 05.30.24 11:10:23
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.30.24 11:10:23
+__main__.py wait_for_window() INFO: Window found and ready. 05.30.24 11:10:23
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.30.24 11:10:23
+__main__.py is_strategy_tester_open() ERROR: Exception occurred while checking the Strategy Tester: timed out 05.30.24 11:10:28
+__main__.py main() INFO: Strategy Tester is not open. Trying to open it. 05.30.24 11:10:28
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.30.24 11:10:33
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.30.24 11:10:33
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.30.24 11:10:33
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.30.24 11:10:33
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 11:10:33
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 11:10:34
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 11:10:34
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.30.24 11:10:35
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.30.24 11:10:35
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 11:10:35
+__main__.py choose_symbol() INFO: found symbol input: win32_controls.ComboBoxWrapper - 'GBPDKK, Great Britan Pound vs Danish Krone', ComboBox 05.30.24 11:10:35
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.30.24 11:34:40
+__main__.py is_application_running() INFO: Application is already running with PID: 2248 05.30.24 11:34:40
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 2248. 05.30.24 11:34:40
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.30.24 11:34:40
+__main__.py wait_for_window() INFO: Window found and ready. 05.30.24 11:34:40
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.30.24 11:34:40
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.30.24 11:34:40
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.30.24 11:34:40
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.30.24 11:34:40
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 11:34:40
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 11:34:42
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 11:34:42
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.30.24 11:34:42
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.30.24 11:34:42
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 11:34:42
+__main__.py choose_symbol() INFO: found symbol input: win32_controls.ComboBoxWrapper - 'GBPDKK, Great Britan Pound vs Danish Krone', ComboBox 05.30.24 11:34:42
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.30.24 11:35:32
+__main__.py is_application_running() INFO: Application is already running with PID: 2248 05.30.24 11:35:33
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 2248. 05.30.24 11:35:33
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.30.24 11:35:33
+__main__.py wait_for_window() INFO: Window found and ready. 05.30.24 11:35:33
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.30.24 11:35:33
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.30.24 11:35:33
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.30.24 11:35:33
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.30.24 11:35:33
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 11:35:33
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 11:35:34
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 11:35:34
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.30.24 11:35:34
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.30.24 11:35:34
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 11:35:34
+__main__.py choose_symbol() INFO: found symbol input: win32_controls.ComboBoxWrapper - 'GBPDKK, Great Britan Pound vs Danish Krone', ComboBox 05.30.24 11:35:34
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.30.24 11:46:10
+__main__.py is_application_running() INFO: Application is already running with PID: 2248 05.30.24 11:46:10
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 2248. 05.30.24 11:46:10
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.30.24 11:46:10
+__main__.py wait_for_window() INFO: Window found and ready. 05.30.24 11:46:10
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.30.24 11:46:10
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.30.24 11:46:10
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.30.24 11:46:10
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.30.24 11:46:10
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 11:46:10
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 11:46:12
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 11:46:12
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.30.24 11:46:12
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.30.24 11:46:12
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 11:46:12
+__main__.py choose_symbol() INFO: found symbol input: win32_controls.ComboBoxWrapper - 'GBPDKK, Great Britan Pound vs Danish Krone', ComboBox 05.30.24 11:46:12
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 11:46:12
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 11:46:13
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 11:46:13
+__main__.py choose_EA() INFO: Navigating through options to find 'martingale_bb_third.ex4' 05.30.24 11:46:14
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 11:46:14
+__main__.py choose_symbol() INFO: found symbol input: win32_controls.ComboBoxWrapper - 'GBPSEK, Great Britan Pound vs Swedish Krona', ComboBox 05.30.24 11:46:14
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 11:46:14
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 11:46:15
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 11:46:15
+__main__.py choose_EA() INFO: Navigating through options to find 'Fib retracement\ao_swing_fib_ret_bo.ex4' 05.30.24 11:46:15
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 11:46:16
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.30.24 11:46:38
+__main__.py is_application_running() INFO: Application is already running with PID: 2248 05.30.24 11:46:38
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 2248. 05.30.24 11:46:38
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.30.24 11:46:38
+__main__.py wait_for_window() INFO: Window found and ready. 05.30.24 11:46:38
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.30.24 11:46:38
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.30.24 11:46:38
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.30.24 11:46:38
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.30.24 11:46:38
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 11:46:38
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 11:46:40
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 11:46:40
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.30.24 11:46:40
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.30.24 11:46:40
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 11:46:40
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 11:46:40
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 11:46:41
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 11:46:41
+__main__.py choose_EA() INFO: Navigating through options to find 'martingale_bb_third.ex4' 05.30.24 11:46:41
+__main__.py choose_EA() INFO: Found 'martingale_bb_third.ex4' in the options. 05.30.24 11:46:43
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 11:46:43
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 11:46:43
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 11:46:44
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 11:46:44
+__main__.py choose_EA() INFO: Navigating through options to find 'Fib retracement\ao_swing_fib_ret_bo.ex4' 05.30.24 11:46:44
+__main__.py choose_EA() INFO: Found 'Fib retracement\ao_swing_fib_ret_bo.ex4' in the options. 05.30.24 11:46:50
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 11:46:50
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.30.24 11:47:25
+__main__.py is_application_running() INFO: Application is already running with PID: 2248 05.30.24 11:47:25
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 2248. 05.30.24 11:47:25
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.30.24 11:47:25
+__main__.py wait_for_window() INFO: Window found and ready. 05.30.24 11:47:25
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.30.24 11:47:25
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.30.24 11:47:26
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.30.24 11:47:26
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.30.24 11:47:26
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 11:47:26
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 11:47:27
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 11:47:27
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.30.24 11:47:27
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.30.24 11:47:29
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 11:47:29
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 11:47:29
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 11:47:30
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 11:47:30
+__main__.py choose_EA() INFO: Navigating through options to find 'martingale_bb_third.ex4' 05.30.24 11:47:30
+__main__.py choose_EA() INFO: Found 'martingale_bb_third.ex4' in the options. 05.30.24 11:47:32
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 11:47:32
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 11:47:32
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 11:47:33
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 11:47:33
+__main__.py choose_EA() INFO: Navigating through options to find 'Fib retracement\ao_swing_fib_ret_bo.ex4' 05.30.24 11:47:33
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 11:47:34
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.30.24 11:53:40
+__main__.py is_application_running() INFO: Application is already running with PID: 2248 05.30.24 11:53:40
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 2248. 05.30.24 11:53:40
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.30.24 11:53:40
+__main__.py wait_for_window() INFO: Window found and ready. 05.30.24 11:53:40
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.30.24 11:53:40
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.30.24 11:53:40
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.30.24 11:53:40
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.30.24 11:53:40
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 11:53:40
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 11:53:41
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 11:53:41
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.30.24 11:53:41
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.30.24 11:53:45
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 11:53:45
+__main__.py choose_symbol() INFO: found symbol input: win32_controls.ComboBoxWrapper - 'NOKSEK, NOK SEK', ComboBox 05.30.24 11:53:45
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 11:53:46
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 11:53:47
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 11:53:47
+__main__.py choose_EA() INFO: Navigating through options to find 'martingale_bb_third.ex4' 05.30.24 11:53:47
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 11:53:47
+__main__.py choose_symbol() INFO: found symbol input: win32_controls.ComboBoxWrapper - 'GBPSEK, Great Britan Pound vs Swedish Krona', ComboBox 05.30.24 11:53:47
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 11:53:48
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 11:53:49
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 11:53:49
+__main__.py choose_EA() INFO: Navigating through options to find 'Fib retracement\ao_swing_fib_ret_bo.ex4' 05.30.24 11:53:49
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 11:53:49
+__main__.py choose_symbol() INFO: found symbol input: win32_controls.ComboBoxWrapper - 'NOKSEK, NOK SEK', ComboBox 05.30.24 11:53:49
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.30.24 11:57:53
+__main__.py is_application_running() INFO: Application is already running with PID: 2248 05.30.24 11:57:53
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 2248. 05.30.24 11:57:53
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.30.24 11:57:53
+__main__.py wait_for_window() INFO: Window found and ready. 05.30.24 11:57:53
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.30.24 11:57:53
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.30.24 11:57:53
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.30.24 11:57:53
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.30.24 11:57:53
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 11:57:53
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 11:57:55
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 11:57:55
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.30.24 11:57:55
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.30.24 11:57:55
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 11:57:55
+__main__.py choose_symbol() INFO: Found symbol input: win32_controls.ComboBoxWrapper - 'EURUSD, Euro vs US Dollar', ComboBox 05.30.24 11:57:55
+__main__.py choose_symbol() INFO: EURUSD has already been selected. 05.30.24 11:57:55
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.30.24 12:00:07
+__main__.py is_application_running() INFO: Application is already running with PID: 2248 05.30.24 12:00:07
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 2248. 05.30.24 12:00:07
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.30.24 12:00:07
+__main__.py wait_for_window() INFO: Window found and ready. 05.30.24 12:00:07
+__main__.py main() ERROR: Exception occurred: (0, 'SetForegroundWindow', 'No error message is available') 05.30.24 12:00:07
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.30.24 12:00:24
+__main__.py is_application_running() INFO: Application is already running with PID: 2248 05.30.24 12:00:24
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 2248. 05.30.24 12:00:24
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.30.24 12:00:24
+__main__.py wait_for_window() INFO: Window found and ready. 05.30.24 12:00:24
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.30.24 12:00:24
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.30.24 12:00:24
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.30.24 12:00:24
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.30.24 12:00:24
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 12:00:24
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 12:00:25
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 12:00:25
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.30.24 12:00:25
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.30.24 12:00:26
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 12:00:26
+__main__.py choose_symbol() INFO: Found symbol input: win32_controls.ComboBoxWrapper - 'BTCUSD, Bitcoin vs US Dollar CFD', ComboBox 05.30.24 12:00:26
+__main__.py choose_symbol() INFO: Found and selected EURUSD in the dropdown. 05.30.24 12:00:27
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 12:01:03
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 12:01:04
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 12:01:04
+__main__.py choose_EA() INFO: Navigating through options to find 'martingale_bb_third.ex4' 05.30.24 12:01:04
+__main__.py choose_EA() INFO: Found 'martingale_bb_third.ex4' in the options. 05.30.24 12:01:06
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 12:01:06
+__main__.py choose_symbol() INFO: Found symbol input: win32_controls.ComboBoxWrapper - 'EURUSD, Euro vs US Dollar', ComboBox 05.30.24 12:01:06
+__main__.py choose_symbol() INFO: Found and selected GBPJPY in the dropdown. 05.30.24 12:01:06
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 12:01:06
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 12:01:08
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 12:01:08
+__main__.py choose_EA() INFO: Navigating through options to find 'Fib retracement\ao_swing_fib_ret_bo.ex4' 05.30.24 12:01:08
+__main__.py choose_EA() INFO: Found 'Fib retracement\ao_swing_fib_ret_bo.ex4' in the options. 05.30.24 12:01:14
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 12:01:14
+__main__.py choose_symbol() INFO: Found symbol input: win32_controls.ComboBoxWrapper - 'GBPJPY, British Pound vs Japanese Yen', ComboBox 05.30.24 12:01:14
+__main__.py choose_symbol() INFO: Found and selected EURUSD in the dropdown. 05.30.24 12:01:14
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.30.24 12:52:10
+__main__.py is_application_running() INFO: Application is already running with PID: 2248 05.30.24 12:52:10
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 2248. 05.30.24 12:52:10
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.30.24 12:52:10
+__main__.py wait_for_window() INFO: Window found and ready. 05.30.24 12:52:10
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.30.24 12:52:10
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.30.24 12:52:10
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.30.24 12:52:10
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.30.24 12:52:10
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 12:52:10
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 12:52:12
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 12:52:12
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.30.24 12:52:12
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.30.24 12:52:12
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 12:52:12
+__main__.py choose_symbol() INFO: Found symbol input: win32_controls.ComboBoxWrapper - 'EURUSD, Euro vs US Dollar', ComboBox 05.30.24 12:52:12
+__main__.py choose_symbol() INFO: EURUSD has already been selected. 05.30.24 12:52:12
+__main__.py choose_period() INFO: Searching for the Period input in the Strategy Tester 05.30.24 12:52:12
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.30.24 12:57:21
+__main__.py is_application_running() INFO: Application is already running with PID: 2248 05.30.24 12:57:21
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 2248. 05.30.24 12:57:21
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.30.24 12:57:21
+__main__.py wait_for_window() INFO: Window found and ready. 05.30.24 12:57:21
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.30.24 12:57:22
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.30.24 12:57:22
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.30.24 12:57:22
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.30.24 12:57:22
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 12:57:22
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 12:57:23
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 12:57:23
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.30.24 12:57:23
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.30.24 12:57:23
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 12:57:23
+__main__.py choose_symbol() INFO: Found symbol input: win32_controls.ComboBoxWrapper - 'EURUSD, Euro vs US Dollar', ComboBox 05.30.24 12:57:23
+__main__.py choose_symbol() INFO: EURUSD has already been selected. 05.30.24 12:57:23
+__main__.py choose_period() INFO: Searching for the Period input in the Strategy Tester 05.30.24 12:57:23
+__main__.py main() ERROR: Failed to select period 'M1'. Continuing. 05.30.24 12:58:02
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 12:58:02
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 12:58:03
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 12:58:03
+__main__.py choose_EA() INFO: Navigating through options to find 'martingale_bb_third.ex4' 05.30.24 12:58:03
+__main__.py main() ERROR: Failed to select EA 'martingale_bb_third.ex4'. Continuing. 05.30.24 12:58:03
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 12:58:03
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 12:58:04
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 12:58:04
+__main__.py choose_EA() INFO: Navigating through options to find 'Fib retracement\ao_swing_fib_ret_bo.ex4' 05.30.24 12:58:04
+__main__.py main() ERROR: Failed to select EA 'Fib retracement\ao_swing_fib_ret_bo.ex4'. Continuing. 05.30.24 12:58:05
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.30.24 12:59:05
+__main__.py is_application_running() INFO: Application is already running with PID: 2248 05.30.24 12:59:05
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 2248. 05.30.24 12:59:05
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.30.24 12:59:05
+__main__.py wait_for_window() INFO: Window found and ready. 05.30.24 12:59:05
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.30.24 12:59:05
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.30.24 12:59:05
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.30.24 12:59:05
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.30.24 12:59:05
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 12:59:05
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 12:59:06
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 12:59:06
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.30.24 12:59:07
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.30.24 12:59:07
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 12:59:07
+__main__.py choose_symbol() INFO: Found symbol input: win32_controls.ComboBoxWrapper - 'EURUSD, Euro vs US Dollar', ComboBox 05.30.24 12:59:07
+__main__.py choose_symbol() INFO: EURUSD has already been selected. 05.30.24 12:59:07
+__main__.py choose_period() INFO: Searching for the Period input in the Strategy Tester 05.30.24 12:59:07
+__main__.py main() ERROR: Failed to select period 'M1'. Continuing. 05.30.24 12:59:07
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 12:59:07
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 12:59:08
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 12:59:08
+__main__.py choose_EA() INFO: Navigating through options to find 'martingale_bb_third.ex4' 05.30.24 12:59:08
+__main__.py choose_EA() INFO: Found 'martingale_bb_third.ex4' in the options. 05.30.24 12:59:10
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 12:59:10
+__main__.py choose_symbol() INFO: Found symbol input: win32_controls.ComboBoxWrapper - 'EURUSD, Euro vs US Dollar', ComboBox 05.30.24 12:59:10
+__main__.py choose_symbol() INFO: Found and selected GBPJPY in the dropdown. 05.30.24 12:59:10
+__main__.py choose_period() INFO: Searching for the Period input in the Strategy Tester 05.30.24 12:59:10
+__main__.py main() ERROR: Failed to select period 'H4'. Continuing. 05.30.24 12:59:10
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 12:59:10
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 12:59:12
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 12:59:12
+__main__.py choose_EA() INFO: Navigating through options to find 'Fib retracement\ao_swing_fib_ret_bo.ex4' 05.30.24 12:59:12
+__main__.py choose_EA() INFO: Found 'Fib retracement\ao_swing_fib_ret_bo.ex4' in the options. 05.30.24 12:59:18
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 12:59:18
+__main__.py choose_symbol() INFO: Found symbol input: win32_controls.ComboBoxWrapper - 'GBPJPY, British Pound vs Japanese Yen', ComboBox 05.30.24 12:59:18
+__main__.py choose_symbol() INFO: Found and selected BTCUSD in the dropdown. 05.30.24 12:59:18
+__main__.py choose_period() INFO: Searching for the Period input in the Strategy Tester 05.30.24 12:59:18
+__main__.py main() ERROR: Failed to select period 'M5'. Continuing. 05.30.24 12:59:18
+__main__.py is_application_running() INFO: Checking if the application is already running. 05.30.24 13:26:33
+__main__.py is_application_running() INFO: Application is already running with PID: 2248 05.30.24 13:26:33
+__main__.py start_or_connect_application() INFO: Connecting to the running instance with PID: 2248. 05.30.24 13:26:33
+__main__.py wait_for_window() INFO: Waiting for window with title matching: .*Tradeview.*. 05.30.24 13:26:33
+__main__.py wait_for_window() INFO: Window found and ready. 05.30.24 13:26:33
+__main__.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 05.30.24 13:26:33
+__main__.py is_strategy_tester_open() INFO: Strategy Tester is open. 05.30.24 13:26:33
+__main__.py read_excel_to_dict() INFO: Attempting to load the workbook from D:\Strategy Tester Settings.xlsx 05.30.24 13:26:33
+__main__.py read_excel_to_dict() INFO: Successfully read the Excel file and converted it to a list of dictionaries 05.30.24 13:26:33
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 13:26:33
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 13:26:34
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 13:26:34
+__main__.py choose_EA() INFO: Navigating through options to find 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' 05.30.24 13:26:35
+__main__.py choose_EA() INFO: Found 'Nadaraya-Watson\Nadaraya-Watson Netting.ex4' in the options. 05.30.24 13:26:37
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 13:26:37
+__main__.py choose_symbol() INFO: Found symbol input: win32_controls.ComboBoxWrapper - 'BTCUSD, Bitcoin vs US Dollar CFD', ComboBox 05.30.24 13:26:37
+__main__.py choose_symbol() INFO: Found and selected EURUSD in the dropdown. 05.30.24 13:26:37
+__main__.py choose_period() INFO: Searching for the Period input in the Strategy Tester 05.30.24 13:26:37
+__main__.py choose_period() INFO: Found Period input: win32_controls.ComboBoxWrapper - 'M1', ComboBox 05.30.24 13:26:37
+__main__.py choose_period() INFO: M1 has already been selected. 05.30.24 13:26:37
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 13:26:37
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 13:26:38
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 13:26:38
+__main__.py choose_EA() INFO: Navigating through options to find 'martingale_bb_third.ex4' 05.30.24 13:26:38
+__main__.py choose_EA() INFO: Found 'martingale_bb_third.ex4' in the options. 05.30.24 13:26:40
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 13:26:40
+__main__.py choose_symbol() INFO: Found symbol input: win32_controls.ComboBoxWrapper - 'EURUSD, Euro vs US Dollar', ComboBox 05.30.24 13:26:40
+__main__.py choose_symbol() INFO: Found and selected GBPJPY in the dropdown. 05.30.24 13:26:41
+__main__.py choose_period() INFO: Searching for the Period input in the Strategy Tester 05.30.24 13:26:41
+__main__.py choose_period() INFO: Found Period input: win32_controls.ComboBoxWrapper - 'M1', ComboBox 05.30.24 13:26:41
+__main__.py choose_period() INFO: Found and selected H4 in the dropdown. 05.30.24 13:26:41
+__main__.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 05.30.24 13:26:41
+__main__.py select_expert_advisor() ERROR: It is likely that "Expert Advisor" has already been chosen 05.30.24 13:26:42
+__main__.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 05.30.24 13:26:42
+__main__.py choose_EA() INFO: Navigating through options to find 'Fib retracement\ao_swing_fib_ret_bo.ex4' 05.30.24 13:26:42
+__main__.py choose_EA() INFO: Found 'Fib retracement\ao_swing_fib_ret_bo.ex4' in the options. 05.30.24 13:26:48
+__main__.py choose_symbol() INFO: Searching for the Symbol input in the Strategy Tester 05.30.24 13:26:48
+__main__.py choose_symbol() INFO: Found symbol input: win32_controls.ComboBoxWrapper - 'GBPJPY, British Pound vs Japanese Yen', ComboBox 05.30.24 13:26:48
+__main__.py choose_symbol() INFO: Found and selected BTCUSD in the dropdown. 05.30.24 13:26:49
+__main__.py choose_period() INFO: Searching for the Period input in the Strategy Tester 05.30.24 13:26:49
+__main__.py choose_period() INFO: Found Period input: win32_controls.ComboBoxWrapper - 'H4', ComboBox 05.30.24 13:26:49
+__main__.py choose_period() INFO: Found and selected M5 in the dropdown. 05.30.24 13:26:49

@@ -168,28 +168,6 @@ def read_excel_to_dict(excel_path):
         logger.error(f"An unexpected error occurred: {e}")
         raise
 
-def choose_symbol(strategy_tester, symbol):
-    """
-    Select the symbol in the Strategy Tester.
-
-    Args:
-        strategy_tester (WindowSpecification): The Strategy Tester window.
-        symbol (str): The symbol to choose.
-    """
-    try:
-        logger.info("Checking for 'Symbol' combo box...")
-        combo_boxes = strategy_tester.child_window(title="Symbol", class_name="ComboBox")
-        for combo in combo_boxes:
-            title = combo.window_text()
-            if "vs" in title: # If the Symbol input has been found
-                logger.info("Changing the value of 'Symbol' combo box to '{symbol}'.")
-                combo.select(symbol)
-                logger.info("Successfully changed the value to '{symbol}'.")
-                break
-    except Exception as e:
-        logger.error(f'It is likely that "{symbol}" has already been chosen')
-
-
 def select_expert_advisor(strategy_tester):
     """
     Select 'Expert Advisor' from the combo box in the Strategy Tester.
@@ -217,29 +195,27 @@ def choose_EA(strategy_tester, ea_name):
         ea_name (str): The EA to choose.
     """
     try:
-        # The reason that a combo box with ex4 or ex5 is looked for is because it is where the EA is chosen
-        logger.info("Searching for combo boxes with 'ex4' or 'ex5' in the title...")
+        
+        logger.info("Searching for the Expert input in the Strategy Tester")
         combo_boxes = strategy_tester.children(class_name="ComboBox")
         ea_box_found = False
 
         for combo in combo_boxes:
             title = combo.window_text()
-            if "ex4" in title or "ex5" in title:
+            if "ex4" in title: # If the combo box has ex4 in its text, it's an Expert input
                 combo.click_input()  # Click to select the combo box
                 ea_box_found = True
-                ea_found = False
                 i = 0
                 prev_option = ''
                 current_option = combo.window_text()
                 
-                # Use arrow keys to navigate through the dropdown options
                 logger.info(f"Navigating through options to find '{ea_name}'")
 
+                # Use DOWN key to navigate through the dropdown options
                 while i in range(50):
                     if ea_name == current_option: # if the EA is found
                         logger.info(f"Found '{ea_name}' in the options.")
-                        ea_found = True
-                        break
+                        return True
                     
                     send_keys('{DOWN}')
                     time.sleep(0.1)
@@ -250,27 +226,94 @@ def choose_EA(strategy_tester, ea_name):
 
                     i += 1
                 
+                # Use UP key to navigate through the dropdown options
                 i = 0
-                while i in range(50) and not ea_found:
+                while i in range(50):
                     if ea_name == current_option: # if the EA is found
                         logger.info(f"Found '{ea_name}' in the options.")
-                        ea_found = True
-                        break
+                        return True
                     
                     send_keys('{UP}')
                     time.sleep(0.1)
                     prev_option = current_option
                     current_option = combo.window_text()
                     if prev_option == current_option: # if the limit of the EAs has been reached 
-                        break
+                        return False
 
                     i += 1
 
         if not ea_box_found:
             logger.warning("No combo box with 'ex4' or 'ex5' found.")
+            return False
 
     except Exception as e:
         logger.error(f"Exception occurred while selecting the combo box: {e}")
+        return False
+
+def choose_symbol(strategy_tester, symbol):
+    """
+    Select the symbol in the Strategy Tester.
+
+    Args:
+        strategy_tester (WindowSpecification): The Strategy Tester window.
+        symbol (str): The symbol to choose.
+    """
+    try:
+        logger.info("Searching for the Symbol input in the Strategy Tester")
+        combo_boxes = strategy_tester.children(class_name="ComboBox")
+        for combo in combo_boxes:
+            title = combo.window_text()
+            if "vs" in title or 'NOKSEK' in title: # If the Symbol input is found
+                logger.info(f'Found symbol input: {combo}')
+                if symbol in title: # If the wanted symbol has already been selected
+                    logger.info(f'{symbol} has already been selected.')
+                    return True
+                else:
+                    combo.click()
+                    for i, full_symbol in enumerate(combo.item_texts()): # Select the wanted symbol
+                        if symbol in full_symbol:
+                            combo.select(i)
+                            combo.set_keyboard_focus()
+                            send_keys('{ENTER}')
+                            logger.info(f'Found and selected {symbol} in the dropdown.')
+                            return True
+
+    except Exception as e:
+        logger.error(f'Error has occurred when choosing the symbol: {e}')
+        return False
+
+def choose_period(strategy_tester, period):
+    """
+    Select the Period in the Strategy Tester.
+
+    Args:
+        strategy_tester (WindowSpecification): The Strategy Tester window.
+        period (str): The period to choose.
+    """
+    try:
+        logger.info("Searching for the Period input in the Strategy Tester")
+        combo_boxes = strategy_tester.children(class_name="ComboBox")
+        for combo in combo_boxes:
+            title = combo.window_text()
+            # If the Period input is found
+            if "M1" in title or 'M5' in title or 'M15' in title or 'M30' in title or 'H1' in title or 'H4' in title or 'Daily' in title: 
+                logger.info(f'Found Period input: {combo}')
+                if period in title: # If the wanted period has already been selected
+                    logger.info(f'{period} has already been selected.')
+                    return True
+                else:
+                    combo.click()
+                    for i, option in enumerate(combo.item_texts()): # Select the wanted period
+                        if period in option:
+                            combo.select(i)
+                            combo.set_keyboard_focus()
+                            send_keys('{ENTER}')
+                            logger.info(f'Found and selected {period} in the dropdown.')
+                            return True
+
+    except Exception as e:
+        logger.error(f'Error has occurred when choosing the symbol: {e}')
+        return False
 
 def configure_expert_properties(strategy_tester, app, ea_name, properties_string):
     """
@@ -332,7 +375,7 @@ def main():
         tester_open, strategy_tester = is_strategy_tester_open(tradeview, 5)
         if not tester_open:
             logger.info("Strategy Tester is not open. Trying to open it.")
-            tradeview.send_keys('^r')  # Press Ctrl+R to open the Strategy Tester
+            tradeview.type_keys('^r')  # Press Ctrl+R to open the Strategy Tester
             time.sleep(5)  # Wait for a few seconds to ensure the Strategy Tester has time to open
             tester_open, st = is_strategy_tester_open(tradeview, TIMEOUT)
             
@@ -346,18 +389,28 @@ def main():
         settings_list = read_excel_to_dict(EXCEL_PATH)
         for settings in settings_list:
             try:
-                select_expert_advisor(strategy_tester)  # Make sure that "Expert Advisor" is selected in the Strategy Tester
-                
-                ea_name = settings['Expert'].strip() # Get the option to choose from the settings
-                choose_EA(strategy_tester, ea_name)  # Select the appropriate combo box and option
-                
-                # configure_expert_properties(strategy_tester, app, ea_name, settings['Expert properties'])  # Configure the properties of the EA
+                # Make sure that "Expert Advisor" is selected in the Strategy Tester
+                select_expert_advisor(strategy_tester)  
 
-                # Choose the Symbol
-                choose_symbol(strategy_tester, settings['Symbol'])
+                # Select the EA
+                ea_name = settings['Expert'].strip() 
+                if not choose_EA(strategy_tester, ea_name):  
+                    logger.error(f"Failed to select EA '{ea_name}'. Continuing.")
+                    continue
+                
+                # Select the symbol
+                symbol = settings['Symbol'].strip()
+                if not choose_symbol(strategy_tester, symbol):
+                    logger.error(f"Failed to select symbol '{symbol}'. Continuing.")
+                    continue
+
+                # Select the period
+                period = settings['Period'].strip()
+                if not choose_period(strategy_tester, period):
+                    logger.error(f"Failed to select period '{period}'. Continuing.")
 
             except Exception as e:
-                logger.error(f"Exception occurred while configuring the EA: {e}")
+                logger.error(f"Exception occurred while configuring the Strategy Tester: {e}")
                 logger.info('Continuing...')
                 continue
 
