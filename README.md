@@ -2,7 +2,7 @@
 
 ## Below are the steps that this application should take:
 1. Open the Strategy Tester
-2. Read the "Strategy Tester Settings" Excel sheet for the settings to choose in the Strategy Tester. The setting names are as per the column headers and their input values are given in the rows. The setting names after the "Expert properties" column header are the setting names in the Inputs popup: ![Inputs popup](Inputs.png)
+2. Read the "Strategy Tester Settings" Excel sheet for the settings to choose in the Strategy Tester.
 3. As per the settings, select the inputs on the Strategy Tester.
 4. Click the Start button to run the Strategy Tester
 5. Go to the report tab, right click and choose save as HTML

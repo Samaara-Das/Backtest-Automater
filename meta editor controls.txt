@@ -1,0 +1,1033 @@
+Control Identifiers:
+
+Edit - 'MetaEditor - [LC Netting.mq4]'    (L-8, T-8, R1928, B1040)
+['Edit', 'Edit0', 'Edit1']
+child_window(title="MetaEditor - [LC Netting.mq4]", class_name="MetaQuotes::MetaEditor::5.00")
+   | 
+   | StatusBar - 'For Help, press F1'    (L0, T1012, R1920, B1032)
+   | ['StatusBar', 'For Help, press F1StatusBar', 'For Help, press F1']
+   | child_window(title="For Help, press F1", class_name="msctls_statusbar32")
+   | 
+   | AfxControlBar140su - 'Standard'    (L0, T43, R1920, B74)
+   | ['StandardAfxControlBar140su', 'AfxControlBar140su', 'Standard', 'Standard0', 'Standard1', 'AfxControlBar140su0', 'AfxControlBar140su1']
+   | child_window(title="Standard", class_name="AfxControlBar140su")
+   |    | 
+   |    | Toolbar - 'Standard'    (L-2, T43, R1051, B76)
+   |    | ['StandardToolbar', 'Toolbar', 'Standard2']
+   |    | child_window(title="Standard", class_name="ToolbarWindow32")
+   |    | 
+   |    | ComboBox - 'AddNewTrade'    (L1687, T48, R1918, B71)
+   |    | ['ComboBox']
+   |    | child_window(title="AddNewTrade", class_name="ComboBox")
+   |    |    | 
+   |    |    | Edit - 'AddNewTrade'    (L1711, T51, R1865, B68)
+   |    |    | ['Edit2']
+   |    |    | child_window(title="AddNewTrade", class_name="Edit")
+   |    | 
+   |    | Edit - 'AddNewTrade'    (L1711, T51, R1865, B68)
+   |    | ['Edit2']
+   |    | child_window(title="AddNewTrade", class_name="Edit")
+   | 
+   | Toolbar - 'Standard'    (L-2, T43, R1051, B76)
+   | ['StandardToolbar', 'Toolbar', 'Standard2']
+   | child_window(title="Standard", class_name="ToolbarWindow32")
+   | 
+   | ComboBox - 'AddNewTrade'    (L1687, T48, R1918, B71)
+   | ['ComboBox']
+   | child_window(title="AddNewTrade", class_name="ComboBox")
+   |    | 
+   |    | Edit - 'AddNewTrade'    (L1711, T51, R1865, B68)
+   |    | ['Edit2']
+   |    | child_window(title="AddNewTrade", class_name="Edit")
+   | 
+   | Edit - 'AddNewTrade'    (L1711, T51, R1865, B68)
+   | ['Edit2']
+   | child_window(title="AddNewTrade", class_name="Edit")
+   | 
+   | AfxControlBar140su - 'Toolbox'    (L0, T1012, R1920, B1012)
+   | ['Toolbox', 'ToolboxAfxControlBar140su', 'AfxControlBar140su2', 'Toolbox0', 'Toolbox1']
+   | child_window(title="Toolbox", class_name="AfxControlBar140su")
+   |    | 
+   |    | Afx:00E40000:b:00010003:00000000:00000000 - 'Toolbox'    (L-2, T1010, R1922, B1270)
+   |    | ['ToolboxAfx:00E40000:b:00010003:00000000:00000000', 'Toolbox2', 'Afx:00E40000:b:00010003:00000000:00000000', 'Afx:00E40000:b:00010003:00000000:000000000', 'Afx:00E40000:b:00010003:00000000:000000001']
+   |    | child_window(title="Toolbox", class_name="Afx:00E40000:b:00010003:00000000:00000000")
+   |    |    | 
+   |    |    | AfxWnd140su - ''    (L16, T1243, R1916, B1264)
+   |    |    | ['AfxWnd140su', 'Enable MQL5 StorageAfxWnd140su', 'AfxWnd140su0', 'AfxWnd140su1', 'Enable MQL5 StorageAfxWnd140su0', 'Enable MQL5 StorageAfxWnd140su1']
+   |    |    | child_window(class_name="AfxWnd140su")
+   |    |    | 
+   |    |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    |    | ['Enable MQL5 StorageListView', 'ListView', 'Enable MQL5 StorageListView0', 'Enable MQL5 StorageListView1', 'ListView0', 'ListView1']
+   |    |    | child_window(class_name="SysListView32")
+   |    |    |    | 
+   |    |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    |    | ['HeaderLine', 'HeaderColumn', 'HeaderFile', 'Header', 'HeaderDescription', 'HeaderLine0', 'HeaderLine1', 'HeaderFile0', 'HeaderFile1', 'Header0', 'Header1', 'HeaderDescription0', 'HeaderDescription1']
+   |    |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderLine', 'HeaderColumn', 'HeaderFile', 'Header', 'HeaderDescription', 'HeaderLine0', 'HeaderLine1', 'HeaderFile0', 'HeaderFile1', 'Header0', 'Header1', 'HeaderDescription0', 'HeaderDescription1']
+   |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    |    | ['Enable MQL5 StorageListView2', 'ListView2']
+   |    |    | child_window(class_name="SysListView32")
+   |    |    |    | 
+   |    |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    |    | ['HeaderLine2', 'HeaderText', 'HeaderFile2', 'Header2']
+   |    |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderLine2', 'HeaderText', 'HeaderFile2', 'Header2']
+   |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | #32770 - ''    (L16, T1016, R1916, B1243)
+   |    |    | ['#32770', 'Enable MQL5 Storage#32770', '#327700', '#327701', 'Enable MQL5 Storage#327700', 'Enable MQL5 Storage#327701']
+   |    |    | child_window(class_name="#32770")
+   |    |    |    | 
+   |    |    |    | ListView - ''    (L16, T1016, R964, B1243)
+   |    |    |    | ['Enable MQL5 StorageListView3', 'ListView3']
+   |    |    |    | child_window(class_name="SysListView32")
+   |    |    |    |    | 
+   |    |    |    |    | Header - ''    (L16, T1016, R964, B1040)
+   |    |    |    |    | ['HeaderLine3', 'HeaderFile3', 'Header3', 'HeaderFunction', 'Enable MQL5 StorageHeader', 'Enable MQL5 StorageHeader0', 'Enable MQL5 StorageHeader1', 'HeaderFunction0', 'HeaderFunction1']
+   |    |    |    |    | child_window(class_name="SysHeader32")
+   |    |    |    | 
+   |    |    |    | Header - ''    (L16, T1016, R964, B1040)
+   |    |    |    | ['HeaderLine3', 'HeaderFile3', 'Header3', 'HeaderFunction', 'Enable MQL5 StorageHeader', 'Enable MQL5 StorageHeader0', 'Enable MQL5 StorageHeader1', 'HeaderFunction0', 'HeaderFunction1']
+   |    |    |    | child_window(class_name="SysHeader32")
+   |    |    |    | 
+   |    |    |    | ListView - ''    (L16, T1016, R964, B1243)
+   |    |    |    | ['Enable MQL5 StorageListView4', 'ListView4']
+   |    |    |    | child_window(class_name="SysListView32")
+   |    |    |    |    | 
+   |    |    |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    |    |    | ['HeaderLine4', 'HeaderFile4', 'Header4']
+   |    |    |    |    | child_window(class_name="SysHeader32")
+   |    |    |    | 
+   |    |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    |    | ['HeaderLine4', 'HeaderFile4', 'Header4']
+   |    |    |    | child_window(class_name="SysHeader32")
+   |    |    |    | 
+   |    |    |    | ListView - ''    (L970, T1016, R1920, B1243)
+   |    |    |    | ['Enable MQL5 StorageListView5', 'ListView5']
+   |    |    |    | child_window(class_name="SysListView32")
+   |    |    |    |    | 
+   |    |    |    |    | Header - ''    (L970, T1016, R1920, B1040)
+   |    |    |    |    | ['HeaderExpression', 'Header5', 'Enable MQL5 StorageHeader2', 'HeaderType', 'HeaderValue']
+   |    |    |    |    | child_window(class_name="SysHeader32")
+   |    |    |    |    | 
+   |    |    |    |    | Edit - ''    (L970, T1016, R970, B1016)
+   |    |    |    |    | ['Enable MQL5 StorageEdit', 'Edit3']
+   |    |    |    |    | child_window(class_name="Edit")
+   |    |    |    | 
+   |    |    |    | Header - ''    (L970, T1016, R1920, B1040)
+   |    |    |    | ['HeaderExpression', 'Header5', 'Enable MQL5 StorageHeader2', 'HeaderType', 'HeaderValue']
+   |    |    |    | child_window(class_name="SysHeader32")
+   |    |    |    | 
+   |    |    |    | Edit - ''    (L970, T1016, R970, B1016)
+   |    |    |    | ['Enable MQL5 StorageEdit', 'Edit3']
+   |    |    |    | child_window(class_name="Edit")
+   |    |    |    | 
+   |    |    |    | Static - ''    (L964, T1016, R968, B1243)
+   |    |    |    | ['Enable MQL5 StorageStatic', 'Static', 'Enable MQL5 StorageStatic0', 'Enable MQL5 StorageStatic1', 'Static0', 'Static1']
+   |    |    |    | child_window(class_name="Static")
+   |    |    | 
+   |    |    | ListView - ''    (L16, T1016, R964, B1243)
+   |    |    | ['Enable MQL5 StorageListView3', 'ListView3']
+   |    |    | child_window(class_name="SysListView32")
+   |    |    |    | 
+   |    |    |    | Header - ''    (L16, T1016, R964, B1040)
+   |    |    |    | ['HeaderLine3', 'HeaderFile3', 'Header3', 'HeaderFunction', 'Enable MQL5 StorageHeader', 'Enable MQL5 StorageHeader0', 'Enable MQL5 StorageHeader1', 'HeaderFunction0', 'HeaderFunction1']
+   |    |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R964, B1040)
+   |    |    | ['HeaderLine3', 'HeaderFile3', 'Header3', 'HeaderFunction', 'Enable MQL5 StorageHeader', 'Enable MQL5 StorageHeader0', 'Enable MQL5 StorageHeader1', 'HeaderFunction0', 'HeaderFunction1']
+   |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | ListView - ''    (L16, T1016, R964, B1243)
+   |    |    | ['Enable MQL5 StorageListView4', 'ListView4']
+   |    |    | child_window(class_name="SysListView32")
+   |    |    |    | 
+   |    |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    |    | ['HeaderLine4', 'HeaderFile4', 'Header4']
+   |    |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderLine4', 'HeaderFile4', 'Header4']
+   |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | ListView - ''    (L970, T1016, R1920, B1243)
+   |    |    | ['Enable MQL5 StorageListView5', 'ListView5']
+   |    |    | child_window(class_name="SysListView32")
+   |    |    |    | 
+   |    |    |    | Header - ''    (L970, T1016, R1920, B1040)
+   |    |    |    | ['HeaderExpression', 'Header5', 'Enable MQL5 StorageHeader2', 'HeaderType', 'HeaderValue']
+   |    |    |    | child_window(class_name="SysHeader32")
+   |    |    |    | 
+   |    |    |    | Edit - ''    (L970, T1016, R970, B1016)
+   |    |    |    | ['Enable MQL5 StorageEdit', 'Edit3']
+   |    |    |    | child_window(class_name="Edit")
+   |    |    | 
+   |    |    | Header - ''    (L970, T1016, R1920, B1040)
+   |    |    | ['HeaderExpression', 'Header5', 'Enable MQL5 StorageHeader2', 'HeaderType', 'HeaderValue']
+   |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | Edit - ''    (L970, T1016, R970, B1016)
+   |    |    | ['Enable MQL5 StorageEdit', 'Edit3']
+   |    |    | child_window(class_name="Edit")
+   |    |    | 
+   |    |    | Static - ''    (L964, T1016, R968, B1243)
+   |    |    | ['Enable MQL5 StorageStatic', 'Static', 'Enable MQL5 StorageStatic0', 'Enable MQL5 StorageStatic1', 'Static0', 'Static1']
+   |    |    | child_window(class_name="Static")
+   |    |    | 
+   |    |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    |    | ['Enable MQL5 StorageListView6', 'ListView6']
+   |    |    | child_window(class_name="SysListView32")
+   |    |    |    | 
+   |    |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    |    | ['HeaderLine5', 'HeaderGraph', 'HeaderCount', 'Header6', 'HeaderFunction2', 'HeaderTime', 'HeaderTime0', 'HeaderTime1']
+   |    |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderLine5', 'HeaderGraph', 'HeaderCount', 'Header6', 'HeaderFunction2', 'HeaderTime', 'HeaderTime0', 'HeaderTime1']
+   |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    |    | ['Enable MQL5 StorageListView7', 'ListView7']
+   |    |    | child_window(class_name="SysListView32")
+   |    |    |    | 
+   |    |    |    | Header - ''    (L16, T1016, R1899, B1040)
+   |    |    |    | ['HeaderDate', 'Header7', 'Enable MQL5 StorageHeader3', 'HeaderCategory', 'HeaderName', 'HeaderDate0', 'HeaderDate1', 'HeaderName0', 'HeaderName1']
+   |    |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R1899, B1040)
+   |    |    | ['HeaderDate', 'Header7', 'Enable MQL5 StorageHeader3', 'HeaderCategory', 'HeaderName', 'HeaderDate0', 'HeaderDate1', 'HeaderName0', 'HeaderName1']
+   |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | #32770 - ''    (L16, T1016, R1916, B1243)
+   |    |    | ['#327702', 'Enable MQL5 Storage#327702']
+   |    |    | child_window(class_name="#32770")
+   |    |    | 
+   |    |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    |    | ['Enable MQL5 StorageListView8', 'ListView8']
+   |    |    | child_window(class_name="SysListView32")
+   |    |    |    | 
+   |    |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    |    | ['HeaderDate2', 'Header8', 'HeaderDescription2', 'HeaderName2', 'HeaderRating']
+   |    |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderDate2', 'Header8', 'HeaderDescription2', 'HeaderName2', 'HeaderRating']
+   |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    |    | ['Enable MQL5 StorageListView9', 'ListView9']
+   |    |    | child_window(class_name="SysListView32")
+   |    |    |    | 
+   |    |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    |    | ['HeaderDate3', 'HeaderCommits', 'Header9', 'HeaderDescription3', 'HeaderName3', 'HeaderAuthor']
+   |    |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderDate3', 'HeaderCommits', 'Header9', 'HeaderDescription3', 'HeaderName3', 'HeaderAuthor']
+   |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    |    | ['Enable MQL5 StorageListView10', 'ListView10']
+   |    |    | child_window(class_name="SysListView32")
+   |    |    |    | 
+   |    |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    |    | ['HeaderSource', 'HeaderTime2', 'HeaderMessage', 'Header10']
+   |    |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderSource', 'HeaderTime2', 'HeaderMessage', 'Header10']
+   |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | AfxWnd140su - 'Toolbox'    (L-85, T915, R-85, B915)
+   |    |    | ['AfxWnd140su2', 'ToolboxAfxWnd140su', 'Toolbox3']
+   |    |    | child_window(title="Toolbox", class_name="AfxWnd140su")
+   |    | 
+   |    | AfxWnd140su - ''    (L16, T1243, R1916, B1264)
+   |    | ['AfxWnd140su', 'Enable MQL5 StorageAfxWnd140su', 'AfxWnd140su0', 'AfxWnd140su1', 'Enable MQL5 StorageAfxWnd140su0', 'Enable MQL5 StorageAfxWnd140su1']
+   |    | child_window(class_name="AfxWnd140su")
+   |    | 
+   |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    | ['Enable MQL5 StorageListView', 'ListView', 'Enable MQL5 StorageListView0', 'Enable MQL5 StorageListView1', 'ListView0', 'ListView1']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderLine', 'HeaderColumn', 'HeaderFile', 'Header', 'HeaderDescription', 'HeaderLine0', 'HeaderLine1', 'HeaderFile0', 'HeaderFile1', 'Header0', 'Header1', 'HeaderDescription0', 'HeaderDescription1']
+   |    |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderLine', 'HeaderColumn', 'HeaderFile', 'Header', 'HeaderDescription', 'HeaderLine0', 'HeaderLine1', 'HeaderFile0', 'HeaderFile1', 'Header0', 'Header1', 'HeaderDescription0', 'HeaderDescription1']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    | ['Enable MQL5 StorageListView2', 'ListView2']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderLine2', 'HeaderText', 'HeaderFile2', 'Header2']
+   |    |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderLine2', 'HeaderText', 'HeaderFile2', 'Header2']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | #32770 - ''    (L16, T1016, R1916, B1243)
+   |    | ['#32770', 'Enable MQL5 Storage#32770', '#327700', '#327701', 'Enable MQL5 Storage#327700', 'Enable MQL5 Storage#327701']
+   |    | child_window(class_name="#32770")
+   |    |    | 
+   |    |    | ListView - ''    (L16, T1016, R964, B1243)
+   |    |    | ['Enable MQL5 StorageListView3', 'ListView3']
+   |    |    | child_window(class_name="SysListView32")
+   |    |    |    | 
+   |    |    |    | Header - ''    (L16, T1016, R964, B1040)
+   |    |    |    | ['HeaderLine3', 'HeaderFile3', 'Header3', 'HeaderFunction', 'Enable MQL5 StorageHeader', 'Enable MQL5 StorageHeader0', 'Enable MQL5 StorageHeader1', 'HeaderFunction0', 'HeaderFunction1']
+   |    |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R964, B1040)
+   |    |    | ['HeaderLine3', 'HeaderFile3', 'Header3', 'HeaderFunction', 'Enable MQL5 StorageHeader', 'Enable MQL5 StorageHeader0', 'Enable MQL5 StorageHeader1', 'HeaderFunction0', 'HeaderFunction1']
+   |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | ListView - ''    (L16, T1016, R964, B1243)
+   |    |    | ['Enable MQL5 StorageListView4', 'ListView4']
+   |    |    | child_window(class_name="SysListView32")
+   |    |    |    | 
+   |    |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    |    | ['HeaderLine4', 'HeaderFile4', 'Header4']
+   |    |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderLine4', 'HeaderFile4', 'Header4']
+   |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | ListView - ''    (L970, T1016, R1920, B1243)
+   |    |    | ['Enable MQL5 StorageListView5', 'ListView5']
+   |    |    | child_window(class_name="SysListView32")
+   |    |    |    | 
+   |    |    |    | Header - ''    (L970, T1016, R1920, B1040)
+   |    |    |    | ['HeaderExpression', 'Header5', 'Enable MQL5 StorageHeader2', 'HeaderType', 'HeaderValue']
+   |    |    |    | child_window(class_name="SysHeader32")
+   |    |    |    | 
+   |    |    |    | Edit - ''    (L970, T1016, R970, B1016)
+   |    |    |    | ['Enable MQL5 StorageEdit', 'Edit3']
+   |    |    |    | child_window(class_name="Edit")
+   |    |    | 
+   |    |    | Header - ''    (L970, T1016, R1920, B1040)
+   |    |    | ['HeaderExpression', 'Header5', 'Enable MQL5 StorageHeader2', 'HeaderType', 'HeaderValue']
+   |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | Edit - ''    (L970, T1016, R970, B1016)
+   |    |    | ['Enable MQL5 StorageEdit', 'Edit3']
+   |    |    | child_window(class_name="Edit")
+   |    |    | 
+   |    |    | Static - ''    (L964, T1016, R968, B1243)
+   |    |    | ['Enable MQL5 StorageStatic', 'Static', 'Enable MQL5 StorageStatic0', 'Enable MQL5 StorageStatic1', 'Static0', 'Static1']
+   |    |    | child_window(class_name="Static")
+   |    | 
+   |    | ListView - ''    (L16, T1016, R964, B1243)
+   |    | ['Enable MQL5 StorageListView3', 'ListView3']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R964, B1040)
+   |    |    | ['HeaderLine3', 'HeaderFile3', 'Header3', 'HeaderFunction', 'Enable MQL5 StorageHeader', 'Enable MQL5 StorageHeader0', 'Enable MQL5 StorageHeader1', 'HeaderFunction0', 'HeaderFunction1']
+   |    |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R964, B1040)
+   |    | ['HeaderLine3', 'HeaderFile3', 'Header3', 'HeaderFunction', 'Enable MQL5 StorageHeader', 'Enable MQL5 StorageHeader0', 'Enable MQL5 StorageHeader1', 'HeaderFunction0', 'HeaderFunction1']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | ListView - ''    (L16, T1016, R964, B1243)
+   |    | ['Enable MQL5 StorageListView4', 'ListView4']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderLine4', 'HeaderFile4', 'Header4']
+   |    |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderLine4', 'HeaderFile4', 'Header4']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | ListView - ''    (L970, T1016, R1920, B1243)
+   |    | ['Enable MQL5 StorageListView5', 'ListView5']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L970, T1016, R1920, B1040)
+   |    |    | ['HeaderExpression', 'Header5', 'Enable MQL5 StorageHeader2', 'HeaderType', 'HeaderValue']
+   |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | Edit - ''    (L970, T1016, R970, B1016)
+   |    |    | ['Enable MQL5 StorageEdit', 'Edit3']
+   |    |    | child_window(class_name="Edit")
+   |    | 
+   |    | Header - ''    (L970, T1016, R1920, B1040)
+   |    | ['HeaderExpression', 'Header5', 'Enable MQL5 StorageHeader2', 'HeaderType', 'HeaderValue']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Edit - ''    (L970, T1016, R970, B1016)
+   |    | ['Enable MQL5 StorageEdit', 'Edit3']
+   |    | child_window(class_name="Edit")
+   |    | 
+   |    | Static - ''    (L964, T1016, R968, B1243)
+   |    | ['Enable MQL5 StorageStatic', 'Static', 'Enable MQL5 StorageStatic0', 'Enable MQL5 StorageStatic1', 'Static0', 'Static1']
+   |    | child_window(class_name="Static")
+   |    | 
+   |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    | ['Enable MQL5 StorageListView6', 'ListView6']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderLine5', 'HeaderGraph', 'HeaderCount', 'Header6', 'HeaderFunction2', 'HeaderTime', 'HeaderTime0', 'HeaderTime1']
+   |    |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderLine5', 'HeaderGraph', 'HeaderCount', 'Header6', 'HeaderFunction2', 'HeaderTime', 'HeaderTime0', 'HeaderTime1']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    | ['Enable MQL5 StorageListView7', 'ListView7']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R1899, B1040)
+   |    |    | ['HeaderDate', 'Header7', 'Enable MQL5 StorageHeader3', 'HeaderCategory', 'HeaderName', 'HeaderDate0', 'HeaderDate1', 'HeaderName0', 'HeaderName1']
+   |    |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R1899, B1040)
+   |    | ['HeaderDate', 'Header7', 'Enable MQL5 StorageHeader3', 'HeaderCategory', 'HeaderName', 'HeaderDate0', 'HeaderDate1', 'HeaderName0', 'HeaderName1']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | #32770 - ''    (L16, T1016, R1916, B1243)
+   |    | ['#327702', 'Enable MQL5 Storage#327702']
+   |    | child_window(class_name="#32770")
+   |    | 
+   |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    | ['Enable MQL5 StorageListView8', 'ListView8']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderDate2', 'Header8', 'HeaderDescription2', 'HeaderName2', 'HeaderRating']
+   |    |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderDate2', 'Header8', 'HeaderDescription2', 'HeaderName2', 'HeaderRating']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    | ['Enable MQL5 StorageListView9', 'ListView9']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderDate3', 'HeaderCommits', 'Header9', 'HeaderDescription3', 'HeaderName3', 'HeaderAuthor']
+   |    |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderDate3', 'HeaderCommits', 'Header9', 'HeaderDescription3', 'HeaderName3', 'HeaderAuthor']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    | ['Enable MQL5 StorageListView10', 'ListView10']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderSource', 'HeaderTime2', 'HeaderMessage', 'Header10']
+   |    |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderSource', 'HeaderTime2', 'HeaderMessage', 'Header10']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | AfxWnd140su - 'Toolbox'    (L-85, T915, R-85, B915)
+   |    | ['AfxWnd140su2', 'ToolboxAfxWnd140su', 'Toolbox3']
+   |    | child_window(title="Toolbox", class_name="AfxWnd140su")
+   | 
+   | Afx:00E40000:b:00010003:00000000:00000000 - 'Toolbox'    (L-2, T1010, R1922, B1270)
+   | ['ToolboxAfx:00E40000:b:00010003:00000000:00000000', 'Toolbox2', 'Afx:00E40000:b:00010003:00000000:00000000', 'Afx:00E40000:b:00010003:00000000:000000000', 'Afx:00E40000:b:00010003:00000000:000000001']
+   | child_window(title="Toolbox", class_name="Afx:00E40000:b:00010003:00000000:00000000")
+   |    | 
+   |    | AfxWnd140su - ''    (L16, T1243, R1916, B1264)
+   |    | ['AfxWnd140su', 'Enable MQL5 StorageAfxWnd140su', 'AfxWnd140su0', 'AfxWnd140su1', 'Enable MQL5 StorageAfxWnd140su0', 'Enable MQL5 StorageAfxWnd140su1']
+   |    | child_window(class_name="AfxWnd140su")
+   |    | 
+   |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    | ['Enable MQL5 StorageListView', 'ListView', 'Enable MQL5 StorageListView0', 'Enable MQL5 StorageListView1', 'ListView0', 'ListView1']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderLine', 'HeaderColumn', 'HeaderFile', 'Header', 'HeaderDescription', 'HeaderLine0', 'HeaderLine1', 'HeaderFile0', 'HeaderFile1', 'Header0', 'Header1', 'HeaderDescription0', 'HeaderDescription1']
+   |    |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderLine', 'HeaderColumn', 'HeaderFile', 'Header', 'HeaderDescription', 'HeaderLine0', 'HeaderLine1', 'HeaderFile0', 'HeaderFile1', 'Header0', 'Header1', 'HeaderDescription0', 'HeaderDescription1']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    | ['Enable MQL5 StorageListView2', 'ListView2']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderLine2', 'HeaderText', 'HeaderFile2', 'Header2']
+   |    |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderLine2', 'HeaderText', 'HeaderFile2', 'Header2']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | #32770 - ''    (L16, T1016, R1916, B1243)
+   |    | ['#32770', 'Enable MQL5 Storage#32770', '#327700', '#327701', 'Enable MQL5 Storage#327700', 'Enable MQL5 Storage#327701']
+   |    | child_window(class_name="#32770")
+   |    |    | 
+   |    |    | ListView - ''    (L16, T1016, R964, B1243)
+   |    |    | ['Enable MQL5 StorageListView3', 'ListView3']
+   |    |    | child_window(class_name="SysListView32")
+   |    |    |    | 
+   |    |    |    | Header - ''    (L16, T1016, R964, B1040)
+   |    |    |    | ['HeaderLine3', 'HeaderFile3', 'Header3', 'HeaderFunction', 'Enable MQL5 StorageHeader', 'Enable MQL5 StorageHeader0', 'Enable MQL5 StorageHeader1', 'HeaderFunction0', 'HeaderFunction1']
+   |    |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R964, B1040)
+   |    |    | ['HeaderLine3', 'HeaderFile3', 'Header3', 'HeaderFunction', 'Enable MQL5 StorageHeader', 'Enable MQL5 StorageHeader0', 'Enable MQL5 StorageHeader1', 'HeaderFunction0', 'HeaderFunction1']
+   |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | ListView - ''    (L16, T1016, R964, B1243)
+   |    |    | ['Enable MQL5 StorageListView4', 'ListView4']
+   |    |    | child_window(class_name="SysListView32")
+   |    |    |    | 
+   |    |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    |    | ['HeaderLine4', 'HeaderFile4', 'Header4']
+   |    |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderLine4', 'HeaderFile4', 'Header4']
+   |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | ListView - ''    (L970, T1016, R1920, B1243)
+   |    |    | ['Enable MQL5 StorageListView5', 'ListView5']
+   |    |    | child_window(class_name="SysListView32")
+   |    |    |    | 
+   |    |    |    | Header - ''    (L970, T1016, R1920, B1040)
+   |    |    |    | ['HeaderExpression', 'Header5', 'Enable MQL5 StorageHeader2', 'HeaderType', 'HeaderValue']
+   |    |    |    | child_window(class_name="SysHeader32")
+   |    |    |    | 
+   |    |    |    | Edit - ''    (L970, T1016, R970, B1016)
+   |    |    |    | ['Enable MQL5 StorageEdit', 'Edit3']
+   |    |    |    | child_window(class_name="Edit")
+   |    |    | 
+   |    |    | Header - ''    (L970, T1016, R1920, B1040)
+   |    |    | ['HeaderExpression', 'Header5', 'Enable MQL5 StorageHeader2', 'HeaderType', 'HeaderValue']
+   |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | Edit - ''    (L970, T1016, R970, B1016)
+   |    |    | ['Enable MQL5 StorageEdit', 'Edit3']
+   |    |    | child_window(class_name="Edit")
+   |    |    | 
+   |    |    | Static - ''    (L964, T1016, R968, B1243)
+   |    |    | ['Enable MQL5 StorageStatic', 'Static', 'Enable MQL5 StorageStatic0', 'Enable MQL5 StorageStatic1', 'Static0', 'Static1']
+   |    |    | child_window(class_name="Static")
+   |    | 
+   |    | ListView - ''    (L16, T1016, R964, B1243)
+   |    | ['Enable MQL5 StorageListView3', 'ListView3']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R964, B1040)
+   |    |    | ['HeaderLine3', 'HeaderFile3', 'Header3', 'HeaderFunction', 'Enable MQL5 StorageHeader', 'Enable MQL5 StorageHeader0', 'Enable MQL5 StorageHeader1', 'HeaderFunction0', 'HeaderFunction1']
+   |    |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R964, B1040)
+   |    | ['HeaderLine3', 'HeaderFile3', 'Header3', 'HeaderFunction', 'Enable MQL5 StorageHeader', 'Enable MQL5 StorageHeader0', 'Enable MQL5 StorageHeader1', 'HeaderFunction0', 'HeaderFunction1']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | ListView - ''    (L16, T1016, R964, B1243)
+   |    | ['Enable MQL5 StorageListView4', 'ListView4']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderLine4', 'HeaderFile4', 'Header4']
+   |    |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderLine4', 'HeaderFile4', 'Header4']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | ListView - ''    (L970, T1016, R1920, B1243)
+   |    | ['Enable MQL5 StorageListView5', 'ListView5']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L970, T1016, R1920, B1040)
+   |    |    | ['HeaderExpression', 'Header5', 'Enable MQL5 StorageHeader2', 'HeaderType', 'HeaderValue']
+   |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | Edit - ''    (L970, T1016, R970, B1016)
+   |    |    | ['Enable MQL5 StorageEdit', 'Edit3']
+   |    |    | child_window(class_name="Edit")
+   |    | 
+   |    | Header - ''    (L970, T1016, R1920, B1040)
+   |    | ['HeaderExpression', 'Header5', 'Enable MQL5 StorageHeader2', 'HeaderType', 'HeaderValue']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Edit - ''    (L970, T1016, R970, B1016)
+   |    | ['Enable MQL5 StorageEdit', 'Edit3']
+   |    | child_window(class_name="Edit")
+   |    | 
+   |    | Static - ''    (L964, T1016, R968, B1243)
+   |    | ['Enable MQL5 StorageStatic', 'Static', 'Enable MQL5 StorageStatic0', 'Enable MQL5 StorageStatic1', 'Static0', 'Static1']
+   |    | child_window(class_name="Static")
+   |    | 
+   |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    | ['Enable MQL5 StorageListView6', 'ListView6']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderLine5', 'HeaderGraph', 'HeaderCount', 'Header6', 'HeaderFunction2', 'HeaderTime', 'HeaderTime0', 'HeaderTime1']
+   |    |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderLine5', 'HeaderGraph', 'HeaderCount', 'Header6', 'HeaderFunction2', 'HeaderTime', 'HeaderTime0', 'HeaderTime1']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    | ['Enable MQL5 StorageListView7', 'ListView7']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R1899, B1040)
+   |    |    | ['HeaderDate', 'Header7', 'Enable MQL5 StorageHeader3', 'HeaderCategory', 'HeaderName', 'HeaderDate0', 'HeaderDate1', 'HeaderName0', 'HeaderName1']
+   |    |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R1899, B1040)
+   |    | ['HeaderDate', 'Header7', 'Enable MQL5 StorageHeader3', 'HeaderCategory', 'HeaderName', 'HeaderDate0', 'HeaderDate1', 'HeaderName0', 'HeaderName1']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | #32770 - ''    (L16, T1016, R1916, B1243)
+   |    | ['#327702', 'Enable MQL5 Storage#327702']
+   |    | child_window(class_name="#32770")
+   |    | 
+   |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    | ['Enable MQL5 StorageListView8', 'ListView8']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderDate2', 'Header8', 'HeaderDescription2', 'HeaderName2', 'HeaderRating']
+   |    |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderDate2', 'Header8', 'HeaderDescription2', 'HeaderName2', 'HeaderRating']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    | ['Enable MQL5 StorageListView9', 'ListView9']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderDate3', 'HeaderCommits', 'Header9', 'HeaderDescription3', 'HeaderName3', 'HeaderAuthor']
+   |    |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderDate3', 'HeaderCommits', 'Header9', 'HeaderDescription3', 'HeaderName3', 'HeaderAuthor']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | ListView - ''    (L16, T1016, R1916, B1243)
+   |    | ['Enable MQL5 StorageListView10', 'ListView10']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderSource', 'HeaderTime2', 'HeaderMessage', 'Header10']
+   |    |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderSource', 'HeaderTime2', 'HeaderMessage', 'Header10']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | AfxWnd140su - 'Toolbox'    (L-85, T915, R-85, B915)
+   |    | ['AfxWnd140su2', 'ToolboxAfxWnd140su', 'Toolbox3']
+   |    | child_window(title="Toolbox", class_name="AfxWnd140su")
+   | 
+   | AfxWnd140su - ''    (L16, T1243, R1916, B1264)
+   | ['AfxWnd140su', 'Enable MQL5 StorageAfxWnd140su', 'AfxWnd140su0', 'AfxWnd140su1', 'Enable MQL5 StorageAfxWnd140su0', 'Enable MQL5 StorageAfxWnd140su1']
+   | child_window(class_name="AfxWnd140su")
+   | 
+   | ListView - ''    (L16, T1016, R1916, B1243)
+   | ['Enable MQL5 StorageListView', 'ListView', 'Enable MQL5 StorageListView0', 'Enable MQL5 StorageListView1', 'ListView0', 'ListView1']
+   | child_window(class_name="SysListView32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderLine', 'HeaderColumn', 'HeaderFile', 'Header', 'HeaderDescription', 'HeaderLine0', 'HeaderLine1', 'HeaderFile0', 'HeaderFile1', 'Header0', 'Header1', 'HeaderDescription0', 'HeaderDescription1']
+   |    | child_window(class_name="SysHeader32")
+   | 
+   | Header - ''    (L16, T1016, R16, B1040)
+   | ['HeaderLine', 'HeaderColumn', 'HeaderFile', 'Header', 'HeaderDescription', 'HeaderLine0', 'HeaderLine1', 'HeaderFile0', 'HeaderFile1', 'Header0', 'Header1', 'HeaderDescription0', 'HeaderDescription1']
+   | child_window(class_name="SysHeader32")
+   | 
+   | ListView - ''    (L16, T1016, R1916, B1243)
+   | ['Enable MQL5 StorageListView2', 'ListView2']
+   | child_window(class_name="SysListView32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderLine2', 'HeaderText', 'HeaderFile2', 'Header2']
+   |    | child_window(class_name="SysHeader32")
+   | 
+   | Header - ''    (L16, T1016, R16, B1040)
+   | ['HeaderLine2', 'HeaderText', 'HeaderFile2', 'Header2']
+   | child_window(class_name="SysHeader32")
+   | 
+   | #32770 - ''    (L16, T1016, R1916, B1243)
+   | ['#32770', 'Enable MQL5 Storage#32770', '#327700', '#327701', 'Enable MQL5 Storage#327700', 'Enable MQL5 Storage#327701']
+   | child_window(class_name="#32770")
+   |    | 
+   |    | ListView - ''    (L16, T1016, R964, B1243)
+   |    | ['Enable MQL5 StorageListView3', 'ListView3']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R964, B1040)
+   |    |    | ['HeaderLine3', 'HeaderFile3', 'Header3', 'HeaderFunction', 'Enable MQL5 StorageHeader', 'Enable MQL5 StorageHeader0', 'Enable MQL5 StorageHeader1', 'HeaderFunction0', 'HeaderFunction1']
+   |    |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R964, B1040)
+   |    | ['HeaderLine3', 'HeaderFile3', 'Header3', 'HeaderFunction', 'Enable MQL5 StorageHeader', 'Enable MQL5 StorageHeader0', 'Enable MQL5 StorageHeader1', 'HeaderFunction0', 'HeaderFunction1']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | ListView - ''    (L16, T1016, R964, B1243)
+   |    | ['Enable MQL5 StorageListView4', 'ListView4']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L16, T1016, R16, B1040)
+   |    |    | ['HeaderLine4', 'HeaderFile4', 'Header4']
+   |    |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderLine4', 'HeaderFile4', 'Header4']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | ListView - ''    (L970, T1016, R1920, B1243)
+   |    | ['Enable MQL5 StorageListView5', 'ListView5']
+   |    | child_window(class_name="SysListView32")
+   |    |    | 
+   |    |    | Header - ''    (L970, T1016, R1920, B1040)
+   |    |    | ['HeaderExpression', 'Header5', 'Enable MQL5 StorageHeader2', 'HeaderType', 'HeaderValue']
+   |    |    | child_window(class_name="SysHeader32")
+   |    |    | 
+   |    |    | Edit - ''    (L970, T1016, R970, B1016)
+   |    |    | ['Enable MQL5 StorageEdit', 'Edit3']
+   |    |    | child_window(class_name="Edit")
+   |    | 
+   |    | Header - ''    (L970, T1016, R1920, B1040)
+   |    | ['HeaderExpression', 'Header5', 'Enable MQL5 StorageHeader2', 'HeaderType', 'HeaderValue']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Edit - ''    (L970, T1016, R970, B1016)
+   |    | ['Enable MQL5 StorageEdit', 'Edit3']
+   |    | child_window(class_name="Edit")
+   |    | 
+   |    | Static - ''    (L964, T1016, R968, B1243)
+   |    | ['Enable MQL5 StorageStatic', 'Static', 'Enable MQL5 StorageStatic0', 'Enable MQL5 StorageStatic1', 'Static0', 'Static1']
+   |    | child_window(class_name="Static")
+   | 
+   | ListView - ''    (L16, T1016, R964, B1243)
+   | ['Enable MQL5 StorageListView3', 'ListView3']
+   | child_window(class_name="SysListView32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R964, B1040)
+   |    | ['HeaderLine3', 'HeaderFile3', 'Header3', 'HeaderFunction', 'Enable MQL5 StorageHeader', 'Enable MQL5 StorageHeader0', 'Enable MQL5 StorageHeader1', 'HeaderFunction0', 'HeaderFunction1']
+   |    | child_window(class_name="SysHeader32")
+   | 
+   | Header - ''    (L16, T1016, R964, B1040)
+   | ['HeaderLine3', 'HeaderFile3', 'Header3', 'HeaderFunction', 'Enable MQL5 StorageHeader', 'Enable MQL5 StorageHeader0', 'Enable MQL5 StorageHeader1', 'HeaderFunction0', 'HeaderFunction1']
+   | child_window(class_name="SysHeader32")
+   | 
+   | ListView - ''    (L16, T1016, R964, B1243)
+   | ['Enable MQL5 StorageListView4', 'ListView4']
+   | child_window(class_name="SysListView32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderLine4', 'HeaderFile4', 'Header4']
+   |    | child_window(class_name="SysHeader32")
+   | 
+   | Header - ''    (L16, T1016, R16, B1040)
+   | ['HeaderLine4', 'HeaderFile4', 'Header4']
+   | child_window(class_name="SysHeader32")
+   | 
+   | ListView - ''    (L970, T1016, R1920, B1243)
+   | ['Enable MQL5 StorageListView5', 'ListView5']
+   | child_window(class_name="SysListView32")
+   |    | 
+   |    | Header - ''    (L970, T1016, R1920, B1040)
+   |    | ['HeaderExpression', 'Header5', 'Enable MQL5 StorageHeader2', 'HeaderType', 'HeaderValue']
+   |    | child_window(class_name="SysHeader32")
+   |    | 
+   |    | Edit - ''    (L970, T1016, R970, B1016)
+   |    | ['Enable MQL5 StorageEdit', 'Edit3']
+   |    | child_window(class_name="Edit")
+   | 
+   | Header - ''    (L970, T1016, R1920, B1040)
+   | ['HeaderExpression', 'Header5', 'Enable MQL5 StorageHeader2', 'HeaderType', 'HeaderValue']
+   | child_window(class_name="SysHeader32")
+   | 
+   | Edit - ''    (L970, T1016, R970, B1016)
+   | ['Enable MQL5 StorageEdit', 'Edit3']
+   | child_window(class_name="Edit")
+   | 
+   | Static - ''    (L964, T1016, R968, B1243)
+   | ['Enable MQL5 StorageStatic', 'Static', 'Enable MQL5 StorageStatic0', 'Enable MQL5 StorageStatic1', 'Static0', 'Static1']
+   | child_window(class_name="Static")
+   | 
+   | ListView - ''    (L16, T1016, R1916, B1243)
+   | ['Enable MQL5 StorageListView6', 'ListView6']
+   | child_window(class_name="SysListView32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderLine5', 'HeaderGraph', 'HeaderCount', 'Header6', 'HeaderFunction2', 'HeaderTime', 'HeaderTime0', 'HeaderTime1']
+   |    | child_window(class_name="SysHeader32")
+   | 
+   | Header - ''    (L16, T1016, R16, B1040)
+   | ['HeaderLine5', 'HeaderGraph', 'HeaderCount', 'Header6', 'HeaderFunction2', 'HeaderTime', 'HeaderTime0', 'HeaderTime1']
+   | child_window(class_name="SysHeader32")
+   | 
+   | ListView - ''    (L16, T1016, R1916, B1243)
+   | ['Enable MQL5 StorageListView7', 'ListView7']
+   | child_window(class_name="SysListView32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R1899, B1040)
+   |    | ['HeaderDate', 'Header7', 'Enable MQL5 StorageHeader3', 'HeaderCategory', 'HeaderName', 'HeaderDate0', 'HeaderDate1', 'HeaderName0', 'HeaderName1']
+   |    | child_window(class_name="SysHeader32")
+   | 
+   | Header - ''    (L16, T1016, R1899, B1040)
+   | ['HeaderDate', 'Header7', 'Enable MQL5 StorageHeader3', 'HeaderCategory', 'HeaderName', 'HeaderDate0', 'HeaderDate1', 'HeaderName0', 'HeaderName1']
+   | child_window(class_name="SysHeader32")
+   | 
+   | #32770 - ''    (L16, T1016, R1916, B1243)
+   | ['#327702', 'Enable MQL5 Storage#327702']
+   | child_window(class_name="#32770")
+   | 
+   | ListView - ''    (L16, T1016, R1916, B1243)
+   | ['Enable MQL5 StorageListView8', 'ListView8']
+   | child_window(class_name="SysListView32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderDate2', 'Header8', 'HeaderDescription2', 'HeaderName2', 'HeaderRating']
+   |    | child_window(class_name="SysHeader32")
+   | 
+   | Header - ''    (L16, T1016, R16, B1040)
+   | ['HeaderDate2', 'Header8', 'HeaderDescription2', 'HeaderName2', 'HeaderRating']
+   | child_window(class_name="SysHeader32")
+   | 
+   | ListView - ''    (L16, T1016, R1916, B1243)
+   | ['Enable MQL5 StorageListView9', 'ListView9']
+   | child_window(class_name="SysListView32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderDate3', 'HeaderCommits', 'Header9', 'HeaderDescription3', 'HeaderName3', 'HeaderAuthor']
+   |    | child_window(class_name="SysHeader32")
+   | 
+   | Header - ''    (L16, T1016, R16, B1040)
+   | ['HeaderDate3', 'HeaderCommits', 'Header9', 'HeaderDescription3', 'HeaderName3', 'HeaderAuthor']
+   | child_window(class_name="SysHeader32")
+   | 
+   | ListView - ''    (L16, T1016, R1916, B1243)
+   | ['Enable MQL5 StorageListView10', 'ListView10']
+   | child_window(class_name="SysListView32")
+   |    | 
+   |    | Header - ''    (L16, T1016, R16, B1040)
+   |    | ['HeaderSource', 'HeaderTime2', 'HeaderMessage', 'Header10']
+   |    | child_window(class_name="SysHeader32")
+   | 
+   | Header - ''    (L16, T1016, R16, B1040)
+   | ['HeaderSource', 'HeaderTime2', 'HeaderMessage', 'Header10']
+   | child_window(class_name="SysHeader32")
+   | 
+   | AfxWnd140su - 'Toolbox'    (L-85, T915, R-85, B915)
+   | ['AfxWnd140su2', 'ToolboxAfxWnd140su', 'Toolbox3']
+   | child_window(title="Toolbox", class_name="AfxWnd140su")
+   | 
+   | AfxControlBar140su - 'Navigator'    (L0, T74, R297, B1012)
+   | ['Navigator', 'AfxControlBar140su3', 'NavigatorAfxControlBar140su', 'Navigator0', 'Navigator1']
+   | child_window(title="Navigator", class_name="AfxControlBar140su")
+   |    | 
+   |    | Afx:00E40000:b:00010003:00000000:00000000 - 'Navigator'    (L-2, T74, R299, B1012)
+   |    | ['Navigator2', 'Afx:00E40000:b:00010003:00000000:000000002', 'NavigatorAfx:00E40000:b:00010003:00000000:00000000']
+   |    | child_window(title="Navigator", class_name="Afx:00E40000:b:00010003:00000000:00000000")
+   |    |    | 
+   |    |    | TreeView - ''    (L4, T92, R293, B985)
+   |    |    | ['TreeView', 'TreeView0', 'TreeView1']
+   |    |    | child_window(class_name="SysTreeView32")
+   |    |    |    | 
+   |    |    |    | Static - 'Enable MQL5 Storage'    (L175, T965, R288, B980)
+   |    |    |    | ['Enable MQL5 StorageStatic2', 'Enable MQL5 Storage', 'Static2']
+   |    |    |    | child_window(title="Enable MQL5 Storage", class_name="Static")
+   |    |    | 
+   |    |    | Static - 'Enable MQL5 Storage'    (L175, T965, R288, B980)
+   |    |    | ['Enable MQL5 StorageStatic2', 'Enable MQL5 Storage', 'Static2']
+   |    |    | child_window(title="Enable MQL5 Storage", class_name="Static")
+   |    |    | 
+   |    |    | TreeView - ''    (L4, T92, R293, B985)
+   |    |    | ['TreeView2']
+   |    |    | child_window(class_name="SysTreeView32")
+   |    |    | 
+   |    |    | TreeView - ''    (L4, T92, R293, B985)
+   |    |    | ['TreeView3']
+   |    |    | child_window(class_name="SysTreeView32")
+   |    |    | 
+   |    |    | AfxWnd140su - ''    (L4, T985, R293, B1006)
+   |    |    | ['AfxWnd140su3', 'Enable MQL5 StorageAfxWnd140su2']
+   |    |    | child_window(class_name="AfxWnd140su")
+   |    | 
+   |    | TreeView - ''    (L4, T92, R293, B985)
+   |    | ['TreeView', 'TreeView0', 'TreeView1']
+   |    | child_window(class_name="SysTreeView32")
+   |    |    | 
+   |    |    | Static - 'Enable MQL5 Storage'    (L175, T965, R288, B980)
+   |    |    | ['Enable MQL5 StorageStatic2', 'Enable MQL5 Storage', 'Static2']
+   |    |    | child_window(title="Enable MQL5 Storage", class_name="Static")
+   |    | 
+   |    | Static - 'Enable MQL5 Storage'    (L175, T965, R288, B980)
+   |    | ['Enable MQL5 StorageStatic2', 'Enable MQL5 Storage', 'Static2']
+   |    | child_window(title="Enable MQL5 Storage", class_name="Static")
+   |    | 
+   |    | TreeView - ''    (L4, T92, R293, B985)
+   |    | ['TreeView2']
+   |    | child_window(class_name="SysTreeView32")
+   |    | 
+   |    | TreeView - ''    (L4, T92, R293, B985)
+   |    | ['TreeView3']
+   |    | child_window(class_name="SysTreeView32")
+   |    | 
+   |    | AfxWnd140su - ''    (L4, T985, R293, B1006)
+   |    | ['AfxWnd140su3', 'Enable MQL5 StorageAfxWnd140su2']
+   |    | child_window(class_name="AfxWnd140su")
+   | 
+   | Afx:00E40000:b:00010003:00000000:00000000 - 'Navigator'    (L-2, T74, R299, B1012)
+   | ['Navigator2', 'Afx:00E40000:b:00010003:00000000:000000002', 'NavigatorAfx:00E40000:b:00010003:00000000:00000000']
+   | child_window(title="Navigator", class_name="Afx:00E40000:b:00010003:00000000:00000000")
+   |    | 
+   |    | TreeView - ''    (L4, T92, R293, B985)
+   |    | ['TreeView', 'TreeView0', 'TreeView1']
+   |    | child_window(class_name="SysTreeView32")
+   |    |    | 
+   |    |    | Static - 'Enable MQL5 Storage'    (L175, T965, R288, B980)
+   |    |    | ['Enable MQL5 StorageStatic2', 'Enable MQL5 Storage', 'Static2']
+   |    |    | child_window(title="Enable MQL5 Storage", class_name="Static")
+   |    | 
+   |    | Static - 'Enable MQL5 Storage'    (L175, T965, R288, B980)
+   |    | ['Enable MQL5 StorageStatic2', 'Enable MQL5 Storage', 'Static2']
+   |    | child_window(title="Enable MQL5 Storage", class_name="Static")
+   |    | 
+   |    | TreeView - ''    (L4, T92, R293, B985)
+   |    | ['TreeView2']
+   |    | child_window(class_name="SysTreeView32")
+   |    | 
+   |    | TreeView - ''    (L4, T92, R293, B985)
+   |    | ['TreeView3']
+   |    | child_window(class_name="SysTreeView32")
+   |    | 
+   |    | AfxWnd140su - ''    (L4, T985, R293, B1006)
+   |    | ['AfxWnd140su3', 'Enable MQL5 StorageAfxWnd140su2']
+   |    | child_window(class_name="AfxWnd140su")
+   | 
+   | TreeView - ''    (L4, T92, R293, B985)
+   | ['TreeView', 'TreeView0', 'TreeView1']
+   | child_window(class_name="SysTreeView32")
+   |    | 
+   |    | Static - 'Enable MQL5 Storage'    (L175, T965, R288, B980)
+   |    | ['Enable MQL5 StorageStatic2', 'Enable MQL5 Storage', 'Static2']
+   |    | child_window(title="Enable MQL5 Storage", class_name="Static")
+   | 
+   | Static - 'Enable MQL5 Storage'    (L175, T965, R288, B980)
+   | ['Enable MQL5 StorageStatic2', 'Enable MQL5 Storage', 'Static2']
+   | child_window(title="Enable MQL5 Storage", class_name="Static")
+   | 
+   | TreeView - ''    (L4, T92, R293, B985)
+   | ['TreeView2']
+   | child_window(class_name="SysTreeView32")
+   | 
+   | TreeView - ''    (L4, T92, R293, B985)
+   | ['TreeView3']
+   | child_window(class_name="SysTreeView32")
+   | 
+   | AfxWnd140su - ''    (L4, T985, R293, B1006)
+   | ['AfxWnd140su3', 'Enable MQL5 StorageAfxWnd140su2']
+   | child_window(class_name="AfxWnd140su")
+   | 
+   | AfxControlBar140su - ''    (L1920, T74, R1920, B1012)
+   | ['AfxControlBar140su4']
+   | child_window(class_name="AfxControlBar140su")
+   | 
+   | AfxWnd140su - ''    (L297, T74, R1920, B97)
+   | ['AfxWnd140su4']
+   | child_window(class_name="AfxWnd140su")
+   | 
+   | MDIClient - ''    (L297, T95, R1920, B1012)
+   | ['MDIClient', 'Enable MQL5 StorageMDIClient']
+   | child_window(class_name="MDIClient")
+   |    | 
+   |    | Afx:00E40000:b:00010003:00000006:123008B1 - 'LC Netting.mq4'    (L289, T64, R1928, B1020)
+   |    | ['Afx:00E40000:b:00010003:00000006:123008B1', 'LC Netting.mq4', 'LC Netting.mq4Afx:00E40000:b:00010003:00000006:123008B1', 'Afx:00E40000:b:00010003:00000006:123008B10', 'Afx:00E40000:b:00010003:00000006:123008B11']
+   |    | child_window(title="LC Netting.mq4", class_name="Afx:00E40000:b:00010003:00000006:123008B1")
+   |    |    | 
+   |    |    | Afx:00E40000:8 - ''    (L297, T95, R1920, B1012)
+   |    |    | ['Enable MQL5 StorageAfx:00E40000:8', 'Afx:00E40000:8', 'Afx:00E40000:80', 'Afx:00E40000:81']
+   |    |    | child_window(class_name="Afx:00E40000:8")
+   |    | 
+   |    | Afx:00E40000:8 - ''    (L297, T95, R1920, B1012)
+   |    | ['Enable MQL5 StorageAfx:00E40000:8', 'Afx:00E40000:8', 'Afx:00E40000:80', 'Afx:00E40000:81']
+   |    | child_window(class_name="Afx:00E40000:8")
+   |    | 
+   |    | Afx:00E40000:b:00010003:00000006:123008B1 - 'ao_swing_fib_ret_bo.mq4'    (L349, T147, R1682, B795)
+   |    | ['Afx:00E40000:b:00010003:00000006:123008B12', 'ao_swing_fib_ret_bo.mq4', 'ao_swing_fib_ret_bo.mq4Afx:00E40000:b:00010003:00000006:123008B1']
+   |    | child_window(title="ao_swing_fib_ret_bo.mq4", class_name="Afx:00E40000:b:00010003:00000006:123008B1")
+   |    |    | 
+   |    |    | Afx:00E40000:8 - ''    (L355, T176, R1676, B789)
+   |    |    | ['Afx:00E40000:82']
+   |    |    | child_window(class_name="Afx:00E40000:8")
+   |    | 
+   |    | Afx:00E40000:8 - ''    (L355, T176, R1676, B789)
+   |    | ['Afx:00E40000:82']
+   |    | child_window(class_name="Afx:00E40000:8")
+   |    | 
+   |    | Afx:00E40000:b:00010003:00000006:123008B1 - 'Nadaraya-Watson Netting.mq4'    (L297, T95, R1630, B743)
+   |    | ['Afx:00E40000:b:00010003:00000006:123008B13', 'Nadaraya-Watson Netting.mq4', 'Nadaraya-Watson Netting.mq4Afx:00E40000:b:00010003:00000006:123008B1']
+   |    | child_window(title="Nadaraya-Watson Netting.mq4", class_name="Afx:00E40000:b:00010003:00000006:123008B1")
+   |    |    | 
+   |    |    | Afx:00E40000:8 - ''    (L303, T124, R1624, B737)
+   |    |    | ['Afx:00E40000:83']
+   |    |    | child_window(class_name="Afx:00E40000:8")
+   |    | 
+   |    | Afx:00E40000:8 - ''    (L303, T124, R1624, B737)
+   |    | ['Afx:00E40000:83']
+   |    | child_window(class_name="Afx:00E40000:8")
+   | 
+   | Afx:00E40000:b:00010003:00000006:123008B1 - 'LC Netting.mq4'    (L289, T64, R1928, B1020)
+   | ['Afx:00E40000:b:00010003:00000006:123008B1', 'LC Netting.mq4', 'LC Netting.mq4Afx:00E40000:b:00010003:00000006:123008B1', 'Afx:00E40000:b:00010003:00000006:123008B10', 'Afx:00E40000:b:00010003:00000006:123008B11']
+   | child_window(title="LC Netting.mq4", class_name="Afx:00E40000:b:00010003:00000006:123008B1")
+   |    | 
+   |    | Afx:00E40000:8 - ''    (L297, T95, R1920, B1012)
+   |    | ['Enable MQL5 StorageAfx:00E40000:8', 'Afx:00E40000:8', 'Afx:00E40000:80', 'Afx:00E40000:81']
+   |    | child_window(class_name="Afx:00E40000:8")
+   | 
+   | Afx:00E40000:8 - ''    (L297, T95, R1920, B1012)
+   | ['Enable MQL5 StorageAfx:00E40000:8', 'Afx:00E40000:8', 'Afx:00E40000:80', 'Afx:00E40000:81']
+   | child_window(class_name="Afx:00E40000:8")
+   | 
+   | Afx:00E40000:b:00010003:00000006:123008B1 - 'ao_swing_fib_ret_bo.mq4'    (L349, T147, R1682, B795)
+   | ['Afx:00E40000:b:00010003:00000006:123008B12', 'ao_swing_fib_ret_bo.mq4', 'ao_swing_fib_ret_bo.mq4Afx:00E40000:b:00010003:00000006:123008B1']
+   | child_window(title="ao_swing_fib_ret_bo.mq4", class_name="Afx:00E40000:b:00010003:00000006:123008B1")
+   |    | 
+   |    | Afx:00E40000:8 - ''    (L355, T176, R1676, B789)
+   |    | ['Afx:00E40000:82']
+   |    | child_window(class_name="Afx:00E40000:8")
+   | 
+   | Afx:00E40000:8 - ''    (L355, T176, R1676, B789)
+   | ['Afx:00E40000:82']
+   | child_window(class_name="Afx:00E40000:8")
+   | 
+   | Afx:00E40000:b:00010003:00000006:123008B1 - 'Nadaraya-Watson Netting.mq4'    (L297, T95, R1630, B743)
+   | ['Afx:00E40000:b:00010003:00000006:123008B13', 'Nadaraya-Watson Netting.mq4', 'Nadaraya-Watson Netting.mq4Afx:00E40000:b:00010003:00000006:123008B1']
+   | child_window(title="Nadaraya-Watson Netting.mq4", class_name="Afx:00E40000:b:00010003:00000006:123008B1")
+   |    | 
+   |    | Afx:00E40000:8 - ''    (L303, T124, R1624, B737)
+   |    | ['Afx:00E40000:83']
+   |    | child_window(class_name="Afx:00E40000:8")
+   | 
+   | Afx:00E40000:8 - ''    (L303, T124, R1624, B737)
+   | ['Afx:00E40000:83']
+   | child_window(class_name="Afx:00E40000:8")

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b7f26bb67d526f8b6367b6b965d50f56794f75329d7da0fd38e78e6afa3e59ae"
+            "sha256": "cd774c41c5f1b387be19bc53c14c42b29eb559ce941fd15acc2afe928fa035a8"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -145,12 +145,12 @@
         },
         "openpyxl": {
             "hashes": [
-                "sha256:a6f5977418eff3b2d5500d54d9db50c8277a368436f4e4f8ddb1be3422870184",
-                "sha256:f91456ead12ab3c6c2e9491cf33ba6d08357d802192379bb482f1033ade496f5"
+                "sha256:25071b558db709de9e8782c3d3e058af3b23ffb2fc6f40c8f0c45a154eced2c3",
+                "sha256:8dd482e5350125b2388070bb2477927be2e8ebc27df61178709bc8c8751da2f9"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.6'",
-            "version": "==3.1.2"
+            "version": "==3.1.3"
         },
         "outcome": {
             "hashes": [
@@ -266,6 +266,13 @@
             ],
             "markers": "python_version >= '3.8'",
             "version": "==2.22"
+        },
+        "pyperclip": {
+            "hashes": [
+                "sha256:105254a8b04934f0bc84e9c24eb360a591aaf6535c9def5f29d92af107a9bf57"
+            ],
+            "index": "pypi",
+            "version": "==1.8.2"
         },
         "pysocks": {
             "hashes": [

@@ -11,6 +11,7 @@ appium-python-client = "*"
 setuptools = "*"
 selenium = "*"
 pillow = "*"
+pyperclip = "*"
 
 [dev-packages]
 

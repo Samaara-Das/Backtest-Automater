@@ -5,14 +5,16 @@ from datetime import datetime
 from openpyxl import load_workbook
 from pywinauto import Application
 from pywinauto.keyboard import send_keys
-from re import sub
+import re
+from pyperclip import copy, paste
 import logger_setup
 
 # Set up the logger
 logger = logger_setup.setup_logger(__name__)
 
 # Constants
-EXE_PATH = r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\terminal.exe"
+MT4_EXE_PATH = r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\terminal.exe" # MetaTrader 4 terminal
+ME_EXE_PATH = r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\metaeditor.exe" # MetaEditor 4
 TIMEOUT = 20 
 EXCEL_PATH = "D:\\Strategy Tester Settings.xlsx"
 
@@ -27,7 +29,7 @@ def ea_base_name(ea_name):
     str: The converted string.
     """
     try:
-        converted_string = sub(r'.*\\(.*)\.ex4$', r'\1', ea_name) # Using regex to remove the directory path and .ex4 extension
+        converted_string = re.sub(r'.*\\(.*)\.ex4$', r'\1', ea_name) # Using regex to remove the directory path and .ex4 extension
         logger.info(f"Converted '{ea_name}' to '{converted_string}'")
         return converted_string
     except Exception as e:
@@ -55,7 +57,64 @@ def is_application_running(exe_path):
     logger.info("Application is not running.")
     return None
 
-def start_or_connect_application(exe_path, timeout):
+def replace_value(original_text, new_value):
+    """
+    Replaces the value between '=' and ';' in `original_text` with `new_value`.
+
+    Args:
+        original_text (str): The original string containing the value to be replaced.
+        new_value (str): The new value to insert between '=' and ';'.
+
+    Returns:
+        str: The modified string with the replaced value.
+
+    Raises:
+        ValueError: If the input string does not contain '=' and/or ';' or other errors occur.
+    """
+    try:
+        start_index = original_text.find('=') + 1
+        end_index = original_text.find(';')
+        
+        if start_index == 0 or end_index == -1:
+            raise ValueError("The input string does not contain '=' and/or ';'")
+        
+        modified_string = original_text[:start_index] + new_value + original_text[end_index:]
+        logger.info("Successfully replaced the value in the string.")
+        
+        return modified_string
+    except Exception as e:
+        logger.error(f"An error occurred in replace_value: {e}")
+        raise
+
+def change_input_value(text, prop, value):
+    """
+    Finds and replaces the value of a specific property in the given text.
+
+    Args:
+        text (str): The text to look for the property .
+        prop (str): The property name to search for.
+        value (str): The new value to replace the old value.
+
+    Returns:
+        str: The modified text with the replaced value, or None if the property is not found.
+    """
+    try:
+        pattern = rf'^(input.*?;\s*//\s*{re.escape(prop)}\s*)$'
+        line = re.findall(pattern, text, re.MULTILINE)
+        
+        if not line:
+            logger.warning(f"Property '{prop}' not found in the text.")
+            return None
+        
+        result = re.sub(pattern, replace_value(line[0], value), text, flags=re.MULTILINE)
+        logger.info(f"Successfully replaced the value for property '{prop}'.")
+        
+        return result
+    except Exception as e:
+        logger.error(f"An error occurred in get_property_line: {e}")
+        return None
+
+def access_application(exe_path, timeout):
     """
     Start or connect to the application.
 
@@ -377,6 +436,10 @@ def configure_dates(strategy_tester, from_date ,to_date):
         strategy_tester (WindowSpecification): The Strategy Tester window.
     """
     try:
+        if from_date == None and to_date == None:
+            logger.info("No dates to configure. Exiting.")
+            return True
+
         logger.info("Searching for the Use date button in the Strategy Tester...")
         buttons = strategy_tester.children(class_name="Button")
         for btn in buttons:
@@ -388,76 +451,118 @@ def configure_dates(strategy_tester, from_date ,to_date):
         logger.info("Searching for the dates in the Strategy Tester...")
         dates = strategy_tester.children(class_name="SysDateTimePick32")
 
-        _from = datetime.strptime(from_date, '%Y.%m.%d')
-        to = datetime.strptime(to_date, '%Y.%m.%d')
-        dates[0].set_time(year=_from.year, month=_from.month, day=_from.day) # Setting the From date
-        dates[1].set_time(year=to.year, month=to.month, day=to.day) # Setting the To date
+        # Setting the From date
+        if from_date is not None:
+            _from = datetime.strptime(from_date, '%Y.%m.%d')
+            dates[0].set_time(year=_from.year, month=_from.month, day=_from.day) 
         
+        # Setting the To date
+        if to_date is not None:
+            to = datetime.strptime(to_date, '%Y.%m.%d')
+            dates[1].set_time(year=to.year, month=to.month, day=to.day)
+
     except Exception as e:
         logger.error(f'Error has occurred when configuring the dates: {e}')
         return False
 
-def configure_expert_properties(strategy_tester, app, ea_name, properties_string):
+def configure_expert_properties(strategy_tester, ea_name, properties_string):
     """
-    Configures the expert properties in the Strategy Tester for a given Expert Advisor.
+    Configures the expert properties for a given Expert Advisor.
 
     Args:
         strategy_tester (pywinauto.Application): The application instance of the Strategy Tester.
         ea_name (str): The name of the Expert Advisor.
         properties_string (str): A comma-separated string of properties to set in the format
                                  'Property Name=Value'.
-
-    Raises:
-        pywinauto.findwindows.ElementNotFoundError: If the Expert properties dialog or elements within it are not found.
     """
 
     try:
-        # Click on the Expert properties button and wait for the properties window to open
-        strategy_tester.child_window(title="Expert properties", class_name="Button").click_input()
-        logger.info("Clicked on Expert properties button")
-        properties = app.child_window(title=ea_base_name(ea_name)).wait("exists visible", timeout=5)
-        logger.info(f"Expert properties window opened")
+        # If there are no properties to set, exit early
+        if properties_string is None or properties_string.strip() == '':
+            logger.info("No properties to set. Exiting.")
+            return
 
-        # Selecting the inputs through the arrow keys
-        properties.type_keys("{VK_DOWN}")
-        time.sleep(1)
-        properties.type_keys("{VK_DOWN}")
-        time.sleep(1)
+        # Click on the Modify expert button and wait for the properties window to open
+        strategy_tester.child_window(title="Modify expert", class_name="Button").click_input()
+        logger.info("Clicked on 'Modify expert' button")
 
-        # focused_control = properties.get_focus()
-        # print(f"Focused control: {focused_control}")
+        # Connect to MetaEditor
+        app = access_application(ME_EXE_PATH, TIMEOUT)
+        editor = wait_for_window(app, title_re=".*MetaEditor.*", timeout=TIMEOUT)
+        editor.set_focus()
+        editor.maximize()
 
-        # Parse the properties string and set each property
+        # Go to the top of the file
+        file = editor.child_window(best_match=ea_base_name(ea_name)+".mq4")
+        file.set_focus()
+        file.maximize()
+        send_keys('^a^c')  # Select all content and copy it to the clipboard
+
+        # Get the content from the clipboard
+        original_code = paste()
+
+        # Parse the properties string and set each property in the copied code
+        modified_code = original_code
         for prop in properties_string.split(','):
             name, value = prop.split('=')
             name, value = name.strip(), value.strip()
-            logger.info(f"Setting property {name} to {value}.")
 
-        # Click OK
-        for i in range(3):
-            properties.type_keys("{VK_TAB}")
-        properties.type_keys("{ENTER}")
+            # Find where the variable is in the code and replace its value
+            modified_code = change_input_value(modified_code, name, value)
+            logger.info(f"Setting property '{name}' to '{value}'")
+
+        # Copy the modified code back to the clipboard
+        copy(modified_code)
+
+        send_keys('^v')  # Select all content again and paste the modified content
+
+        # Close MetaEditor
+        send_keys('{F7}')  # Compile the file
+        time.sleep(1.3) # Give the file time to compile
+        send_keys('^{F4}')  # Close the current file
+        send_keys('%{F4}')  # Close MetaEditor
 
         # Confirm the changes
-        logger.info("Confirmed the changes and closed the Expert properties window.")
+        logger.info("Confirmed the changes and closed the Expert properties window")
 
     except Exception as e:
         logger.error(f"An error occurred while configuring expert properties: {e}")
         raise
 
+def start_strategy_tester(strategy_tester):
+    """
+    Starts the Strategy Tester.
+
+    Args:
+        strategy_tester (WindowSpecification): The Strategy Tester window.
+    """
+    try:
+        logger.info("Searching for the Start button in the Strategy Tester...")
+        buttons = strategy_tester.children(class_name="Button")
+        for btn in buttons:
+            if btn.window_text() == 'Start':
+                btn.click()
+                logger.info("Clicked on 'Start' button")
+                return True
+
+        return False
+    except Exception as e:
+        logger.error(f"An error occurred while starting the Strategy Tester: {e}")
+        raise
+
 def main():
     try:
         # Start or connect to the application
-        app = start_or_connect_application(EXE_PATH, TIMEOUT)
+        app = access_application(MT4_EXE_PATH, TIMEOUT)
         tradeview = wait_for_window(app, title_re=".*Tradeview.*", timeout=TIMEOUT)
-        tradeview.maximize()
         tradeview.set_focus()
+        tradeview.maximize()
 
         # Check if the Strategy Tester is open. Open it if it's not
         tester_open, strategy_tester = is_strategy_tester_open(tradeview, 5)
         if not tester_open:
             logger.info("Strategy Tester is not open. Trying to open it.")
-            tradeview.type_keys('^r')  # Press Ctrl+R to open the Strategy Tester
+            tradeview.send_keystrokes('^r')  # Press Ctrl+R to open the Strategy Tester
             time.sleep(5)  # Wait for a few seconds to ensure the Strategy Tester has time to open
             tester_open, st = is_strategy_tester_open(tradeview, TIMEOUT)
             
@@ -471,6 +576,11 @@ def main():
         settings_list = read_excel_to_dict(EXCEL_PATH)
         for settings in settings_list:
             try:
+                # Skip rows where 'Expert' is None
+                if settings['Expert'] is None:
+                    logger.info("Skipping row with missing 'Expert' value.")
+                    continue
+
                 # Make sure that "Expert Advisor" is selected in the Strategy Tester
                 select_expert_advisor(strategy_tester)  
 
@@ -479,6 +589,10 @@ def main():
                 if not choose_EA(strategy_tester, ea_name):  
                     logger.error(f"Failed to select EA '{ea_name}'. Continuing.")
                     continue
+
+                # Configure Expert properties
+                configure_expert_properties(strategy_tester, settings['Expert'], settings['Expert properties'])
+                tradeview = wait_for_window(app, title_re=".*Tradeview.*", timeout=10)
                 
                 # Select the symbol
                 symbol = settings['Symbol'].strip()
@@ -508,6 +622,13 @@ def main():
                     logger.error(f"Failed to configure the dates. Continuing.")
                     continue
 
+                # Start the Strategy Tester
+                if not start_strategy_tester(strategy_tester):
+                    logger.error(f"Failed to start the Strategy Tester. Continuing.")
+                    continue
+
+                # Wait until the test finishes
+
             except Exception as e:
                 logger.error(f"Exception occurred while configuring the Strategy Tester: {e}")
                 logger.info('Continuing...')
@@ -518,5 +639,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
+ 
