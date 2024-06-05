@@ -2,6 +2,7 @@ import time
 from datetime import datetime
 from pywinauto import Application
 from pywinauto.keyboard import send_keys
+from pywinauto.mouse import click
 from pyperclip import copy, paste
 import re
 import psutil
@@ -13,7 +14,7 @@ logger = setup_logger(__name__)
 
 MT4_EXE_PATH = r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\terminal.exe"
 ME_EXE_PATH = r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\metaeditor.exe"
-TIMEOUT = 20
+TIMEOUT = 15
 
 class MT4Controller:
     def __init__(self):
@@ -21,13 +22,14 @@ class MT4Controller:
         self.mt4_exe_path = MT4_EXE_PATH
         self.me_exe_path = ME_EXE_PATH
         self.timeout = TIMEOUT
+        self.SETTINGS_TAB = {'name': 'Settings', 'coords': (45, 992)}
+        self.REPORT_TAB = {'name': 'Report', 'coords': (214, 992)}
 
-    def configure_expert_properties(self, strategy_tester, ea_name, properties_string):
+    def configure_expert_properties(self, ea_name, properties_string):
         """
         Configures the expert properties in the MetaTrader 4 Strategy Tester.
 
         Args:
-            self.strategy_tester (WindowSpecification): The Strategy Tester window.
             ea_name (str): The name of the expert advisor.
             properties_string (str): The properties to be configured in the format 'name=value, name=value,...'.
         """
@@ -237,17 +239,35 @@ class MT4Controller:
             self.strategy_tester = window.child_window(title="Tester")
             self.strategy_tester.wait('exists visible', timeout=timeout)
             self.logger.info("Strategy Tester is open.")
-            return (True, self.strategy_tester)
+            return True
         except Exception as e:
             self.logger.error(f"Exception occurred while checking the Strategy Tester: {e}")
-            return (False, None)
+            return False
 
-    def select_expert_advisor(self, strategy_tester):
+    def tester_switch_tab(self, tradeview, tab):
         """
-        Ensures that 'Expert Advisor' is selected in the Strategy Tester.
+        Switches to the specified tab in the Strategy Tester.
 
         Args:
-            self.strategy_tester (WindowSpecification): The Strategy Tester window.
+            tab (str): The name of the tab to switch to. Possible values are only self.SETTINGS_TAB (for the Settings tab) and self.REPORT_TAB (for the Report tab). 
+
+        Returns:
+            bool: True if the tab was successfully switched, False otherwise.
+        """
+        try:
+            if not tradeview.is_maximized():
+                tradeview.maximize() # MT4 needs to be maximized because the mouse coordinates for the tabs will work only when MT4 is maximized
+            click(coords=tab['coords'])
+            self.logger.info(f"Successfully switched to tab: {tab['name']}")
+            time.sleep(1)
+            return True
+        except Exception as e:
+            self.logger.error(f"Exception occurred while switching to {tab['name']} tab: {e}")
+            return False
+
+    def select_expert_advisor(self):
+        """
+        Ensures that 'Expert Advisor' is selected in the Strategy Tester.
         """
         try:
             self.logger.info("Checking for 'Indicator' combo box...")
@@ -264,12 +284,11 @@ class MT4Controller:
             self.logger.error(f"Exception occurred while selecting Expert Advisor: {e}")
             return False
 
-    def choose_EA(self, strategy_tester, ea_name):
+    def choose_EA(self, ea_name):
         """
         Selects the specified expert advisor (EA) in the Strategy Tester.
 
         Args:
-            self.strategy_tester (WindowSpecification): The Strategy Tester window.
             ea_name (str): The name of the expert advisor.
 
         Returns:
@@ -277,6 +296,7 @@ class MT4Controller:
         """
         try:
             self.logger.info("Searching for the Expert input in the Strategy Tester")
+            time.sleep(2) # give the Strategy Tester time to load
             combo_boxes = self.strategy_tester.children(class_name="ComboBox")
             ea_box_found = False
 
@@ -326,12 +346,11 @@ class MT4Controller:
             self.logger.error(f"Exception occurred while selecting the combo box: {e}")
             return False
 
-    def choose_symbol(self, strategy_tester, symbol):
+    def choose_symbol(self, symbol):
         """
         Selects the specified symbol in the Strategy Tester.
 
         Args:
-            self.strategy_tester (WindowSpecification): The Strategy Tester window.
             symbol (str): The symbol to select.
 
         Returns:
@@ -361,12 +380,11 @@ class MT4Controller:
             self.logger.error(f'Error has occurred when choosing the symbol: {e}')
             return False
 
-    def choose_period(self, strategy_tester, period):
+    def choose_period(self, period):
         """
         Selects the specified period in the Strategy Tester.
 
         Args:
-            self.strategy_tester (WindowSpecification): The Strategy Tester window.
             period (str): The period to select.
 
         Returns:
@@ -397,12 +415,11 @@ class MT4Controller:
             self.logger.error(f'Error has occurred when choosing the period: {e}')
             return False
 
-    def choose_modelling(self, strategy_tester, model):
+    def choose_modelling(self, model):
         """
         Selects the specified modeling type in the Strategy Tester.
 
         Args:
-            self.strategy_tester (WindowSpecification): The Strategy Tester window.
             model (str): The modeling type to select.
 
         Returns:
@@ -432,12 +449,9 @@ class MT4Controller:
             self.logger.error(f'Error has occurred when choosing the model: {e}')
             return False
 
-    def configure_visual_mode(self, strategy_tester):
+    def configure_visual_mode(self):
         """
         Configures the Visual mode in the Strategy Tester by unchecking it.
-
-        Args:
-            self.strategy_tester (WindowSpecification): The Strategy Tester window.
 
         Returns:
             bool: True if Visual mode was successfully unchecked, False otherwise.
@@ -456,12 +470,11 @@ class MT4Controller:
             self.logger.error(f'Error has occurred when unchecking Visual mode: {e}')
             return False
 
-    def configure_dates(self, strategy_tester, from_date, to_date):
+    def configure_dates(self, from_date, to_date):
         """
         Configures the date range in the Strategy Tester.
 
         Args:
-            self.strategy_tester (WindowSpecification): The Strategy Tester window.
             from_date (str): The start date in 'YYYY.MM.DD' format.
             to_date (str): The end date in 'YYYY.MM.DD' format.
 
@@ -498,12 +511,9 @@ class MT4Controller:
             self.logger.error(f'Error has occurred when configuring the dates: {e}')
             return False
 
-    def start_strategy_tester(self, strategy_tester):
+    def start_strategy_tester(self):
         """
         Starts the Strategy Tester by clicking the Start button.
-
-        Args:
-            self.strategy_tester (WindowSpecification): The Strategy Tester window.
 
         Returns:
             bool: True if the Strategy Tester was successfully started, False otherwise.
@@ -523,8 +533,8 @@ class MT4Controller:
 
 
 class StrategyTester:
-    def __init__(self, mt4_controller):
-        self.mt4_controller = mt4_controller
+    def __init__(self, mt4):
+        self.mt4 = mt4
         self.logger = setup_logger(__name__)
 
     def configure_tester(self, app, settings):
@@ -540,63 +550,69 @@ class StrategyTester:
         """
         try:
             # Open MT4 or connect to it if it's already open
-            tradeview = self.mt4_controller.wait_for_window(app, title_re=".*Tradeview.*", timeout=self.mt4_controller.timeout)
+            tradeview = self.mt4.wait_for_window(app, title_re=".*Tradeview.*", timeout=self.mt4.timeout)
             if tradeview is None:
                 self.logger.error("Failed to find the Tradeview window.")
                 return False
 
             tradeview.set_focus()
-            tradeview.maximize()
+            if not tradeview.is_maximized():
+                tradeview.maximize()
+                time.sleep(1)
 
-            tester_open, self.strategy_tester = self.mt4_controller.is_strategy_tester_open(tradeview, 5)
-            if not tester_open: # Check if the Strategy Tester is open. Open it if it's not
+            tester_open = self.mt4.is_strategy_tester_open(tradeview, 3)
+            if tester_open == False: # Check if the Strategy Tester is open. Open it if it's not
                 self.logger.info("Strategy Tester is not open. Trying to open it.")
                 tradeview.send_keystrokes('^r') # Press Ctrl+R to open the Strategy Tester
-                time.sleep(5) # Give the Strategy Tester time to open
-                tester_open, self.strategy_tester = self.mt4_controller.is_strategy_tester_open(tradeview, self.mt4_controller.timeout)
+                time.sleep(2.5) # Give the Strategy Tester time to open
+                tester_open = self.mt4.is_strategy_tester_open(tradeview, 3)
                 if not tester_open:
                     self.logger.error("Failed to open the Strategy Tester. Exiting.")
                     return False
 
-            if not self.mt4_controller.select_expert_advisor(self.strategy_tester): # Make sure that "Expert Advisor" is selected in the Strategy Tester
+            if not self.mt4.tester_switch_tab(tradeview, self.mt4.SETTINGS_TAB): # Switch to Strategy Tester tab
+                self.logger.error("Failed to switch to Settings tab in the Strategy Tester. Exiting.")
+                return False
+
+            if not self.mt4.select_expert_advisor(): # Make sure that "Expert Advisor" is selected in the Strategy Tester
                 self.logger.error(f"Failed to select Expert Advisor in Strategy Tester. Continuing.")
                 return False
 
             ea_name = settings['Expert'].strip()
-            if not self.mt4_controller.choose_EA(self.strategy_tester, ea_name): # Select the EA
+            if not self.mt4.choose_EA(ea_name): # Select the EA
                 self.logger.error(f"Failed to select EA '{ea_name}'. Continuing.")
                 return False
 
             # Configure Expert properties
-            if not self.mt4_controller.configure_expert_properties(self.strategy_tester, settings['Expert'], settings['Expert properties']):
+            if not self.mt4.configure_expert_properties(settings['Expert'], settings['Expert properties']):
                 self.logger.error(f"Failed to configure properties for EA '{ea_name}'. Continuing.")
                 return False
 
-            tradeview = self.mt4_controller.wait_for_window(app, title_re=".*Tradeview.*", timeout=10)
+            tradeview = self.mt4.wait_for_window(app, title_re=".*Tradeview.*", timeout=7)
             if tradeview is None:
                 self.logger.error("Failed to re-focus the Tradeview window after configuring properties.")
                 return False
 
             symbol = settings['Symbol'].strip()
-            if not self.mt4_controller.choose_symbol(self.strategy_tester, symbol): # Select the symbol
+            if not self.mt4.choose_symbol(symbol): # Select the symbol
                 self.logger.error(f"Failed to select symbol '{symbol}'. Continuing.")
                 return False
 
             period = settings['Period'].strip()
-            if not self.mt4_controller.choose_period(self.strategy_tester, period): # Select the period
+            if not self.mt4.choose_period(period): # Select the period
                 self.logger.error(f"Failed to select period '{period}'. Continuing.")
                 return False
 
             model = settings['Model'].strip()
-            if not self.mt4_controller.choose_modelling(self.strategy_tester, model): # Select the model
+            if not self.mt4.choose_modelling(model): # Select the model
                 self.logger.error(f"Failed to select model '{model}'. Continuing.")
                 return False
 
-            if not self.mt4_controller.configure_visual_mode(self.strategy_tester): # Configure Visual mode
+            if not self.mt4.configure_visual_mode(): # Configure Visual mode
                 self.logger.error(f"Failed to uncheck Visual mode. Continuing.")
                 return False
 
-            if not self.mt4_controller.configure_dates(self.strategy_tester, settings['From'], settings['To']): # Configure the dates
+            if not self.mt4.configure_dates(settings['From'], settings['To']): # Configure the dates
                 self.logger.error(f"Failed to configure the dates. Continuing.")
                 return False
 
@@ -611,13 +627,21 @@ class StrategyTester:
         This starts a back test and waits until it stops.
         '''
         try:
-            if not self.mt4_controller.start_strategy_tester(self.strategy_tester): # Start the Strategy Tester
+            if not self.mt4.start_strategy_tester(): # Start the Strategy Tester
                 self.logger.error(f"Failed to start the Strategy Tester. Continuing.")
                 return False
 
-            # Wait for the "Start" button to turn into "Stop" (this indicates that a test is running)
-            stop_button = self.strategy_tester.child_window(class_name="Button", title="Stop").wait('exists visible', 10)
-            logger.info("Test is running.")
+            # Loop will run as long as the "Stop" button is visible, indicating the test is running
+            while True:
+                try:
+                    self.mt4.strategy_tester.child_window(class_name="Button", title="Stop").wait("exists visible", 1)
+                except Exception as e:
+                    self.logger.info("Stop button is no longer present, assuming the test has finished.")
+                    break
+            
+            # As soon as the while loop exits, the test has finished because the "Stop" button is not visible anymore
+            self.logger.info("Test has finished.")
+            return True
         except Exception as e:
             self.logger.error(f"Exception occurred while waiting for the Strategy Tester to start: {e}")
             return False

@@ -9,4 +9,6 @@
 6. Save the generated report in the folder
 
 ## For programmers
-1. In the `choose_EA()` function, there are 2 lines like this: `while i in range(50):`. Make sure that range is equal to/more than the number of EAs in the Experts folder on MT4.
+1. In the components\mt4_controller file, the `choose_EA()` method, there are 2 lines like this: `while i in range(50):`. Make sure that range is equal to/more than the number of EAs in the Experts folder on MT4.
+
+2. In the components\mt4_controller file, `self.SETTINGS_TAB` should be a tuple containing coordinates for the Settings tab in the Strategy Tester. `self.REPORT_TAB` should be a tuple containing coordinates for the Report tab.
