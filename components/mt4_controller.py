@@ -1,12 +1,12 @@
-import time
+from time import sleep
 from datetime import datetime
 from pywinauto import Application
 from pywinauto.keyboard import send_keys
 from pywinauto.mouse import click
 from pyperclip import copy, paste
 import re
-import psutil
-from os import path
+from psutil import process_iter, NoSuchProcess, AccessDenied, ZombieProcess
+from os import path, listdir
 from components.logger import setup_logger
 from pywinauto.timings import TimeoutError
 
@@ -14,6 +14,7 @@ logger = setup_logger(__name__)
 
 MT4_EXE_PATH = r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\terminal.exe"
 ME_EXE_PATH = r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\metaeditor.exe"
+SHARED_FOLDER_PATH = "D:\\Shared folder of HTML Reports" # specify the path to the shared folder which has all the HTML reports
 TIMEOUT = 15
 
 class MT4Controller:
@@ -22,8 +23,59 @@ class MT4Controller:
         self.mt4_exe_path = MT4_EXE_PATH
         self.me_exe_path = ME_EXE_PATH
         self.timeout = TIMEOUT
+        self.app = None
+        self.tradeview = None
+        self.strategy_tester = None
         self.SETTINGS_TAB = {'name': 'Settings', 'coords': (45, 992)}
         self.REPORT_TAB = {'name': 'Report', 'coords': (214, 992)}
+
+    def number_in_filename(self, filename):
+        """
+        Extract all numbers from a given filename.
+
+        Args:
+            filename (str): The name of the file.
+
+        Returns:
+            list: A list of integers found in the filename.
+        """
+        return list(map(int, re.findall(r'\d+', filename)))
+
+    def greatest_count(self, folder_path):
+        """
+        Find the greatest number within the HTML file names in the specified folder.
+
+        Args:
+            folder_path (str): The path to the folder containing HTML back test reports.
+
+        Returns:
+            int: The greatest number found in the HTML file names or None if no numbers are found.
+        """
+        greatest_number = None
+        html_files = []
+
+        try:
+            files = listdir(folder_path)  # List all files in the given directory
+
+            # Filter only .htm or .html files because those are previous reports
+            html_files = [file for file in files if file.endswith('.htm') or file.endswith('.html')]
+            logger.info(f"HTML files in {SHARED_FOLDER_PATH} are {len(html_files)}")
+
+            for file in html_files:
+                numbers = self.number_in_filename(file)  # Extract numbers from the current file name
+
+                if numbers:
+                    max_number = max(numbers)
+                    if greatest_number is None or max_number > greatest_number: # Update greatest_number if current max is greater
+                        greatest_number = max_number
+
+        except Exception as e:
+            logger.error(f"An error occurred: {e}")
+
+        if greatest_number is None:
+            logger.info("No numbers found in the HTML file names.")
+        
+        return greatest_number
 
     def configure_expert_properties(self, ea_name, properties_string):
         """
@@ -32,6 +84,9 @@ class MT4Controller:
         Args:
             ea_name (str): The name of the expert advisor.
             properties_string (str): The properties to be configured in the format 'name=value, name=value,...'.
+
+        Returns:
+            bool: True if properties were successfully configured, False otherwise.
         """
         try:
             if properties_string is None or properties_string.strip() == '':
@@ -41,8 +96,8 @@ class MT4Controller:
             self.strategy_tester.child_window(title="Modify expert", class_name="Button").click_input()
             self.logger.info("Clicked on 'Modify expert' button")
 
-            app = self.access_application(self.me_exe_path, self.timeout)
-            editor = self.wait_for_window(app, title_re=".*MetaEditor.*", timeout=self.timeout)
+            self.access_application(self.me_exe_path, self.timeout)
+            editor = self.wait_for_window(title_re=".*MetaEditor.*", timeout=self.timeout)
             editor.set_focus()
             editor.maximize()
 
@@ -67,7 +122,7 @@ class MT4Controller:
             copy(modified_code)
             send_keys('^v')
             send_keys('{F7}')
-            time.sleep(1.3)
+            sleep(1)
             send_keys('^{F4}')
             send_keys('%{F4}')
             self.logger.info("Confirmed the changes and closed the Expert properties window")
@@ -135,17 +190,17 @@ class MT4Controller:
 
     def ea_base_name(self, ea_name):
         """
-            Extracts the base name of an expert advisor from its full path.
+        Extracts the base name of an expert advisor from its full path.
 
-            Args:
-                ea_name (str): The full path of the expert advisor.
+        Args:
+            ea_name (str): The full path of the expert advisor.
 
-            Returns:
-                str: The base name of the expert advisor.
+        Returns:
+            str: The base name of the expert advisor.
         """
         try:
-            name_without_ex4 = re.sub(r'\.ex4$', '', ea_name) # Remove ".ex4" extension
-            name_without_slash = re.sub(r'.*\\', '', name_without_ex4) # Extract the part after the last slash (if any)
+            name_without_ex4 = re.sub(r'\.ex4$', '', ea_name)  # Remove ".ex4" extension
+            name_without_slash = re.sub(r'.*\\', '', name_without_ex4)  # Extract the part after the last slash (if any)
             return name_without_slash
         except Exception as e:
             logger.error(f"Error converting string '{ea_name}': {e}")
@@ -162,12 +217,12 @@ class MT4Controller:
             int: The process ID (PID) of the running application, or None if not running.
         """
         self.logger.info("Checking if the application is already running.")
-        for proc in psutil.process_iter(['pid', 'name', 'exe']):
+        for proc in process_iter(['pid', 'name', 'exe']):
             try:
                 if proc.info['exe'] and path.normpath(proc.info['exe']) == path.normpath(exe_path):
                     self.logger.info(f"Application is already running with PID: {proc.info['pid']}")
                     return proc.info['pid']
-            except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess) as e:
+            except (NoSuchProcess, AccessDenied, ZombieProcess) as e:
                 self.logger.error(f"Exception occurred while checking running processes: {e}")
                 return False
         self.logger.info("Application is not running.")
@@ -191,52 +246,54 @@ class MT4Controller:
                 return None
             elif pid:
                 logger.info(f"Connecting to the running instance with PID: {pid}.")
-                app = Application(backend="win32").connect(process=pid)
+                self.app = Application(backend="win32").connect(process=pid)
             else:
                 logger.info(f"Starting the application from path: {exe_path}.")
-                app = Application(backend="win32").start(exe_path, timeout=timeout)
+                self.app = Application(backend="win32").start(exe_path, timeout=timeout)
             
-            return app
+            return self.app
         except Exception as e:
             logger.error(f"Exception occurred while accessing the application: {e}")
             return None
 
-    def wait_for_window(self, app, title_re, timeout):
+    def wait_for_window(self, title_re, timeout):
         """
         Waits for a window with the given title to appear.
 
         Args:
-            app (Application): The application object.
             title_re (str): The regular expression to match the window title.
             timeout (int): The time to wait for the window.
 
         Returns:
             WindowSpecification: The matched window object.
         """
-        self.logger.info(f"Waiting for window with title matching: {title_re}.")
         try:
-            window = app.window(title_re=title_re)
+            window = self.app.window(title_re=title_re)
+            self.logger.info(f"Waiting for window with title matching: {title_re}.")
             window.wait("exists visible", timeout=timeout)
             self.logger.info("Window found and ready.")
+            if 'Tradeview' in title_re:
+                self.tradeview = window
             return window
         except Exception as e:
             self.logger.error(f"Exception occurred while waiting for the window: {e}")
+            if 'Tradeview' in title_re:
+                self.tradeview = None
             return None
 
-    def is_strategy_tester_open(self, window, timeout):
+    def is_strategy_tester_open(self, timeout):
         """
         Checks if the Strategy Tester is open.
 
         Args:
-            window (WindowSpecification): The main window of the application.
             timeout (int): The time to wait for the Strategy Tester to appear.
 
         Returns:
-            tuple: A tuple containing a boolean indicating if the Strategy Tester is open and the Strategy Tester window object.
+            bool: True if the Strategy Tester is open, False otherwise.
         """
         self.logger.info("Checking if the Strategy Tester is open...")
         try:
-            self.strategy_tester = window.child_window(title="Tester")
+            self.strategy_tester = self.tradeview.child_window(title="Tester")
             self.strategy_tester.wait('exists visible', timeout=timeout)
             self.logger.info("Strategy Tester is open.")
             return True
@@ -244,22 +301,23 @@ class MT4Controller:
             self.logger.error(f"Exception occurred while checking the Strategy Tester: {e}")
             return False
 
-    def tester_switch_tab(self, tradeview, tab):
+    def tester_switch_tab(self, tab):
         """
         Switches to the specified tab in the Strategy Tester.
 
         Args:
-            tab (str): The name of the tab to switch to. Possible values are only self.SETTINGS_TAB (for the Settings tab) and self.REPORT_TAB (for the Report tab). 
+            tab (dict): The dictionary containing the name and coordinates of the tab to switch to. Possible values are only               
+            self.SETTINGS_TAB (for the Settings tab) and self.REPORT_TAB (for the Report tab)
 
         Returns:
             bool: True if the tab was successfully switched, False otherwise.
         """
         try:
-            if not tradeview.is_maximized():
-                tradeview.maximize() # MT4 needs to be maximized because the mouse coordinates for the tabs will work only when MT4 is maximized
+            if not self.tradeview.is_maximized():
+                self.tradeview.maximize()  # MT4 needs to be maximized because the mouse coordinates for the tabs will work only when MT4 is maximized
             click(coords=tab['coords'])
             self.logger.info(f"Successfully switched to tab: {tab['name']}")
-            time.sleep(1)
+            sleep(1)
             return True
         except Exception as e:
             self.logger.error(f"Exception occurred while switching to {tab['name']} tab: {e}")
@@ -268,6 +326,9 @@ class MT4Controller:
     def select_expert_advisor(self):
         """
         Ensures that 'Expert Advisor' is selected in the Strategy Tester.
+
+        Returns:
+            bool: True if 'Expert Advisor' was successfully selected, False otherwise.
         """
         try:
             self.logger.info("Checking for 'Indicator' combo box...")
@@ -296,7 +357,7 @@ class MT4Controller:
         """
         try:
             self.logger.info("Searching for the Expert input in the Strategy Tester")
-            time.sleep(2) # give the Strategy Tester time to load
+            sleep(2)  # give the Strategy Tester time to load
             combo_boxes = self.strategy_tester.children(class_name="ComboBox")
             ea_box_found = False
 
@@ -311,15 +372,15 @@ class MT4Controller:
 
                     self.logger.info(f"Navigating through options to find '{ea_name}'")
                     while i in range(50):
-                        if ea_name == current_option: # if the EA is found
+                        if ea_name == current_option:  # if the EA is found
                             logger.info(f"Found '{ea_name}' in the options.")
                             return True
                         
                         send_keys('{DOWN}')
-                        time.sleep(0.1)
+                        sleep(0.1)
                         prev_option = current_option
                         current_option = combo.window_text()
-                        if prev_option == current_option: # if the limit of the EAs has been reached 
+                        if prev_option == current_option:  # if the limit of the EAs has been reached 
                             break
 
                         i += 1
@@ -327,15 +388,15 @@ class MT4Controller:
                     # Use UP key to navigate through the dropdown options
                     i = 0
                     while i in range(50):
-                        if ea_name == current_option: # if the EA is found
+                        if ea_name == current_option:  # if the EA is found
                             logger.info(f"Found '{ea_name}' in the options.")
                             return True
                         
                         send_keys('{UP}')
-                        time.sleep(0.1)
+                        sleep(0.1)
                         prev_option = current_option
                         current_option = combo.window_text()
-                        if prev_option == current_option: # if the limit of the EAs has been reached 
+                        if prev_option == current_option:  # if the limit of the EAs has been reached 
                             return False
 
                         i += 1
@@ -531,55 +592,68 @@ class MT4Controller:
             self.logger.error(f"An error occurred while starting the Strategy Tester: {e}")
             return False
 
+    def setup_MT4(self):
+        """
+        Opens MT4 or connects to it if it is already open and maximizes it.
+
+        Returns:
+            bool: True if the MetaTrader 4 application was successfully set up, False otherwise.
+        """
+        try:
+            self.access_application(self.mt4_exe_path, self.timeout)
+            if self.wait_for_window(title_re=".*Tradeview.*", timeout=self.timeout) is None:
+                self.logger.error("Failed to find the Tradeview window.")
+                return False
+
+            self.tradeview.set_focus()
+            if not self.tradeview.is_maximized():
+                self.tradeview.maximize()
+                self.logger.info("Tradeview window maximized.")
+                sleep(1)
+            return True
+        except Exception as e:
+            self.logger.error(f"An error occurred while setting up the MetaTrader 4 application: {e}")
+            return False
+
 
 class StrategyTester:
     def __init__(self, mt4):
         self.mt4 = mt4
         self.logger = setup_logger(__name__)
 
-    def configure_tester(self, app, settings):
+    def configure_tester(self, settings):
         """
         Configures the MetaTrader 4 Strategy Tester with the given settings.
 
         Args:
-            app (Application): The connected MT4 application.
             settings (dict): A dictionary containing the settings for the Strategy Tester.
 
         Returns:
-        bool: True if the configuration was successful, False otherwise.
+            bool: True if the configuration was successful, False otherwise.
         """
         try:
-            # Open MT4 or connect to it if it's already open
-            tradeview = self.mt4.wait_for_window(app, title_re=".*Tradeview.*", timeout=self.mt4.timeout)
-            if tradeview is None:
-                self.logger.error("Failed to find the Tradeview window.")
-                return False
+            self.mt4.setup_MT4()
 
-            tradeview.set_focus()
-            if not tradeview.is_maximized():
-                tradeview.maximize()
-                time.sleep(1)
-
-            tester_open = self.mt4.is_strategy_tester_open(tradeview, 3)
-            if tester_open == False: # Check if the Strategy Tester is open. Open it if it's not
+            tester_open = self.mt4.is_strategy_tester_open(3)
+            if tester_open == False:  # Check if the Strategy Tester is open. Open it if it's not
                 self.logger.info("Strategy Tester is not open. Trying to open it.")
-                tradeview.send_keystrokes('^r') # Press Ctrl+R to open the Strategy Tester
-                time.sleep(2.5) # Give the Strategy Tester time to open
-                tester_open = self.mt4.is_strategy_tester_open(tradeview, 3)
+                self.mt4.tradeview.send_keystrokes('^r')  # Press Ctrl+R to open the Strategy Tester
+                sleep(2.5)  # Give the Strategy Tester time to open
+                tester_open = self.mt4.is_strategy_tester_open(3)
                 if not tester_open:
                     self.logger.error("Failed to open the Strategy Tester. Exiting.")
                     return False
 
-            if not self.mt4.tester_switch_tab(tradeview, self.mt4.SETTINGS_TAB): # Switch to Strategy Tester tab
+            if not self.mt4.tester_switch_tab(self.mt4.SETTINGS_TAB):  # Switch to Strategy Tester tab
                 self.logger.error("Failed to switch to Settings tab in the Strategy Tester. Exiting.")
                 return False
 
-            if not self.mt4.select_expert_advisor(): # Make sure that "Expert Advisor" is selected in the Strategy Tester
+            if not self.mt4.select_expert_advisor():  # Make sure that "Expert Advisor" is selected in the Strategy Tester
                 self.logger.error(f"Failed to select Expert Advisor in Strategy Tester. Continuing.")
                 return False
 
             ea_name = settings['Expert'].strip()
-            if not self.mt4.choose_EA(ea_name): # Select the EA
+            if not self.mt4.choose_EA(ea_name):  # Select the EA
                 self.logger.error(f"Failed to select EA '{ea_name}'. Continuing.")
                 return False
 
@@ -588,31 +662,31 @@ class StrategyTester:
                 self.logger.error(f"Failed to configure properties for EA '{ea_name}'. Continuing.")
                 return False
 
-            tradeview = self.mt4.wait_for_window(app, title_re=".*Tradeview.*", timeout=7)
-            if tradeview is None:
+            self.mt4.access_application(self.mt4.mt4_exe_path, self.mt4.timeout)
+            if self.mt4.wait_for_window(title_re=".*Tradeview.*", timeout=10) is None:
                 self.logger.error("Failed to re-focus the Tradeview window after configuring properties.")
                 return False
 
             symbol = settings['Symbol'].strip()
-            if not self.mt4.choose_symbol(symbol): # Select the symbol
+            if not self.mt4.choose_symbol(symbol):  # Select the symbol
                 self.logger.error(f"Failed to select symbol '{symbol}'. Continuing.")
                 return False
 
             period = settings['Period'].strip()
-            if not self.mt4.choose_period(period): # Select the period
+            if not self.mt4.choose_period(period):  # Select the period
                 self.logger.error(f"Failed to select period '{period}'. Continuing.")
                 return False
 
             model = settings['Model'].strip()
-            if not self.mt4.choose_modelling(model): # Select the model
+            if not self.mt4.choose_modelling(model):  # Select the model
                 self.logger.error(f"Failed to select model '{model}'. Continuing.")
                 return False
 
-            if not self.mt4.configure_visual_mode(): # Configure Visual mode
+            if not self.mt4.configure_visual_mode():  # Configure Visual mode
                 self.logger.error(f"Failed to uncheck Visual mode. Continuing.")
                 return False
 
-            if not self.mt4.configure_dates(settings['From'], settings['To']): # Configure the dates
+            if not self.mt4.configure_dates(settings['From'], settings['To']):  # Configure the dates
                 self.logger.error(f"Failed to configure the dates. Continuing.")
                 return False
 
@@ -623,11 +697,14 @@ class StrategyTester:
             return False
 
     def run_test(self):
-        '''
-        This starts a back test and waits until it stops.
-        '''
+        """
+        Starts a back test and waits until it stops.
+
+        Returns:
+            bool: True if the test was successfully started and finished, False otherwise.
+        """
         try:
-            if not self.mt4.start_strategy_tester(): # Start the Strategy Tester
+            if not self.mt4.start_strategy_tester():  # Start the Strategy Tester
                 self.logger.error(f"Failed to start the Strategy Tester. Continuing.")
                 return False
 
@@ -644,4 +721,55 @@ class StrategyTester:
             return True
         except Exception as e:
             self.logger.error(f"Exception occurred while waiting for the Strategy Tester to start: {e}")
+            return False
+        
+    def download_report(self, ea_name, count):
+        """
+        Navigates to the Report tab and saves the generated back test report as an HTML file in a folder.
+
+        Args:
+            ea_name (str): The name of the Expert Advisor.
+            count (int): The current count of backtests (to add to the HTML file names)
+
+        Returns:
+            bool: True if the report was successfully saved, False otherwise.
+        """
+        try:
+            if not self.mt4.tester_switch_tab(self.mt4.REPORT_TAB):  # Switch to Report tab
+                self.logger.error(f"Failed to switch to Report tab in the Strategy Tester. Exiting")
+            
+            click('right', (221, 963))  # Simulate right-click to open the context menu
+            self.logger.info("Right-clicked to open the context menu.")
+
+            # Access the context menu and click on the "Save as Report" option
+            app = Application(backend="uia").connect(title="Context")
+            context_menu = app.window(title="Context", control_type="Menu")
+            context_menu.wait("exists", timeout=5)
+            context_menu.child_window(title="Save as Report").click_input()
+            self.logger.info("Report saved successfully.")
+   
+            # Navigate to the File Explorer window to the specified directory
+            new_app = Application(backend="win32").connect(title="Save As")
+            save_as_dialog = new_app.window(title="Save As")
+            save_as_dialog.wait("exists visible", timeout=5)
+            
+            address_bar = save_as_dialog.child_window(title_re=r"Address:.+", class_name='ToolbarWindow32')
+            if address_bar.window_text().replace('Address: ', '') != SHARED_FOLDER_PATH:  # If a different directory is chosen
+                address_bar.click_input()
+                send_keys(SHARED_FOLDER_PATH, with_spaces=True, pause=0.01)
+                send_keys('{ENTER}')
+                self.logger.info(f"Navigated to directory: {SHARED_FOLDER_PATH}")
+
+            # Save the file
+            save_as_dialog.wrapper_object().set_focus() 
+            send_keys('%n')  # Alt+N to select the File name input box
+            send_keys('{BACKSPACE}')
+            file_name = self.mt4.ea_base_name(ea_name)
+            send_keys(file_name+str(count), with_spaces=True, pause=0.01)  # Add a number to the file name to make it unique
+            send_keys('{ENTER}')
+
+            self.logger.info(f"{file_name} Report saved successfully in {SHARED_FOLDER_PATH}")
+            return True
+        except Exception as e:
+            self.logger.error(f"Exception occurred while saving the report: {e}")
             return False
