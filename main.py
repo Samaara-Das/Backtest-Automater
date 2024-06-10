@@ -1,5 +1,5 @@
 from components.settings_reader import SettingsReader
-from components.mt4_controller import MT4Controller, StrategyTester, SHARED_FOLDER_PATH
+from components.mt4_controller import MT4Controller, StrategyTester
 from components.logger import setup_logger
 from components.excel_utils import ExcelUtil
 from components.reports_processor import process_html_file, titles_and_selectors
@@ -13,6 +13,8 @@ logger = setup_logger(__name__)
 REPORT_DATA_FILE_PATH = "D:\\Backtest Report Data.xlsx"
 SETTINGS_EXCEL_PATH = "D:\\Strategy Tester Settings.xlsx"
 HTML_REPORTS_PATH = "D:\\Shared folder of HTML Reports"
+MT4_EXE_PATH = r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\terminal.exe"
+ME_EXE_PATH = r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\metaeditor.exe"
 BROWSER = ChromeBrowser(keep_open=False, headless=True)  # Set headless to True
 EXCEL_UTIL = ExcelUtil(REPORT_DATA_FILE_PATH)
 
@@ -44,7 +46,7 @@ def main():
         # Process existing reports
         process_existing_reports()
 
-        mt4 = MT4Controller()
+        mt4 = MT4Controller(MT4_EXE_PATH, ME_EXE_PATH, HTML_REPORTS_PATH)
         settings_reader = SettingsReader(SETTINGS_EXCEL_PATH)
         strategy_tester = StrategyTester(mt4)
 

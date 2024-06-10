@@ -12,16 +12,14 @@ from pywinauto.timings import TimeoutError
 
 logger = setup_logger(__name__)
 
-MT4_EXE_PATH = r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\terminal.exe"
-ME_EXE_PATH = r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\metaeditor.exe"
-SHARED_FOLDER_PATH = "D:\\Shared folder of HTML Reports" # specify the path to the shared folder which has all the HTML reports
 TIMEOUT = 20
 
 class MT4Controller:
-    def __init__(self):
+    def __init__(self, mt4_exe_path, me_exe_path, reports_folder_path):
         self.logger = logger
-        self.mt4_exe_path = MT4_EXE_PATH
-        self.me_exe_path = ME_EXE_PATH
+        self.mt4_exe_path = mt4_exe_path
+        self.me_exe_path = me_exe_path
+        self.reports_folder_path = reports_folder_path
         self.timeout = TIMEOUT
         self.app = None
         self.tradeview = None
@@ -59,7 +57,7 @@ class MT4Controller:
 
             # Filter only .htm or .html files because those are previous reports
             html_files = [file for file in files if file.endswith('.htm') or file.endswith('.html')]
-            logger.info(f"HTML files in {SHARED_FOLDER_PATH} are {len(html_files)}")
+            logger.info(f"HTML files in {self.reports_folder_path} are {len(html_files)}")
 
             for file in html_files:
                 numbers = self.number_in_filename(file)  # Extract numbers from the current file name
@@ -754,11 +752,11 @@ class StrategyTester:
             save_as_dialog.wait("exists visible", timeout=5)
             
             address_bar = save_as_dialog.child_window(title_re=r"Address:.+", class_name='ToolbarWindow32')
-            if address_bar.window_text().replace('Address: ', '') != SHARED_FOLDER_PATH:  # If a different directory is chosen
+            if address_bar.window_text().replace('Address: ', '') != self.mt4.reports_folder_path:  # If a different directory is chosen
                 address_bar.click_input()
-                send_keys(SHARED_FOLDER_PATH, with_spaces=True, pause=0.01)
+                send_keys(self.mt4.reports_folder_path, with_spaces=True, pause=0.01)
                 send_keys('{ENTER}')
-                self.logger.info(f"Navigated to directory: {SHARED_FOLDER_PATH}")
+                self.logger.info(f"Navigated to directory: {self.mt4.reports_folder_path}")
 
             # Save the file
             save_as_dialog.wrapper_object().set_focus() 
@@ -768,7 +766,7 @@ class StrategyTester:
             send_keys(file_name+str(count), with_spaces=True, pause=0.01)  # Add a number to the file name to make it unique
             send_keys('{ENTER}')
 
-            self.logger.info(f"{file_name} Report saved successfully in {SHARED_FOLDER_PATH}")
+            self.logger.info(f"{file_name} Report saved successfully in {self.mt4.reports_folder_path}")
             return True
         except Exception as e:
             self.logger.error(f"Exception occurred while saving the report: {e}")
