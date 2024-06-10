@@ -7,11 +7,10 @@ name = "pypi"
 psutil = "*"
 pywinauto = "*"
 openpyxl = "*"
-appium-python-client = "*"
 setuptools = "*"
 selenium = "*"
-pillow = "*"
 pyperclip = "*"
+webdriver-manager = "*"
 
 [dev-packages]
 

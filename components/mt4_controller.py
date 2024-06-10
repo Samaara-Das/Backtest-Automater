@@ -15,7 +15,7 @@ logger = setup_logger(__name__)
 MT4_EXE_PATH = r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\terminal.exe"
 ME_EXE_PATH = r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\metaeditor.exe"
 SHARED_FOLDER_PATH = "D:\\Shared folder of HTML Reports" # specify the path to the shared folder which has all the HTML reports
-TIMEOUT = 15
+TIMEOUT = 20
 
 class MT4Controller:
     def __init__(self):
@@ -51,7 +51,7 @@ class MT4Controller:
         Returns:
             int: The greatest number found in the HTML file names or None if no numbers are found.
         """
-        greatest_number = None
+        greatest_number = 0
         html_files = []
 
         try:
@@ -66,13 +66,13 @@ class MT4Controller:
 
                 if numbers:
                     max_number = max(numbers)
-                    if greatest_number is None or max_number > greatest_number: # Update greatest_number if current max is greater
+                    if max_number > greatest_number: # Update greatest_number if current max is greater
                         greatest_number = max_number
 
         except Exception as e:
             logger.error(f"An error occurred: {e}")
 
-        if greatest_number is None:
+        if greatest_number == 0:
             logger.info("No numbers found in the HTML file names.")
         
         return greatest_number

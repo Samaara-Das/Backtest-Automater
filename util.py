@@ -1,5 +1,8 @@
 import sys
+from components.logger import setup_logger
 from io import StringIO
+
+logger = setup_logger(__name__)
 
 def log_control_identifiers(window, output_file_path):
     """
@@ -20,3 +23,16 @@ def log_control_identifiers(window, output_file_path):
     
     finally:
         sys.stdout = original_stdout  # Restore the original standard output
+
+def remove_log():
+    """
+    Cleans up 'app_log.log' by removing all its content.
+    If 'app_log.log' does not exist, it will be created.
+    """
+    try:
+        with open('app_log.log', 'w') as file:
+            pass  # Truncates the file to 0 bytes
+        logger.info("Log file 'app_log.log' has been successfully cleaned up.")
+    except Exception as e:
+        logger.error(f"Failed to clean up the log file 'app_log.log': {e}")
+        raise
