@@ -5,8 +5,7 @@ This module works with the HTML backtest reports on the browser.
 import os
 import time
 from components.logger import setup_logger, INFO
-from browser import By
-from excel_utils import add_data_to_excel, EXCEL_FILE_PATH
+from components.browser import By
 
 # Set up logger for this file
 main_logger = setup_logger(__name__, INFO)
@@ -40,13 +39,14 @@ titles_and_selectors = {
 }
 
 
-def process_html_file(file_path, browser_instance):
+def process_html_file(file_path, browser_instance, add_data_to_excel):
     """
-    Open the HTML report which is at `file_path`, scrape the data from it and add/update it in the Excel file.
+    Open the HTML report which is at `file_path`, scrape the data from it and add/update it in the Backtest Report Data Excel file.
     
     Args:
     - file_path (str): The full path to the HTML file.
     - browser_instance (browser.Browser): The browser instance to use for scraping.
+    - add_data_to_excel (excel_utils.add_data_to_excel): The function to add/update the scraped data in the Backtest Report Data Excel file.
     """
     try:
         time.sleep(1) # Give a delay to let the file fully load in its folder
@@ -68,7 +68,7 @@ def process_html_file(file_path, browser_instance):
                 data[title] = "N/A"
 
         # Append or update the scraped data in the Excel file
-        add_data_to_excel(EXCEL_FILE_PATH, data)
+        add_data_to_excel(data)
     except Exception as e:
         main_logger.error(f'Error processing HTML file {file_path}: {e}')
         raise

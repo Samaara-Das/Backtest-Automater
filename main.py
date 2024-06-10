@@ -1,26 +1,30 @@
 from components.settings_reader import SettingsReader
 from components.mt4_controller import MT4Controller, StrategyTester, SHARED_FOLDER_PATH
 from components.logger import setup_logger
-from backtest_reports_processor import process_html_file
-from browser import ChromeBrowser
+from components.excel_utils import ExcelUtil
+from components.reports_processor import process_html_file, titles_and_selectors
+from components.browser import ChromeBrowser
 from util import remove_log
 import os
 
 logger = setup_logger(__name__)
 
-EXCEL_PATH = "D:\\Strategy Tester Settings.xlsx"
+# specify the path to the Excel file
+REPORT_DATA_FILE_PATH = "D:\\Backtest Report Data.xlsx"
+SETTINGS_EXCEL_PATH = "D:\\Strategy Tester Settings.xlsx"
 HTML_REPORTS_PATH = "D:\\Shared folder of HTML Reports"
 BROWSER = ChromeBrowser(keep_open=False, headless=True)  # Set headless to True
+EXCEL_UTIL = ExcelUtil(REPORT_DATA_FILE_PATH)
 
 def process_existing_reports():
     """
-    Processes all existing HTML reports in the shared folder before running new tests.
+    Processes all existing HTML reports in `HTML_REPORTS_PATH` before running new tests.
     """
     try:
         html_files = [f for f in os.listdir(HTML_REPORTS_PATH) if f.endswith('.html') or f.endswith('.htm')]
         for html_file in html_files:
             report_path = os.path.join(HTML_REPORTS_PATH, html_file)
-            process_html_file(report_path, BROWSER)
+            process_html_file(report_path, BROWSER, EXCEL_UTIL.add_data_to_excel)
             logger.info(f"Processed existing report: {html_file}")
     except Exception as e:
         logger.error(f"Exception occurred while processing existing reports: {e}")
@@ -34,11 +38,14 @@ def main():
     generated reports as HTML files. After saving, it processes the reports.
     """
     try:
+        # Make sure that the Backtest Report Data file exists with the correct headers
+        EXCEL_UTIL.setup_excel_file(titles_and_selectors)
+
         # Process existing reports
         process_existing_reports()
 
         mt4 = MT4Controller()
-        settings_reader = SettingsReader(EXCEL_PATH)
+        settings_reader = SettingsReader(SETTINGS_EXCEL_PATH)
         strategy_tester = StrategyTester(mt4)
 
         settings_list = settings_reader.read_settings()  # Read settings from the Excel file
@@ -64,9 +71,9 @@ def main():
                     logger.error(f"Failed to save the report for settings: {settings}. Continuing.")
                     continue
 
-                # Process the HTML report
+                # Process the newly downloaded HTML report
                 report_path = os.path.join(HTML_REPORTS_PATH, f"{mt4.ea_base_name(settings['Expert'])}{count}.html")
-                process_html_file(report_path, BROWSER)
+                process_html_file(report_path, BROWSER, EXCEL_UTIL.add_data_to_excel)
             except Exception as e:
                 logger.error(f"Exception occurred while configuring the Strategy Tester: {e}")
                 logger.info('Continuing...')
