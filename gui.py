@@ -1,77 +1,102 @@
-import tkinter as tk
-from tkinter import messagebox, filedialog
 import os
-from main import main as run_main, HTML_REPORTS_PATH
+import tkinter as tk
+from tkinter import filedialog, messagebox
+import threading
+from main import main as run_main
 
-def get_html_report_count():
-    return len([f for f in os.listdir(HTML_REPORTS_PATH) if f.endswith('.html') or f.endswith('.htm')])
-
-def select_file(entry):
-    file_path = filedialog.askopenfilename()
-    entry.delete(0, tk.END)
-    entry.insert(0, file_path)
-
-def select_folder(entry):
-    folder_path = filedialog.askdirectory()
-    entry.delete(0, tk.END)
-    entry.insert(0, folder_path)
-
-def start_application():
+# Function to count HTML files in the selected source folder
+def count_html_files(source_folder):
     try:
-        global REPORT_DATA_FILE_PATH, SETTINGS_EXCEL_PATH, HTML_REPORTS_PATH, MT4_EXE_PATH, ME_EXE_PATH
-        
-        # Update constants with user inputs
-        SETTINGS_EXCEL_PATH = settings_path_entry.get()
-        HTML_REPORTS_PATH = html_reports_path_entry.get()
-        MT4_EXE_PATH = mt4_exe_path_entry.get()
-        ME_EXE_PATH = me_exe_path_entry.get()
-        
-        # Run main function from main.py
-        run_main()
-        
-        # Show "Finished!" message for 3 seconds
-        finished_label = tk.Label(root, text="Finished!", font=("Arial", 16))
-        finished_label.grid(row=7, columnspan=2, pady=10)
-        root.after(3000, finished_label.destroy)
+        return len([f for f in os.listdir(source_folder) if f.endswith(".htm") or f.endswith(".html")])
     except Exception as e:
-        messagebox.showerror("Error", f"An error occurred: {e}")
+        return 0
 
-# Create the main window
+# Function to handle Run button click
+def run_script():
+    global settings_excel_path, html_reports_path, mt4_exe_path, me_exe_path, stop_event
+
+    if not html_reports_path or not os.path.exists(html_reports_path):
+        messagebox.showerror("Error", "Please choose a valid HTML Reports Path.")
+        return
+
+    if not settings_excel_path or not os.path.exists(settings_excel_path):
+        messagebox.showerror("Error", "Please choose a valid Settings Excel Path.")
+        return
+
+    if not mt4_exe_path or not os.path.exists(mt4_exe_path):
+        messagebox.showerror("Error", "Please choose a valid MT4 EXE Path.")
+        return
+
+    if not me_exe_path or not os.path.exists(me_exe_path):
+        messagebox.showerror("Error", "Please choose a valid MetaEditor EXE Path.")
+        return
+
+    # Clear the stop event before running the script
+    stop_event.clear()
+
+    # Run the main script in a separate thread to avoid freezing the UI
+    threading.Thread(target=run_main, args=(settings_excel_path, html_reports_path, mt4_exe_path, me_exe_path)).start()
+
+# Function to handle Stop button click
+def stop_script():
+    global stop_event
+    stop_event.set()
+    messagebox.showinfo("Info", "Script execution stopped.")
+
+# Function to select HTML Reports Path
+def select_html_reports_path():
+    global html_reports_path, html_file_count_label
+    html_reports_path = filedialog.askdirectory()
+    html_file_count = count_html_files(html_reports_path)
+    html_file_count_label.config(text=f"Total HTML Reports currently: {html_file_count}")
+
+# Function to select Settings Excel Path
+def select_settings_excel_path():
+    global settings_excel_path
+    settings_excel_path = filedialog.askopenfilename(filetypes=[("Excel files", "*.xlsx"), ("All files", "*.*")])
+
+# Function to select MT4 EXE Path
+def select_mt4_exe_path():
+    global mt4_exe_path
+    mt4_exe_path = filedialog.askopenfilename(filetypes=[("Executable files", "*.exe"), ("All files", "*.*")])
+
+# Function to select MetaEditor EXE Path
+def select_me_exe_path():
+    global me_exe_path
+    me_exe_path = filedialog.askopenfilename(filetypes=[("Executable files", "*.exe"), ("All files", "*.*")])
+
+# Initialize the main window
 root = tk.Tk()
 root.title("Backtest Automater")
 
-# Create and place labels, entry fields, and buttons for each constant
-tk.Label(root, text="Settings Excel Path:").grid(row=1, column=0, padx=10, pady=5, sticky="e")
-settings_path_entry = tk.Entry(root, width=50)
-settings_path_entry.grid(row=1, column=1, padx=10, pady=5)
-settings_path_entry.insert(0, "D:\\Strategy Tester Settings.xlsx")
-tk.Button(root, text="Browse", command=lambda: select_file(settings_path_entry)).grid(row=1, column=2, padx=5)
+html_reports_path = ""
+settings_excel_path = ""
+mt4_exe_path = ""
+me_exe_path = ""
+stop_event = threading.Event()
 
-tk.Label(root, text="HTML Reports Path:").grid(row=2, column=0, padx=10, pady=5, sticky="e")
-html_reports_path_entry = tk.Entry(root, width=50)
-html_reports_path_entry.grid(row=2, column=1, padx=10, pady=5)
-html_reports_path_entry.insert(0, "D:\\Shared folder of HTML Reports")
-tk.Button(root, text="Browse", command=lambda: select_folder(html_reports_path_entry)).grid(row=2, column=2, padx=5)
+# Create and place labels, entry fields, and buttons
+settings_excel_path_entry = tk.Button(root, text="Settings Excel File Path", command=select_settings_excel_path)
+settings_excel_path_entry.pack(pady=10)
 
-tk.Label(root, text="MT4 EXE Path:").grid(row=3, column=0, padx=10, pady=5, sticky="e")
-mt4_exe_path_entry = tk.Entry(root, width=50)
-mt4_exe_path_entry.grid(row=3, column=1, padx=10, pady=5)
-mt4_exe_path_entry.insert(0, r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\terminal.exe")
-tk.Button(root, text="Browse", command=lambda: select_file(mt4_exe_path_entry)).grid(row=3, column=2, padx=5)
+html_reports_path_entry = tk.Button(root, text="HTML Reports Path:", command=select_html_reports_path)
+html_reports_path_entry.pack(pady=10)
 
-tk.Label(root, text="MetaEditor EXE Path:").grid(row=4, column=0, padx=10, pady=5, sticky="e")
-me_exe_path_entry = tk.Entry(root, width=50)
-me_exe_path_entry.grid(row=4, column=1, padx=10, pady=5)
-me_exe_path_entry.insert(0, r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\metaeditor.exe")
-tk.Button(root, text="Browse", command=lambda: select_file(me_exe_path_entry)).grid(row=4, column=2, padx=5)
+html_file_count_label = tk.Label(root, text="Total HTML Reports currently: 0")
+html_file_count_label.pack(pady=5)
 
-# Add a label to show the total number of HTML reports
-html_report_count = get_html_report_count()
-tk.Label(root, text=f"Total HTML Reports currently: {html_report_count}").grid(row=5, columnspan=3, padx=10, pady=5)
+mt4_exe_path_entry = tk.Button(root, text="MT4 EXE Path:", command=select_mt4_exe_path)
+mt4_exe_path_entry.pack(pady=10)
 
-# Add a Start button
-start_button = tk.Button(root, text="Start", command=start_application)
-start_button.grid(row=6, columnspan=3, pady=10)
+me_exe_path_entry = tk.Button(root, text="MetaEditor EXE Path:", command=select_me_exe_path)
+me_exe_path_entry.pack(pady=10)
+
+# Add Run and Stop buttons
+run_button = tk.Button(root, text="Run", command=run_script)
+run_button.pack(pady=10)
+
+stop_button = tk.Button(root, text="Stop", command=stop_script)
+stop_button.pack(pady=10)
 
 # Start the main event loop
 root.mainloop()
