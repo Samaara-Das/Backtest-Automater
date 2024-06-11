@@ -1,3 +1,4 @@
+import os
 from components.settings_reader import SettingsReader
 from components.mt4_controller import MT4Controller, StrategyTester
 from components.logger import setup_logger
@@ -5,7 +6,6 @@ from components.excel_utils import ExcelUtil
 from components.reports_processor import process_html_file, titles_and_selectors
 from components.browser import ChromeBrowser
 from util import remove_log
-import os
 
 logger = setup_logger(__name__)
 
