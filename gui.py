@@ -1,10 +1,10 @@
 import tkinter as tk
 from tkinter import messagebox, filedialog
-import os
+from os import listdir, path
 from main import main as run_main, HTML_REPORTS_PATH
 
 def get_html_report_count():
-    return len([f for f in os.listdir(HTML_REPORTS_PATH) if f.endswith('.html') or f.endswith('.htm')])
+    return len([f for f in listdir(HTML_REPORTS_PATH) if f.endswith('.html') or f.endswith('.htm')])
 
 def select_file(entry):
     file_path = filedialog.askopenfilename()
@@ -18,11 +18,10 @@ def select_folder(entry):
 
 def start_application():
     try:
-        global REPORT_DATA_FILE_PATH, SETTINGS_EXCEL_PATH, HTML_REPORTS_PATH, MT4_EXE_PATH, ME_EXE_PATH
+        global REPORT_DATA_FILE_PATH, SETTINGS_EXCEL_PATH, MT4_EXE_PATH, ME_EXE_PATH
         
         # Update constants with user inputs
         SETTINGS_EXCEL_PATH = settings_path_entry.get()
-        HTML_REPORTS_PATH = html_reports_path_entry.get()
         MT4_EXE_PATH = mt4_exe_path_entry.get()
         ME_EXE_PATH = me_exe_path_entry.get()
         
@@ -47,12 +46,6 @@ settings_path_entry.grid(row=1, column=1, padx=10, pady=5)
 settings_path_entry.insert(0, "D:\\Strategy Tester Settings.xlsx")
 tk.Button(root, text="Browse", command=lambda: select_file(settings_path_entry)).grid(row=1, column=2, padx=5)
 
-tk.Label(root, text="HTML Reports Path:").grid(row=2, column=0, padx=10, pady=5, sticky="e")
-html_reports_path_entry = tk.Entry(root, width=50)
-html_reports_path_entry.grid(row=2, column=1, padx=10, pady=5)
-html_reports_path_entry.insert(0, "D:\\Shared folder of HTML Reports")
-tk.Button(root, text="Browse", command=lambda: select_folder(html_reports_path_entry)).grid(row=2, column=2, padx=5)
-
 tk.Label(root, text="MT4 EXE Path:").grid(row=3, column=0, padx=10, pady=5, sticky="e")
 mt4_exe_path_entry = tk.Entry(root, width=50)
 mt4_exe_path_entry.grid(row=3, column=1, padx=10, pady=5)
@@ -67,7 +60,7 @@ tk.Button(root, text="Browse", command=lambda: select_file(me_exe_path_entry)).g
 
 # Add a label to show the total number of HTML reports
 html_report_count = get_html_report_count()
-tk.Label(root, text=f"Total HTML Reports currently: {html_report_count}").grid(row=5, columnspan=3, padx=10, pady=5)
+tk.Label(root, text=f'Total HTML Reports currently in "{path.basename(HTML_REPORTS_PATH)}": {html_report_count}').grid(row=5, columnspan=3, padx=10, pady=5)
 
 # Add a Start button
 start_button = tk.Button(root, text="Start", command=start_application)
