@@ -15,36 +15,52 @@ SETTINGS_EXCEL_PATH = "D:\\Strategy Tester Settings.xlsx"
 HTML_REPORTS_PATH = "D:\\Shared folder of HTML Reports"
 MT4_EXE_PATH = r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\terminal.exe"
 ME_EXE_PATH = r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\metaeditor.exe"
-BROWSER = ChromeBrowser(keep_open=False, headless=True)  # Set headless to True
-EXCEL_UTIL = ExcelUtil(REPORT_DATA_FILE_PATH)
 
-def process_existing_reports():
+def process_existing_reports(browser, excel_util):
     """
     Processes all existing HTML reports in `HTML_REPORTS_PATH` before running new tests.
+
+    Args:
+        browser (ChromeBrowser): An instance of ChromeBrowser used for processing HTML reports.
+        excel_util (ExcelUtil): An instance of ExcelUtil used to add data to the Excel file.
+
+    Raises:
+        Exception: If an error occurs while processing existing reports.
     """
     try:
         html_files = [f for f in os.listdir(HTML_REPORTS_PATH) if f.endswith('.html') or f.endswith('.htm')]
         for html_file in html_files:
             report_path = os.path.join(HTML_REPORTS_PATH, html_file)
-            process_html_file(report_path, BROWSER, EXCEL_UTIL.add_data_to_excel)
+            process_html_file(report_path, browser, excel_util.add_data_to_excel)
             logger.info(f"Processed existing report: {html_file}")
     except Exception as e:
         logger.error(f"Exception occurred while processing existing reports: {e}")
 
-def main():
+def main(stop_event):
     """
     Main function to run the backtesting automation process.
 
     It processes existing HTML reports, reads settings from an Excel file,
     configures and runs the strategy tester based on the settings, and saves 
     generated reports as HTML files. After saving, it processes the reports.
+
+    Args:
+        stop_event (threading.Event): Event to stop the execution of the function.
+
+    Raises:
+        Exception: If an error occurs during the backtesting automation process.
     """
     try:
+        remove_log()  # Remove the log file
+
+        browser = ChromeBrowser(keep_open=False, headless=True)  # Set headless to True
+        excel_util = ExcelUtil(REPORT_DATA_FILE_PATH)
+
         # Make sure that the Backtest Report Data file exists with the correct headers
-        EXCEL_UTIL.setup_excel_file(titles_and_selectors)
+        excel_util.setup_excel_file(titles_and_selectors)
 
         # Process existing reports
-        process_existing_reports()
+        process_existing_reports(browser, excel_util)
 
         mt4 = MT4Controller(MT4_EXE_PATH, ME_EXE_PATH, HTML_REPORTS_PATH)
         settings_reader = SettingsReader(SETTINGS_EXCEL_PATH)
@@ -54,6 +70,10 @@ def main():
         count = mt4.greatest_count(HTML_REPORTS_PATH)  # Get the current greatest HTML report file number
 
         for settings in settings_list:
+            if stop_event.is_set():
+                logger.info("Stopping execution...")
+                break
+            
             try:
                 if settings['Expert'] is None:
                     logger.info("Skipping row with missing 'Expert' value.")
@@ -75,7 +95,7 @@ def main():
 
                 # Process the newly downloaded HTML report
                 report_path = os.path.join(HTML_REPORTS_PATH, f"{mt4.ea_base_name(settings['Expert'])}{count}.html")
-                process_html_file(report_path, BROWSER, EXCEL_UTIL.add_data_to_excel)
+                process_html_file(report_path, browser, excel_util.add_data_to_excel)
             except Exception as e:
                 logger.error(f"Exception occurred while configuring the Strategy Tester: {e}")
                 logger.info('Continuing...')
@@ -83,7 +103,4 @@ def main():
     except Exception as e:
         logger.error(f"Exception occurred: {e}")
 
-if __name__ == "__main__":
-    remove_log()
-    main()
 

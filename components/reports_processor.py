@@ -41,12 +41,15 @@ titles_and_selectors = {
 
 def process_html_file(file_path, browser_instance, add_data_to_excel):
     """
-    Open the HTML report which is at `file_path`, scrape the data from it and add/update it in the Backtest Report Data Excel file.
+    Opens the HTML report located at `file_path`, scrapes the data from it, and adds/updates it in the Backtest Report Data Excel file.
     
     Args:
-    - file_path (str): The full path to the HTML file.
-    - browser_instance (browser.Browser): The browser instance to use for scraping.
-    - add_data_to_excel (excel_utils.add_data_to_excel): The function to add/update the scraped data in the Backtest Report Data Excel file.
+        file_path (str): The full path to the HTML file.
+        browser_instance (browser.Browser): The browser instance to use for scraping.
+        add_data_to_excel (excel_utils.add_data_to_excel): The function to add/update the scraped data in the Backtest Report Data Excel file.
+    
+    Raises:
+        Exception: If an error occurs during the processing of the HTML file.
     """
     try:
         time.sleep(1) # Give a delay to let the file fully load in its folder
