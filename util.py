@@ -8,8 +8,9 @@ def log_control_identifiers(window, output_file_path):
     """
     Logs the control identifiers of the window object to the specified output file.
 
-    :param window: The object whose control identifiers need to be printed.
-    :param output_file_path: The path of the file where the output should be logged.
+    Args:
+    - window: The object whose control identifiers need to be printed.
+    - output_file_path: The path of the file where the output should be logged.
     """
     original_stdout = sys.stdout  # Save the current standard output
     
