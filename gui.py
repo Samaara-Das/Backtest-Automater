@@ -7,7 +7,7 @@ def get_html_report_count():
     return len([f for f in listdir(HTML_REPORTS_PATH) if f.endswith('.html') or f.endswith('.htm')])
 
 def select_file(entry):
-    file_path = filedialog.askopenfilename()
+    file_path = filedialog.askopenfilename(filetypes=[("Excel files", "*.xlsx"), ("Executable files", "*.exe"), ("All files", "*.*")])
     entry.delete(0, tk.END)
     entry.insert(0, file_path)
 
@@ -16,7 +16,7 @@ def select_folder(entry):
     entry.delete(0, tk.END)
     entry.insert(0, folder_path)
 
-def start_application():
+def start_app():
     try:
         global REPORT_DATA_FILE_PATH, SETTINGS_EXCEL_PATH, MT4_EXE_PATH, ME_EXE_PATH
         
@@ -63,7 +63,7 @@ html_report_count = get_html_report_count()
 tk.Label(root, text=f'Total HTML Reports currently in "{path.basename(HTML_REPORTS_PATH)}": {html_report_count}').grid(row=5, columnspan=3, padx=10, pady=5)
 
 # Add a Start button
-start_button = tk.Button(root, text="Start", command=start_application)
+start_button = tk.Button(root, text="Start", command=start_app)
 start_button.grid(row=6, columnspan=3, pady=10)
 
 # Start the main event loop
