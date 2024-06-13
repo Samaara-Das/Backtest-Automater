@@ -20,7 +20,8 @@ def get_html_report_count():
     Returns:
         int: The number of HTML report files.
     """
-    return len([f for f in listdir(HTML_REPORTS_PATH) if f.endswith('.html') or f.endswith('.htm')])
+    reports_folder = clean_path(reports_folder_path_entry.get())
+    return len([f for f in listdir(reports_folder) if f.endswith('.html') or f.endswith('.htm')])
 
 def select_excel_file(entry):
     """
@@ -44,7 +45,7 @@ def select_exe_file(entry):
     entry.delete(0, tk.END)
     entry.insert(0, file_path)
 
-def run_main_thread(report_data_path, settings_excel_path, html_reports_path, mt4_exe_path, me_exe_path):
+def run_main_thread(report_data_excel_path, settings_excel_path, html_reports_path, mt4_exe_path, me_exe_path):
     """
     Runs the main function in a separate thread and updates the GUI with the completion status.
 
@@ -55,7 +56,7 @@ def run_main_thread(report_data_path, settings_excel_path, html_reports_path, mt
     
     try:
         # Run main function from main.py
-        run_main(stop_event, report_data_path, settings_excel_path, html_reports_path, mt4_exe_path, me_exe_path)
+        run_main(stop_event, report_data_excel_path, settings_excel_path, html_reports_path, mt4_exe_path, me_exe_path)
         
         if not stop_event.is_set():
             # Show "Finished at [time of completion]" message
@@ -77,7 +78,7 @@ def start_app():
     # Fetch path values from entries, clean them
     html_reports_path = clean_path(reports_folder_path_entry.get())
     settings_excel_path = clean_path(settings_path_entry.get())
-    report_data_path = clean_path(backtest_data_path_entry.get())
+    report_data_excel_path = clean_path(backtest_data_path_entry.get())
     mt4_exe_path = clean_path(mt4_exe_path_entry.get())
     me_exe_path = clean_path(me_exe_path_entry.get())
 
@@ -85,7 +86,7 @@ def start_app():
     paths_to_check = [
         (html_reports_path, reports_folder_path_label),
         (settings_excel_path, settings_path_label),
-        (report_data_path, backtest_data_path_label),
+        (report_data_excel_path, backtest_data_path_label),
         (mt4_exe_path, mt4_exe_path_label),
         (me_exe_path, me_exe_path_label)
     ]
@@ -100,7 +101,7 @@ def start_app():
             return
 
     # Start the main function in a new thread with user inputs
-    threading.Thread(target=run_main_thread, args=(report_data_path, settings_excel_path, html_reports_path, mt4_exe_path, me_exe_path)).start()
+    threading.Thread(target=run_main_thread, args=(report_data_excel_path, settings_excel_path, html_reports_path, mt4_exe_path, me_exe_path)).start()
 
 def stop_app():
     """
@@ -162,7 +163,7 @@ tk.Button(root, text="Browse", command=lambda: select_exe_file(me_exe_path_entry
 
 # Add a label to show the total number of HTML reports
 html_report_count = get_html_report_count()
-html_report_label = tk.Label(root, text=f'Total HTML Reports currently in "{path.basename(HTML_REPORTS_PATH)}": {html_report_count}')
+html_report_label = tk.Label(root, text=f'Total reports currently in HTML Reports Folder: {html_report_count}')
 html_report_label.grid(row=6, columnspan=3, padx=10, pady=5)
 
 # Add a Start button
