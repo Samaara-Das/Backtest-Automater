@@ -279,6 +279,40 @@ class MT4Controller:
                 self.tradeview = None
             return None
 
+    def is_visual_mode_visible(self, timeout):
+        """
+        Checks if the Visual Mode in the Strategy Tester is visible.
+
+        Args:
+            timeout (int): The time to wait for the Visual Mode to appear.
+
+        Returns:
+            bool: True if the Visual Mode is visible, False otherwise.
+        """
+        self.logger.info("Checking if the Visual Mode is visible...")
+        try:
+            buttons = self.strategy_tester.children(class_name="Button")
+            for btn in buttons:
+                if btn.window_text() == 'Visual mode':
+                    if btn.is_visible():
+                        self.logger.info("Visual mode is already visible.")
+                        return True
+                    else:
+                        return False
+            
+        except Exception as e:
+            self.logger.error(f"Exception occurred while checking the Visual Mode: {e}")
+            return False
+
+    def maximize_strategy_tester(self):
+        """
+        Increases the height of the Strategy Tester so that all of the elements on it are visible.
+
+        Returns:
+            bool: True if it was successfully maximized, False otherwise.
+        """
+        pass
+
     def is_strategy_tester_open(self, timeout):
         """
         Checks if the Strategy Tester is open.
@@ -753,7 +787,7 @@ class StrategyTester:
             
             address_bar = save_as_dialog.child_window(title_re=r"Address:.+", class_name='ToolbarWindow32')
             if address_bar.window_text().replace('Address: ', '') != self.mt4.reports_folder_path:  # If a different directory is chosen
-                address_bar.click_input()
+                address_bar.wrapper_object().click()
                 send_keys(self.mt4.reports_folder_path, with_spaces=True, pause=0.01)
                 send_keys('{ENTER}')
                 self.logger.info(f"Navigated to directory: {self.mt4.reports_folder_path}")
