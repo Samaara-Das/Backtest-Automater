@@ -2,7 +2,6 @@
 This module contains functions for working with the Backtest Report Data Excel file.
 '''
 
-import os
 import openpyxl
 from openpyxl import Workbook
 from components.logger import setup_logger, INFO
@@ -25,32 +24,21 @@ class ExcelUtil:
         - str: The path to the Excel file.
         """
         try:
-            if not os.path.exists(self.file_path):  # Create a new workbook and add headers if file does not exist
-                wb = Workbook()
-                ws = wb.active
-                ws.title = "Backtest Report Data"
+            # Open the Excel file
+            wb = openpyxl.load_workbook(self.file_path)
+            ws = wb.active
 
-                headers = ["Source File"] + list(titles.keys())
-                ws.append(headers)
+            existing_headers = [cell.value for cell in ws[1]]
+            new_headers = ["Source File"] + list(titles.keys())
 
-                wb.save(self.file_path)
-                main_logger.info(f"Created new Excel file: {self.file_path}")
+            # Add any missing headers to the existing workbook
+            for header in new_headers:
+                if header not in existing_headers:
+                    ws.cell(row=1, column=len(existing_headers) + 1, value=header)
+                    existing_headers.append(header)
 
-            else: # If the file exists, ensure all headers are present
-                wb = openpyxl.load_workbook(self.file_path)
-                ws = wb.active
-
-                existing_headers = [cell.value for cell in ws[1]]
-                new_headers = ["Source File"] + list(titles.keys())
-
-                # Add any missing headers to the existing workbook
-                for header in new_headers:
-                    if header not in existing_headers:
-                        ws.cell(row=1, column=len(existing_headers) + 1, value=header)
-                        existing_headers.append(header)
-
-                wb.save(self.file_path)
-                main_logger.info(f"Verified and updated headers in existing Excel file: {self.file_path}")
+            wb.save(self.file_path)
+            main_logger.info(f"Verified and updated headers in existing Excel file: {self.file_path}")
 
             return self.file_path
         except Exception as e:
@@ -67,7 +55,7 @@ class ExcelUtil:
         """
         try:
             wb = openpyxl.load_workbook(self.file_path)
-            ws = wb.active
+            ws = ws = wb.worksheets[0] # Open the 1st work sheet
 
             source_file = data["Source File"]
             existing_row_idx = None

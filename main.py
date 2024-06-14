@@ -9,16 +9,9 @@ from util import remove_log
 
 logger = setup_logger(__name__)
 
-# specify the path to the Excel file
-REPORT_DATA_FILE_PATH = "D:\\Backtest Report Data.xlsx"
-SETTINGS_EXCEL_PATH = "D:\\Strategy Tester Settings.xlsx"
-HTML_REPORTS_PATH = "D:\\Shared folder of HTML Reports"
-MT4_EXE_PATH = r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\terminal.exe"
-ME_EXE_PATH = r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\metaeditor.exe"
-
-def process_existing_reports(browser, excel_util):
+def process_existing_reports(browser, excel_util, html_reports_path):
     """
-    Processes all existing HTML reports in `HTML_REPORTS_PATH` before running new tests.
+    Processes all existing HTML reports in `html_reports_path` before running new tests.
 
     Args:
         browser (ChromeBrowser): An instance of ChromeBrowser used for processing HTML reports.
@@ -28,9 +21,9 @@ def process_existing_reports(browser, excel_util):
         Exception: If an error occurs while processing existing reports.
     """
     try:
-        html_files = [f for f in os.listdir(HTML_REPORTS_PATH) if f.endswith('.html') or f.endswith('.htm')]
+        html_files = [f for f in os.listdir(html_reports_path) if f.endswith('.html') or f.endswith('.htm')]
         for html_file in html_files:
-            report_path = os.path.join(HTML_REPORTS_PATH, html_file)
+            report_path = os.path.join(html_reports_path, html_file)
             process_html_file(report_path, browser, excel_util.add_data_to_excel)
             logger.info(f"Processed existing report: {html_file}")
     except Exception as e:
@@ -60,7 +53,7 @@ def main(stop_event, reports_data_excel_path, settings_excel_path, html_reports_
         excel_util.setup_excel_file(titles_and_selectors)
 
         # Process existing reports
-        process_existing_reports(browser, excel_util)
+        process_existing_reports(browser, excel_util, html_reports_path)
 
         mt4 = MT4Controller(mt4_exe_path, me_exe_path, html_reports_path)
         settings_reader = SettingsReader(settings_excel_path)

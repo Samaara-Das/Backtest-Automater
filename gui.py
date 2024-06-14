@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import messagebox, filedialog
 from re import sub
 from os import listdir, path
-from main import main as run_main, HTML_REPORTS_PATH
+from main import main as run_main
 from datetime import datetime
 import threading
 
@@ -15,7 +15,7 @@ def clean_path(input_path: str):
 
 def get_html_report_count():
     """
-    Returns the number of HTML reports in `HTML_REPORTS_PATH`.
+    Returns the number of HTML reports in the selected folder in the GUI.
 
     Returns:
         int: The number of HTML report files.
@@ -68,7 +68,8 @@ def run_main_thread(report_data_excel_path, settings_excel_path, html_reports_pa
     finally:
         # Update HTML report count
         post_execution_report_count = get_html_report_count()
-        html_report_label.config(text=f'Total HTML Reports currently in "{path.basename(HTML_REPORTS_PATH)}": {post_execution_report_count}')
+        reports_folder = clean_path(reports_folder_path_entry.get())
+        html_report_label.config(text=f'Total HTML Reports currently in "{path.basename(reports_folder)}": {post_execution_report_count}')
 
 def start_app():
     global stop_event
@@ -97,7 +98,7 @@ def start_app():
             messagebox.showerror("Error", f"{name} is required but not provided.")
             return
         if not path.exists(path):
-            messagebox.showerror("Failure Error", f"The specified path for {name} does not exist: {path}")
+            messagebox.showerror("Failure Error", f"The specified path for {name} does not exist")
             return
 
     # Start the main function in a new thread with user inputs
@@ -116,21 +117,22 @@ def stop_app():
     
     # Update HTML report count
     post_execution_report_count = get_html_report_count()
-    html_report_label.config(text=f'Total HTML Reports currently in "{path.basename(HTML_REPORTS_PATH)}": {post_execution_report_count}')
+    reports_folder = clean_path(reports_folder_path_entry.get())
+    html_report_label.config(text=f'Total HTML Reports currently in "{path.basename(reports_folder)}": {post_execution_report_count}')
 
 # Create the main window
 root = tk.Tk()
 root.title("Backtest Automater")
 
 # Input field and label to type the path of the html reports folder
-reports_folder_path_label = "HTML Reports Folder Path:"
+reports_folder_path_label = "HTML Reports folder"
 tk.Label(root, text=reports_folder_path_label).grid(row=1, column=0, padx=10, pady=5, sticky="e")
 reports_folder_path_entry = tk.Entry(root, width=50)
 reports_folder_path_entry.grid(row=1, column=1, padx=10, pady=5)
-reports_folder_path_entry.insert(0, r"D:\Shared folder of HTML Reports")
+# reports_folder_path_entry.insert(0, r"D:\Shared folder of HTML Reports")
 
 # Input field and label to select the Settings Excel file
-settings_path_label = "Settings Excel Path:"
+settings_path_label = "Settings file"
 tk.Label(root, text=settings_path_label).grid(row=2, column=0, padx=10, pady=5, sticky="e")
 settings_path_entry = tk.Entry(root, width=50)
 settings_path_entry.grid(row=2, column=1, padx=10, pady=5)
@@ -138,7 +140,7 @@ settings_path_entry.insert(0, "D:\\Strategy Tester Settings.xlsx")
 tk.Button(root, text="Browse", command=lambda: select_excel_file(settings_path_entry)).grid(row=2, column=2, padx=5)
 
 # Input field and label to select the Back test data Excel file
-backtest_data_path_label = "Back Test Data Excel Path:"
+backtest_data_path_label = "Back Test Data file"
 tk.Label(root, text=backtest_data_path_label).grid(row=3, column=0, padx=10, pady=5, sticky="e")
 backtest_data_path_entry = tk.Entry(root, width=50)
 backtest_data_path_entry.grid(row=3, column=1, padx=10, pady=5)
@@ -146,7 +148,7 @@ backtest_data_path_entry.insert(0, "D:\\Backtest Report Data.xlsx")
 tk.Button(root, text="Browse", command=lambda: select_excel_file(backtest_data_path_entry)).grid(row=3, column=2, padx=5)
 
 # Input field and label to select the MT4 exe path
-mt4_exe_path_label = "MT4 EXE Path:"
+mt4_exe_path_label = "MT4 exe"
 tk.Label(root, text=mt4_exe_path_label).grid(row=4, column=0, padx=10, pady=5, sticky="e")
 mt4_exe_path_entry = tk.Entry(root, width=50)
 mt4_exe_path_entry.grid(row=4, column=1, padx=10, pady=5)
@@ -154,7 +156,7 @@ mt4_exe_path_entry.insert(0, r"C:\Program Files (x86)\Tradeview MetaTrader 4 Ter
 tk.Button(root, text="Browse", command=lambda: select_exe_file(mt4_exe_path_entry)).grid(row=4, column=2, padx=5)
 
 # Input field and label to select the MetaEditor exe path
-me_exe_path_label = "MetaEditor EXE Path:"
+me_exe_path_label = "MetaEditor exe"
 tk.Label(root, text=me_exe_path_label).grid(row=5, column=0, padx=10, pady=5, sticky="e")
 me_exe_path_entry = tk.Entry(root, width=50)
 me_exe_path_entry.grid(row=5, column=1, padx=10, pady=5)
