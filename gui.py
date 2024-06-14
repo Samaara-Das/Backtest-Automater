@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox, filedialog
 from re import sub
-from os import listdir, path
+from os import listdir, path as os_path
 from main import main as run_main
 from datetime import datetime
 import threading
@@ -15,13 +15,16 @@ def clean_path(input_path: str):
 
 def get_html_report_count():
     """
-    Returns the number of HTML reports in the selected folder in the GUI.
+    Returns the number of HTML reports in the selected folder in the GUI. In the case of an exception, `None` is returned.
 
     Returns:
         int: The number of HTML report files.
     """
-    reports_folder = clean_path(reports_folder_path_entry.get())
-    return len([f for f in listdir(reports_folder) if f.endswith('.html') or f.endswith('.htm')])
+    try:
+        reports_folder = clean_path(reports_folder_path_entry.get())
+        return len([f for f in listdir(reports_folder) if f.endswith('.html') or f.endswith('.htm')])
+    except Exception as e:
+        return None
 
 def select_excel_file(entry):
     """
@@ -69,7 +72,7 @@ def run_main_thread(report_data_excel_path, settings_excel_path, html_reports_pa
         # Update HTML report count
         post_execution_report_count = get_html_report_count()
         reports_folder = clean_path(reports_folder_path_entry.get())
-        html_report_label.config(text=f'Total HTML Reports currently in "{path.basename(reports_folder)}": {post_execution_report_count}')
+        html_report_label.config(text=f'Total HTML Reports currently in "{os_path.basename(reports_folder)}": {post_execution_report_count}')
 
 def start_app():
     global stop_event
@@ -97,7 +100,7 @@ def start_app():
         if not path:
             messagebox.showerror("Error", f"{name} is required but not provided.")
             return
-        if not path.exists(path):
+        if not os_path.exists(path):
             messagebox.showerror("Failure Error", f"The specified path for {name} does not exist")
             return
 
@@ -118,7 +121,7 @@ def stop_app():
     # Update HTML report count
     post_execution_report_count = get_html_report_count()
     reports_folder = clean_path(reports_folder_path_entry.get())
-    html_report_label.config(text=f'Total HTML Reports currently in "{path.basename(reports_folder)}": {post_execution_report_count}')
+    html_report_label.config(text=f'Total HTML Reports currently in "{os_path.basename(reports_folder)}": {post_execution_report_count}')
 
 # Create the main window
 root = tk.Tk()

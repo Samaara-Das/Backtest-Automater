@@ -11,6 +11,7 @@ setuptools = "*"
 selenium = "*"
 pyperclip = "*"
 webdriver-manager = "*"
+pyinstaller = "*"
 
 [dev-packages]
 
