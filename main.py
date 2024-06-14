@@ -46,7 +46,7 @@ def main(stop_event, reports_data_excel_path, settings_excel_path, html_reports_
     try:
         remove_log()  # Remove the log file
 
-        browser = ChromeBrowser(keep_open=False, headless=False)  # Set headless to True
+        browser = ChromeBrowser(keep_open=False, headless=True)  # Set headless to True
         excel_util = ExcelUtil(reports_data_excel_path)
 
         # Make sure that the Backtest Report Data file exists with the correct headers
