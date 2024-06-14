@@ -1,3 +1,4 @@
+import sys
 import tkinter as tk
 from tkinter import messagebox, filedialog
 from re import sub
@@ -5,6 +6,14 @@ from os import listdir, path as os_path
 from main import main as run_main
 from datetime import datetime
 import threading
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os_path.abspath(".")
+
+    return os_path.join(base_path, relative_path)
 
 # Global variable to signal the stopping of the thread
 stop_event = threading.Event()
@@ -126,7 +135,7 @@ def stop_app():
 # Create the main window
 root = tk.Tk()
 root.title("Backtest Automater")
-root.iconbitmap("icon.ico")
+# root.iconbitmap(resource_path("icon.ico"))
 
 # Input field and label to type the path of the html reports folder
 reports_folder_path_label = "HTML Reports folder"
