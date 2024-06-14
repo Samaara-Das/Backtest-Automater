@@ -126,6 +126,7 @@ def stop_app():
 # Create the main window
 root = tk.Tk()
 root.title("Backtest Automater")
+root.iconbitmap("icon.ico")
 
 # Input field and label to type the path of the html reports folder
 reports_folder_path_label = "HTML Reports folder"
