@@ -1,5 +1,5 @@
 from time import sleep
-from datetime import datetime
+from datetime import datetime, timedelta
 from pywinauto import Application
 from pywinauto.keyboard import send_keys
 from pywinauto.mouse import click
@@ -95,8 +95,7 @@ class MT4Controller:
             self.logger.info("Clicked on 'Modify expert' button")
 
             self.access_application(self.me_exe_path, self.timeout)
-            editor = self.wait_for_window(title_re=".*MetaEditor.*", timeout=self.timeout)
-            editor.set_focus()
+            editor = self.wait_for_window(title_re=".*MetaEditor.*", total_timeout=self.timeout)
             editor.maximize()
 
             file = editor.child_window(best_match=self.ea_base_name(ea_name) + ".mq4")
@@ -118,12 +117,11 @@ class MT4Controller:
                     self.logger.info(f"Value of property '{name}' failed to be modified. Skipping.")
 
             copy(modified_code)
-            send_keys('^v')
-            send_keys('{F7}')
+            send_keys('^v') # Paste the modified code back into the editor
+            send_keys('{F7}') # Compile
             sleep(1)
-            send_keys('^{F4}')
-            send_keys('%{F4}')
-            self.logger.info("Confirmed the changes and closed the Expert properties window")
+            send_keys('^{F4}') # Close the mq4 file
+            self.logger.info("Compiled file and closed it.")
             return True
         except Exception as e:
             self.logger.error(f"An error occurred while configuring expert properties: {e}")
@@ -254,34 +252,45 @@ class MT4Controller:
             logger.error(f"Exception occurred while accessing the application: {e}")
             return None
 
-    def wait_for_window(self, title_re, timeout):
+    def wait_for_window(self, title_re, total_timeout):
         """
-        Waits for a window with the given title to appear.
+        Waits for a window with the given title to appear within the `total_timeout` duration.
 
         Args:
             title_re (str): The regular expression to match the window title.
-            timeout (int): The time to wait for the window.
+            total_timeout (int): The total time to wait for the window.
 
         Returns:
-            WindowSpecification: The matched window object.
+            WindowSpecification: The matched window object if found, None otherwise.
         """
         try:
-            window = self.app.window(title_re=title_re)
-            self.logger.info(f"Waiting for window with title matching: {title_re}.")
-            window.wait("exists visible", timeout=timeout)
-            self.logger.info("Window found and ready.")
+            start_time = datetime.now()
+            while datetime.now() - start_time < timedelta(seconds=total_timeout):
+                try:
+                    window = self.app.window(title_re=title_re)
+                    window.wait("exists visible", timeout=4)  # Reduced timeout for each check
+                    self.logger.info(f"Window with title matching: {title_re} found and ready.")
+                    if 'Tradeview' in title_re:
+                        self.tradeview = window
+                    window.set_focus()
+                    return window
+                except Exception as check_exception:
+                    self.logger.info(f"Window not found on this check, retrying... Error: {check_exception}")
+                    sleep(1)  # Brief sleep before retrying
+                    
+            self.logger.error(f"Window with title {title_re} not found after {total_timeout} seconds.")
             if 'Tradeview' in title_re:
-                self.tradeview = window
-            return window
+                self.tradeview = None
+            return None
         except Exception as e:
-            self.logger.error(f"Exception occurred while waiting for the window: {e}")
+            self.logger.error(f"Exception during window search: {e}")
             if 'Tradeview' in title_re:
                 self.tradeview = None
             return None
 
     def is_visual_mode_visible(self, timeout):
         """
-        Checks if the Visual Mode in the Strategy Tester is visible.
+        Checks if the Visual Mode in the Strategy Tester is visible. This is to be used later.
 
         Args:
             timeout (int): The time to wait for the Visual Mode to appear.
@@ -365,13 +374,13 @@ class MT4Controller:
         try:
             self.logger.info("Checking for 'Indicator' combo box...")
             indicator_combo = self.strategy_tester.child_window(title="Indicator", class_name="ComboBox")
-            indicator_combo.wait('exists visible', timeout=7)
+            indicator_combo.wait_not('exists visible', timeout=2)
+            self.logger.error(f"Expert Advisor has already been chosen")
+            return True
+        except TimeoutError as e: # If a TimeoutError occurrs, Expert Advisor needs to be selected
             self.logger.info("Changing the value of 'Indicator' combo box to 'Expert Advisor'.")
             indicator_combo.select("Expert Advisor")
             self.logger.info("Successfully changed the value to 'Expert Advisor'.")
-            return True
-        except TimeoutError as e:
-            self.logger.error(f"It is likely that Expert Advisor has already been chosen")
             return True
         except Exception as e:
             self.logger.error(f"Exception occurred while selecting Expert Advisor: {e}")
@@ -633,11 +642,10 @@ class MT4Controller:
         """
         try:
             self.access_application(self.mt4_exe_path, self.timeout)
-            if self.wait_for_window(title_re=".*Tradeview.*", timeout=self.timeout) is None:
+            if self.wait_for_window(title_re=".*Tradeview.*", total_timeout=self.timeout) is None:
                 self.logger.error("Failed to find the Tradeview window.")
                 return False
 
-            self.tradeview.set_focus()
             if not self.tradeview.is_maximized():
                 self.tradeview.maximize()
                 self.logger.info("Tradeview window maximized.")
@@ -695,7 +703,7 @@ class StrategyTester:
                 return False
 
             self.mt4.access_application(self.mt4.mt4_exe_path, self.mt4.timeout)
-            if self.mt4.wait_for_window(title_re=".*Tradeview.*", timeout=10) is None:
+            if self.mt4.wait_for_window(title_re=".*Tradeview.*", total_timeout=10) is None:
                 self.logger.error("Failed to re-focus the Tradeview window after configuring properties.")
                 return False
 

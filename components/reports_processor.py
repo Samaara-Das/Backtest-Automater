@@ -52,10 +52,13 @@ def process_html_file(file_path, browser_instance, add_data_to_excel):
         Exception: If an error occurs during the processing of the HTML file.
     """
     try:
-        time.sleep(1) # Give a delay to let the file fully load in its folder
         real_path = 'file:\\' + os.path.realpath(file_path).replace('html', 'htm')
         browser_instance.open_page(real_path)
         time.sleep(1)
+
+        # Check if there's an error when opening the file in the browser
+        if browser_instance.is_no_error(1.5) == False:
+            browser_instance.refresh_page() # if there's an error, refresh the page so that the file can load
 
         # Dictionary to hold the scraped data
         data = {"Source File": file_path}

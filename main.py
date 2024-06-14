@@ -46,7 +46,7 @@ def main(stop_event, reports_data_excel_path, settings_excel_path, html_reports_
     try:
         remove_log()  # Remove the log file
 
-        browser = ChromeBrowser(keep_open=False, headless=True)  # Set headless to True
+        browser = ChromeBrowser(keep_open=False, headless=False)  # Set headless to True
         excel_util = ExcelUtil(reports_data_excel_path)
 
         # Make sure that the Backtest Report Data file exists with the correct headers
@@ -60,7 +60,7 @@ def main(stop_event, reports_data_excel_path, settings_excel_path, html_reports_
         strategy_tester = StrategyTester(mt4)
 
         settings_list = settings_reader.read_settings()  # Read settings from the Excel file
-        count = mt4.greatest_count(reports_data_excel_path)  # Get the current greatest HTML report file number
+        count = mt4.greatest_count(html_reports_path)  # Get the current greatest HTML report file number
 
         for settings in settings_list:
             if stop_event.is_set():
@@ -87,7 +87,7 @@ def main(stop_event, reports_data_excel_path, settings_excel_path, html_reports_
                     continue
 
                 # Process the newly downloaded HTML report
-                report_path = os.path.join(reports_data_excel_path, f"{mt4.ea_base_name(settings['Expert'])}{count}.html")
+                report_path = os.path.join(html_reports_path, f"{mt4.ea_base_name(settings['Expert'])}{count}.html")
                 process_html_file(report_path, browser, excel_util.add_data_to_excel)
             except Exception as e:
                 logger.error(f"Exception occurred while configuring the Strategy Tester: {e}")
