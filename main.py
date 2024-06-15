@@ -5,7 +5,7 @@ from components.logger import setup_logger
 from components.excel_utils import ExcelUtil
 from components.reports_processor import process_html_file, titles_and_selectors
 from components.browser import ChromeBrowser
-from util import remove_log
+from util import clean_log, keep_log_light
 
 logger = setup_logger(__name__)
 
@@ -44,7 +44,7 @@ def main(stop_event, reports_data_excel_path, settings_excel_path, html_reports_
         Exception: If an error occurs during the backtesting automation process.
     """
     try:
-        remove_log()  # Remove the log file
+        clean_log()  # Remove the content of the log file
 
         browser = ChromeBrowser(keep_open=False, headless=True)  # Set headless to True
         excel_util = ExcelUtil(reports_data_excel_path)
@@ -66,7 +66,9 @@ def main(stop_event, reports_data_excel_path, settings_excel_path, html_reports_
             if stop_event.is_set():
                 logger.info("Stopping execution...")
                 break
-            
+
+            keep_log_light()  # Keep the log file size small by removing old logs
+
             try:
                 if settings['Expert'] is None:
                     logger.info("Skipping row with missing 'Expert' value.")
