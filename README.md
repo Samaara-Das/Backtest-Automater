@@ -24,4 +24,4 @@ I spent time trying to get the backtestAutomater.exe to run fine but since it wa
 4. Install the Backtest Automater.exe file to download a folder, 
 5. Open the backtestAutomater.exe file in that folder
 6. Log into your MT4 account in the sandbox
-7. Configure the GUI
+7. Configure the GUI in the exe application
