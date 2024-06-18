@@ -18,11 +18,11 @@ The application uses `pywinauto` for automation.
 - MT4 should exist on the desktop
 
 ## What to do in the GUI
-**HTML Reports folder**: This is supposed to be the path of the HTML Reports folder.
-**Settings file**: This is supposed to be the path of the Settings file.
-**Back Test Data file**: This is supposed to be the path the Back Test Data file.
-**MT4 exe**: This is supposed to be the path of a terminal.exe file.
-**MetaEditor exe**: This is supposed to be the path of a metaeditor.exe file.
+- **HTML Reports folder**: This is supposed to be the path of the HTML Reports folder.
+- **Settings file**: This is supposed to be the path of the Settings file.
+- **Back Test Data file**: This is supposed to be the path the Back Test Data file.
+- **MT4 exe**: This is supposed to be the path of a terminal.exe file.
+- **MetaEditor exe**: This is supposed to be the path of a metaeditor.exe file.
 
 Note: If the Stop button is clicked, the application will stop running after the current test is complete. So, it won't stop immediately.
 
