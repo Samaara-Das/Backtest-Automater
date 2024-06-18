@@ -1,0 +1,24 @@
+<Configuration>
+  <MappedFolders>
+    <MappedFolder>
+      <HostFolder>C:\Users\Puja\Work\Coding\Python\For Poolsifi\Backtest Automater</HostFolder>
+      <SandboxFolder>C:\Users\WDAGUtilityAccount\Desktop</SandboxFolder>
+      <ReadOnly>true</ReadOnly>
+    </MappedFolder>
+    <MappedFolder>
+      <HostFolder>D:\</HostFolder>
+      <SandboxFolder>C:\DFolder</SandboxFolder>
+      <ReadOnly>false</ReadOnly>
+    </MappedFolder>
+    <MappedFolder>
+      <HostFolder>C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal</HostFolder>
+      <SandboxFolder>C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal</SandboxFolder>
+      <ReadOnly>true</ReadOnly>
+    </MappedFolder>
+    <MappedFolder>
+      <HostFolder>C:\Users\Puja\AppData\Roaming\MetaQuotes</HostFolder>
+      <SandboxFolder>C:\Users\WDAGUtilityAccount\AppData\Roaming\MetaQuotes</SandboxFolder>
+      <ReadOnly>true</ReadOnly>
+    </MappedFolder>
+  </MappedFolders>
+</Configuration>
