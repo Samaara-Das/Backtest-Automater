@@ -13,7 +13,7 @@ The application uses `pywinauto` for automation.
 
 ## Pre-requisites
 - Have a folder which will store all the generated back test reports. This will be referred to as "HTML Reports".
-- Have an Excel file filled with settings which will be configured on the Strategy Tester. This will be referred to as "Settings". Intructions on filling it up are here.
+- Have an Excel file filled with settings which will be configured on the Strategy Tester. This will be referred to as "Settings". Intructions on filling it up are under the **"Instructions on filling the Settings file"** section.
 - Have a blank Excel file which stores extracted data from back test reports. This will be referred to as "Back Test Data".
 - MT4 should exist on the desktop
 
