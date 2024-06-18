@@ -24,7 +24,7 @@ The application uses `pywinauto` for automation.
 - **MT4 exe**: This is supposed to be the path of a terminal.exe file.
 - **MetaEditor exe**: This is supposed to be the path of a metaeditor.exe file.
 
-Note: If the Stop button is clicked, the application will stop running after the current test is complete. So, it won't stop immediately.
+Note: If the Stop button is clicked, the application will stop running after the current test is completed and not immediately. So, please be patient.
 
 ## Instructions on filling the Settings file
 1. The settings below should be filled up in the 1st worksheet of the Excel file.
