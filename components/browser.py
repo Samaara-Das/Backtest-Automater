@@ -1,6 +1,9 @@
-from components.logger import setup_logger, INFO
+from os import getenv
+from logger import setup_logger, INFO
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.core.utils import read_version_from_cmd 
+from webdriver_manager.core.os_manager import PATTERN
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -11,18 +14,25 @@ from selenium.webdriver.support import expected_conditions as EC
 # Set up logger for this file
 main_logger = setup_logger(__name__, INFO)
 
-CHROME_PROFILE_PATH = 'C:\\Users\\Puja\\AppData\\Local\\Google\\Chrome\\User Data'
+CHROME_PROFILES_PATH = getenv('CHROME_PROFILES_PATH')
+CHROMEDRIVER_EXE_PATH = getenv('CHROMEDRIVER_EXE_PATH')
 
 class ChromeBrowser:
-
     def __init__(self, keep_open: bool, headless: bool) -> None:
         chrome_options = Options() 
+        # the application will run without opening the chrome browser and be lightwight on system resources. This also won't interfere with other selenium controlled browsers.
         if headless:
-            chrome_options.add_argument('--headless') # the application will run without opening the chrome browser and be lightwight on system resources. This also won't interfere with other selenium controlled browsers.
+            chrome_options.add_argument('--headless') 
+        
         chrome_options.add_experimental_option("detach", keep_open)
         chrome_options.add_argument('--profile-directory=Profile 2')
-        chrome_options.add_argument(f"--user-data-dir={CHROME_PROFILE_PATH}")
-        self.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
+        chrome_options.add_argument(f"--user-data-dir={CHROME_PROFILES_PATH}")
+
+        cmd = "powershell -command \"&{(Get-Item 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe').VersionInfo.ProductVersion}\""
+        version = read_version_from_cmd(cmd, PATTERN["google-chrome"])
+        service = ChromeDriverManager(driver_version=version).install()
+        self.driver = webdriver.Chrome(service=ChromeService(service), options=chrome_options)
+
         main_logger.info('Chrome Browser initialized')
 
     def open_page(self, url: str):

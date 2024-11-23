@@ -236,16 +236,17 @@ class MT4Controller:
             Application: The connected application object.
         """
         try:
+            self.logger.info(f"Attempting to access application at path: {exe_path}")
             pid = self.is_application_running(exe_path)
 
             if pid == False:
                 return None
             elif pid:
                 logger.info(f"Connecting to the running instance with PID: {pid}.")
-                self.app = Application(backend="win32").connect(process=pid)
+                self.app = Application(backend="uia").connect(process=pid)
             else:
                 logger.info(f"Starting the application from path: {exe_path}.")
-                self.app = Application(backend="win32").start(exe_path, timeout=timeout)
+                self.app = Application(backend="uia").start(exe_path, timeout=timeout)
             
             return self.app
         except Exception as e:

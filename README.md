@@ -1,6 +1,6 @@
 # Backtest Automater
 
-Backtest Automater automates running back tests on MT4 and extracting data from generated back test reports. 
+Backtest Automater automates running back tests on MT4 using desktop automation and extracting data from generated back test reports. 
 This is how it works:
 - extracts data from existing HTML back test reports to an Excel file referred to as "Back Test Data".
 - reads settings from another Excel file.
@@ -9,7 +9,7 @@ This is how it works:
 - downloads the generated reports into a folder.
 - extracts data from these reports to "Back Test Data". 
 
-The application uses `pywinauto` for automation.
+The Python application uses `pywinauto` for automation.
 
 ## Pre-requisites
 - Have a folder which will store all the generated back test reports. This will be referred to as "HTML Reports".

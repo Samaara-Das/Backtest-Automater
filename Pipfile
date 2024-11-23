@@ -10,8 +10,8 @@ openpyxl = "*"
 setuptools = "*"
 selenium = "*"
 pyperclip = "*"
-webdriver-manager = "*"
 pyinstaller = "*"
+webdriver-manager = "*"
 
 [dev-packages]
 
