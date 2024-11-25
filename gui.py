@@ -159,7 +159,7 @@ reports_folder_path_label = "HTML Reports folder"
 tk.Label(root, text=reports_folder_path_label).grid(row=1, column=0, padx=10, pady=5, sticky="e")
 reports_folder_path_entry = tk.Entry(root, width=50)
 reports_folder_path_entry.grid(row=1, column=1, padx=10, pady=5)
-reports_folder_path_entry.insert(0, r"D:\Shared folder of HTML Reports")
+reports_folder_path_entry.insert(0, r"E:\HTML Backtest Reports")
 tk.Button(root, text="Browse", command=lambda: select_excel_file(reports_folder_path_entry)).grid(row=1, column=2, padx=5)
 
 # Input field and label to select the Settings Excel file
@@ -167,7 +167,7 @@ settings_path_label = "Settings file"
 tk.Label(root, text=settings_path_label).grid(row=2, column=0, padx=10, pady=5, sticky="e")
 settings_path_entry = tk.Entry(root, width=50)
 settings_path_entry.grid(row=2, column=1, padx=10, pady=5)
-settings_path_entry.insert(0, "D:\\Strategy Tester Settings.xlsx")
+settings_path_entry.insert(0, r"E:\downloads\Strategy Tester Settings.xlsx")
 tk.Button(root, text="Browse", command=lambda: select_excel_file(settings_path_entry)).grid(row=2, column=2, padx=5)
 
 # Input field and label to select the Back test data Excel file
@@ -175,7 +175,7 @@ backtest_data_path_label = "Back Test Data file"
 tk.Label(root, text=backtest_data_path_label).grid(row=3, column=0, padx=10, pady=5, sticky="e")
 backtest_data_path_entry = tk.Entry(root, width=50)
 backtest_data_path_entry.grid(row=3, column=1, padx=10, pady=5)
-backtest_data_path_entry.insert(0, "D:\\Backtest Report Data.xlsx")
+backtest_data_path_entry.insert(0, r"E:\downloads\Backtest Report Data.xlsx")
 tk.Button(root, text="Browse", command=lambda: select_excel_file(backtest_data_path_entry)).grid(row=3, column=2, padx=5)
 
 # Input field and label to select the MT4 exe path
@@ -183,7 +183,7 @@ mt4_exe_path_label = "MT4 exe"
 tk.Label(root, text=mt4_exe_path_label).grid(row=4, column=0, padx=10, pady=5, sticky="e")
 mt4_exe_path_entry = tk.Entry(root, width=50)
 mt4_exe_path_entry.grid(row=4, column=1, padx=10, pady=5)
-mt4_exe_path_entry.insert(0, r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\terminal.exe")
+mt4_exe_path_entry.insert(0, r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal - 2\terminal.exe")
 tk.Button(root, text="Browse", command=lambda: select_exe_file(mt4_exe_path_entry)).grid(row=4, column=2, padx=5)
 
 # Input field and label to select the MetaEditor exe path
@@ -191,7 +191,7 @@ me_exe_path_label = "MetaEditor exe"
 tk.Label(root, text=me_exe_path_label).grid(row=5, column=0, padx=10, pady=5, sticky="e")
 me_exe_path_entry = tk.Entry(root, width=50)
 me_exe_path_entry.grid(row=5, column=1, padx=10, pady=5)
-me_exe_path_entry.insert(0, r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\metaeditor.exe")
+me_exe_path_entry.insert(0, r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal - 2\metaeditor.exe")
 tk.Button(root, text="Browse", command=lambda: select_exe_file(me_exe_path_entry)).grid(row=5, column=2, padx=5)
 
 # Input field and label to select the Chrome Profile folder
@@ -199,7 +199,7 @@ chrome_profile_path_label = "Chrome Profile Path"
 tk.Label(root, text=chrome_profile_path_label).grid(row=6, column=0, padx=10, pady=5, sticky="e")
 chrome_profile_path_entry = tk.Entry(root, width=50)
 chrome_profile_path_entry.grid(row=6, column=1, padx=10, pady=5)
-chrome_profile_path_entry.insert(0, r"C:\Users\user\AppData\Local\Google\Chrome\User Data\Profile 2")
+chrome_profile_path_entry.insert(0, r"C:\Users\Ai Ticks\AppData\Local\Google\Chrome\User Data\Profile 8")
 
 # Add a label to show the total number of HTML reports
 html_report_count = get_html_report_count()

@@ -1,0 +1,115 @@
+components.browser.py __init__() INFO: Chrome Browser initialized 11.25.24 21:49:52
+components.settings_reader.py read_settings() INFO: Attempting to load the workbook from E:\downloads\Strategy Tester Settings.xlsx 11.25.24 21:49:52
+components.settings_reader.py read_settings() INFO: Successfully read the Excel file and converted it to a list of dictionaries 11.25.24 21:49:52
+components.settings_reader.py read_settings() INFO: Attempting to load the workbook from E:\downloads\Strategy Tester Settings.xlsx 11.25.24 21:49:52
+components.settings_reader.py read_settings() INFO: Successfully read the Excel file and converted it to a list of dictionaries 11.25.24 21:49:52
+components.mt4_controller.py greatest_count() INFO: HTML files in E:\HTML Backtest Reports are 0 11.25.24 21:49:52
+components.mt4_controller.py greatest_count() INFO: No numbers found in the HTML file names. 11.25.24 21:49:52
+util.py keep_log_light() INFO: Log file 'app_log.log' has been truncated to the last 500 lines. 11.25.24 21:49:52
+components.mt4_controller.py access_application() INFO: Attempting to access application at path: C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal - 2\terminal.exe 11.25.24 21:49:52
+components.mt4_controller.py is_application_running() INFO: Checking if the application is already running. 11.25.24 21:49:52
+components.mt4_controller.py is_application_running() INFO: Application is already running with PID: 1876 11.25.24 21:49:52
+components.mt4_controller.py access_application() INFO: Connecting to the running instance with PID: 1876. 11.25.24 21:49:52
+components.mt4_controller.py wait_for_window() INFO: Window with title matching: .*Tradeview.* found and ready. 11.25.24 21:49:52
+components.mt4_controller.py setup_MT4() INFO: Tradeview window maximized. 11.25.24 21:49:53
+components.mt4_controller.py is_strategy_tester_open() INFO: Checking if the Strategy Tester is open... 11.25.24 21:49:54
+components.mt4_controller.py is_strategy_tester_open() INFO: Strategy Tester is open. 11.25.24 21:49:54
+components.mt4_controller.py tester_switch_tab() INFO: Successfully switched to tab: Settings 11.25.24 21:49:54
+components.mt4_controller.py select_expert_advisor() INFO: Checking for 'Indicator' combo box... 11.25.24 21:49:55
+components.mt4_controller.py select_expert_advisor() ERROR: Expert Advisor has already been chosen 11.25.24 21:49:55
+components.mt4_controller.py choose_EA() INFO: Searching for the Expert input in the Strategy Tester 11.25.24 21:49:55
+components.mt4_controller.py choose_EA() INFO: Navigating through options to find 'Waverunner Kernel AO.ex4' 11.25.24 21:49:57
+components.mt4_controller.py choose_EA() INFO: Found 'Waverunner Kernel AO.ex4' in the options. 11.25.24 21:49:57
+components.mt4_controller.py configure_expert_properties() INFO: Clicked on 'Modify expert' button 11.25.24 21:49:58
+components.mt4_controller.py access_application() INFO: Attempting to access application at path: C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal - 2\metaeditor.exe 11.25.24 21:49:58
+components.mt4_controller.py is_application_running() INFO: Checking if the application is already running. 11.25.24 21:49:58
+components.mt4_controller.py is_application_running() INFO: Application is already running with PID: 6976 11.25.24 21:49:58
+components.mt4_controller.py access_application() INFO: Connecting to the running instance with PID: 6976. 11.25.24 21:49:58
+components.mt4_controller.py wait_for_window() INFO: Window with title matching: .*MetaEditor.* found and ready. 11.25.24 21:49:59
+components.mt4_controller.py replace_value() INFO: Successfully replaced the value in the string. 11.25.24 21:49:59
+components.mt4_controller.py change_input_value() INFO: Successfully replaced the value for property 'Allow multiple trades'. 11.25.24 21:49:59
+components.mt4_controller.py configure_expert_properties() INFO: Setting property 'Allow multiple trades' to 'true' 11.25.24 21:49:59
+components.mt4_controller.py replace_value() INFO: Successfully replaced the value in the string. 11.25.24 21:49:59
+components.mt4_controller.py change_input_value() INFO: Successfully replaced the value for property 'Risk-Reward Ratio for TP'. 11.25.24 21:49:59
+components.mt4_controller.py configure_expert_properties() INFO: Setting property 'Risk-Reward Ratio for TP' to '3.0' 11.25.24 21:49:59
+components.mt4_controller.py configure_expert_properties() ERROR: An error occurred while configuring expert properties: not enough values to unpack (expected 2, got 1) 11.25.24 21:49:59
+components.mt4_controller.py configure_tester() ERROR: Failed to configure properties for EA 'Waverunner Kernel AO.ex4'. Continuing. 11.25.24 21:49:59
+main.py main() ERROR: Failed to configure the strategy tester for settings: {'Expert': 'Waverunner Kernel AO.ex4', 'Symbol': 'XAUUSD', 'Period': 'M5', 'From': '2022.01.10', 'To': '2023.11.3', 'Model': 'Every tick', 'Expert properties': 'Allow multiple trades=true, Risk-Reward Ratio for TP=3.0,', None: None}. Continuing. 11.25.24 21:49:59
+main.py main() ERROR: Exception occurred: Message: session not created: Chrome failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files (x86)\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x007F33E3+25059]
+	(No symbol) [0x0077CDE4]
+	(No symbol) [0x0065BEC3]
+	(No symbol) [0x0068B4A2]
+	(No symbol) [0x00687169]
+	(No symbol) [0x006CB4D6]
+	(No symbol) [0x006CAC9A]
+	(No symbol) [0x006C1C96]
+	(No symbol) [0x00693FAC]
+	(No symbol) [0x00694F3D]
+	GetHandleVerifier [0x00AE5543+3113795]
+	GetHandleVerifier [0x00AFA20A+3198986]
+	GetHandleVerifier [0x00AF29E2+3168226]
+	GetHandleVerifier [0x00893250+680016]
+	(No symbol) [0x0078572D]
+	(No symbol) [0x007829D8]
+	(No symbol) [0x00782B75]
+	(No symbol) [0x007757D0]
+	BaseThreadInitThunk [0x7764FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x77C3809E+286]
+	RtlGetAppContainerNamedObjectPath [0x77C3806E+238]
+ 11.25.24 21:51:47
+main.py main() ERROR: Exception occurred: Message: session not created: Chrome failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files (x86)\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x007F33E3+25059]
+	(No symbol) [0x0077CDE4]
+	(No symbol) [0x0065BEC3]
+	(No symbol) [0x0068B4A2]
+	(No symbol) [0x00687169]
+	(No symbol) [0x006CB4D6]
+	(No symbol) [0x006CAC9A]
+	(No symbol) [0x006C1C96]
+	(No symbol) [0x00693FAC]
+	(No symbol) [0x00694F3D]
+	GetHandleVerifier [0x00AE5543+3113795]
+	GetHandleVerifier [0x00AFA20A+3198986]
+	GetHandleVerifier [0x00AF29E2+3168226]
+	GetHandleVerifier [0x00893250+680016]
+	(No symbol) [0x0078572D]
+	(No symbol) [0x007829D8]
+	(No symbol) [0x00782B75]
+	(No symbol) [0x007757D0]
+	BaseThreadInitThunk [0x7764FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x77C3809E+286]
+	RtlGetAppContainerNamedObjectPath [0x77C3806E+238]
+ 11.25.24 21:52:28
+main.py main() ERROR: Exception occurred: Message: session not created: Chrome failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location C:\Program Files (x86)\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+	GetHandleVerifier [0x007F33E3+25059]
+	(No symbol) [0x0077CDE4]
+	(No symbol) [0x0065BEC3]
+	(No symbol) [0x0068B4A2]
+	(No symbol) [0x00687169]
+	(No symbol) [0x006CB4D6]
+	(No symbol) [0x006CAC9A]
+	(No symbol) [0x006C1C96]
+	(No symbol) [0x00693FAC]
+	(No symbol) [0x00694F3D]
+	GetHandleVerifier [0x00AE5543+3113795]
+	GetHandleVerifier [0x00AFA20A+3198986]
+	GetHandleVerifier [0x00AF29E2+3168226]
+	GetHandleVerifier [0x00893250+680016]
+	(No symbol) [0x0078572D]
+	(No symbol) [0x007829D8]
+	(No symbol) [0x00782B75]
+	(No symbol) [0x007757D0]
+	BaseThreadInitThunk [0x7764FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x77C3809E+286]
+	RtlGetAppContainerNamedObjectPath [0x77C3806E+238]
+ 11.25.24 21:54:51
