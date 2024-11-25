@@ -29,34 +29,37 @@ def process_existing_reports(browser, excel_util, html_reports_path):
     except Exception as e:
         logger.error(f"Exception occurred while processing existing reports: {e}")
 
-def main(stop_event, reports_data_excel_path, settings_excel_path, html_reports_path, mt4_exe_path, me_exe_path):
+def main(stop_event, report_data_excel_path, settings_excel_path, html_reports_path, mt4_exe_path, me_exe_path, chrome_profile_path):
     """
-    Main function to run the backtesting automation process.
-
-    It processes existing HTML reports, reads settings from an Excel file,
-    configures and runs the strategy tester based on the settings, and saves 
-    generated reports as HTML files. After saving, it processes the reports.
+    The main function that orchestrates the backtesting automation.
 
     Args:
-        stop_event (threading.Event): Event to stop the execution of the function.
+        stop_event (threading.Event): Event to signal stopping the process.
+        report_data_excel_path (str): Path to the Back Test Data Excel file.
+        settings_excel_path (str): Path to the Settings Excel file.
+        html_reports_path (str): Path to the folder containing HTML reports.
+        mt4_exe_path (str): Path to the MT4 executable.
+        me_exe_path (str): Path to the MetaEditor executable.
+        chrome_profile_path (str): Path to the Chrome profile directory.
 
-    Raises:
-        Exception: If an error occurs during the backtesting automation process.
+    Returns:
+        None
     """
     try:
-        clean_log()  # Remove the content of the log file
+        # Set up Excel utility
+        excel_util = ExcelUtil(report_data_excel_path)
 
-        browser = ChromeBrowser(keep_open=False, headless=True)  # Set headless to True
-        excel_util = ExcelUtil(reports_data_excel_path)
-
-        # Make sure that the Backtest Report Data file exists with the correct headers
-        excel_util.setup_excel_file(titles_and_selectors)
-
+        # Initialize Chrome browser with the specified profile
+        browser = ChromeBrowser(keep_open=True, headless=True, chrome_profile_path=chrome_profile_path)
+        
         # Process existing reports
         process_existing_reports(browser, excel_util, html_reports_path)
-
-        mt4 = MT4Controller(mt4_exe_path, me_exe_path, html_reports_path)
+        
+        # Read settings
         settings_reader = SettingsReader(settings_excel_path)
+        settings_list = settings_reader.read_settings()
+
+        mt4 = MT4Controller(mt4_exe_path, me_exe_path, reports_folder_path=html_reports_path)
         strategy_tester = StrategyTester(mt4)
 
         settings_list = settings_reader.read_settings()  # Read settings from the Excel file

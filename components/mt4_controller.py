@@ -243,10 +243,10 @@ class MT4Controller:
                 return None
             elif pid:
                 logger.info(f"Connecting to the running instance with PID: {pid}.")
-                self.app = Application(backend="uia").connect(process=pid)
+                self.app = Application(backend="win32").connect(process=pid)
             else:
                 logger.info(f"Starting the application from path: {exe_path}.")
-                self.app = Application(backend="uia").start(exe_path, timeout=timeout)
+                self.app = Application(backend="win32").start(exe_path, timeout=timeout)
             
             return self.app
         except Exception as e:

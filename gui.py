@@ -57,7 +57,7 @@ def select_exe_file(entry):
     entry.delete(0, tk.END)
     entry.insert(0, file_path)
 
-def run_main_thread(report_data_excel_path, settings_excel_path, html_reports_path, mt4_exe_path, me_exe_path):
+def run_main_thread(report_data_excel_path, settings_excel_path, html_reports_path, mt4_exe_path, me_exe_path, chrome_profile_path):
     """
     Runs the main function in a separate thread and updates the GUI with the completion status.
 
@@ -68,13 +68,13 @@ def run_main_thread(report_data_excel_path, settings_excel_path, html_reports_pa
     
     try:
         # Run main function from main.py
-        run_main(stop_event, report_data_excel_path, settings_excel_path, html_reports_path, mt4_exe_path, me_exe_path)
+        run_main(stop_event, report_data_excel_path, settings_excel_path, html_reports_path, mt4_exe_path, me_exe_path, chrome_profile_path)
         
         if not stop_event.is_set():
             # Show "Finished at [time of completion]" message
             completion_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             finished_label.config(text=f"Finished at {completion_time}")
-            finished_label.grid(row=8, columnspan=2, pady=10)
+            finished_label.grid(row=9, columnspan=2, pady=10)
     except Exception as e:
         messagebox.showerror("Error", f"An error occurred: {e}")
     finally:
@@ -94,6 +94,7 @@ def start_app():
     report_data_excel_path = clean_path(backtest_data_path_entry.get())
     mt4_exe_path = clean_path(mt4_exe_path_entry.get())
     me_exe_path = clean_path(me_exe_path_entry.get())
+    chrome_profile_path = clean_path(chrome_profile_path_entry.get())
 
     # List of paths to check along with their associated entries for user feedback
     paths_to_check = [
@@ -101,7 +102,8 @@ def start_app():
         (settings_excel_path, settings_path_label),
         (report_data_excel_path, backtest_data_path_label),
         (mt4_exe_path, mt4_exe_path_label),
-        (me_exe_path, me_exe_path_label)
+        (me_exe_path, me_exe_path_label),
+        (chrome_profile_path, chrome_profile_path_label)
     ]
 
     # Check if any path is blank or does not exist
@@ -110,11 +112,26 @@ def start_app():
             messagebox.showerror("Error", f"{name} is required but not provided.")
             return
         if not os_path.exists(path):
-            messagebox.showerror("Failure Error", f"The specified path for {name} does not exist")
+            messagebox.showerror("Failure Error", f"The specified path for {name} does not exist.")
             return
 
+    # Additional check to ensure Chrome Profile Path is a directory
+    if not os_path.isdir(chrome_profile_path):
+        messagebox.showerror("Error", "The specified Chrome Profile Path does not exist or is not a directory.")
+        return
+
     # Start the main function in a new thread with user inputs
-    threading.Thread(target=run_main_thread, args=(report_data_excel_path, settings_excel_path, html_reports_path, mt4_exe_path, me_exe_path)).start()
+    threading.Thread(
+        target=run_main_thread, 
+        args=(
+            report_data_excel_path, 
+            settings_excel_path, 
+            html_reports_path, 
+            mt4_exe_path, 
+            me_exe_path, 
+            chrome_profile_path
+        )
+    ).start()
 
 def stop_app():
     """
@@ -125,7 +142,7 @@ def stop_app():
     
     # Update the finished label
     finished_label.config(text="Execution stopped by user.")
-    finished_label.grid(row=8, columnspan=2, pady=10)
+    finished_label.grid(row=9, columnspan=2, pady=10)
     
     # Update HTML report count
     post_execution_report_count = get_html_report_count()
@@ -142,7 +159,8 @@ reports_folder_path_label = "HTML Reports folder"
 tk.Label(root, text=reports_folder_path_label).grid(row=1, column=0, padx=10, pady=5, sticky="e")
 reports_folder_path_entry = tk.Entry(root, width=50)
 reports_folder_path_entry.grid(row=1, column=1, padx=10, pady=5)
-# reports_folder_path_entry.insert(0, r"D:\Shared folder of HTML Reports")
+reports_folder_path_entry.insert(0, r"D:\Shared folder of HTML Reports")
+tk.Button(root, text="Browse", command=lambda: select_excel_file(reports_folder_path_entry)).grid(row=1, column=2, padx=5)
 
 # Input field and label to select the Settings Excel file
 settings_path_label = "Settings file"
@@ -176,18 +194,25 @@ me_exe_path_entry.grid(row=5, column=1, padx=10, pady=5)
 me_exe_path_entry.insert(0, r"C:\Program Files (x86)\Tradeview MetaTrader 4 Terminal\metaeditor.exe")
 tk.Button(root, text="Browse", command=lambda: select_exe_file(me_exe_path_entry)).grid(row=5, column=2, padx=5)
 
+# Input field and label to select the Chrome Profile folder
+chrome_profile_path_label = "Chrome Profile Path"
+tk.Label(root, text=chrome_profile_path_label).grid(row=6, column=0, padx=10, pady=5, sticky="e")
+chrome_profile_path_entry = tk.Entry(root, width=50)
+chrome_profile_path_entry.grid(row=6, column=1, padx=10, pady=5)
+chrome_profile_path_entry.insert(0, r"C:\Users\user\AppData\Local\Google\Chrome\User Data\Profile 2")
+
 # Add a label to show the total number of HTML reports
 html_report_count = get_html_report_count()
 html_report_label = tk.Label(root, text=f'Total reports currently in HTML Reports Folder: {html_report_count}')
-html_report_label.grid(row=6, columnspan=3, padx=10, pady=5)
+html_report_label.grid(row=7, columnspan=3, padx=10, pady=5)
 
 # Add a Start button
 start_button = tk.Button(root, text="Start", command=start_app)
-start_button.grid(row=7, column=0, pady=10)
+start_button.grid(row=8, column=0, pady=10)
 
 # Add a Stop button
 stop_button = tk.Button(root, text="Stop", command=stop_app)
-stop_button.grid(row=7, column=1, pady=10)
+stop_button.grid(row=8, column=1, pady=10)
 
 # Add a label to display the completion message
 finished_label = tk.Label(root, text="", font=("Arial", 16))

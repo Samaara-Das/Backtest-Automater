@@ -1,5 +1,5 @@
 from os import getenv
-from logger import setup_logger, INFO
+from components.logger import setup_logger, INFO
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.core.utils import read_version_from_cmd 
@@ -18,7 +18,7 @@ CHROME_PROFILES_PATH = getenv('CHROME_PROFILES_PATH')
 CHROMEDRIVER_EXE_PATH = getenv('CHROMEDRIVER_EXE_PATH')
 
 class ChromeBrowser:
-    def __init__(self, keep_open: bool, headless: bool) -> None:
+    def __init__(self, keep_open: bool, headless: bool, chrome_profile_path: str) -> None:
         chrome_options = Options() 
         # the application will run without opening the chrome browser and be lightwight on system resources. This also won't interfere with other selenium controlled browsers.
         if headless:
@@ -26,7 +26,7 @@ class ChromeBrowser:
         
         chrome_options.add_experimental_option("detach", keep_open)
         chrome_options.add_argument('--profile-directory=Profile 2')
-        chrome_options.add_argument(f"--user-data-dir={CHROME_PROFILES_PATH}")
+        chrome_options.add_argument(f"--user-data-dir={chrome_profile_path}")
 
         cmd = "powershell -command \"&{(Get-Item 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe').VersionInfo.ProductVersion}\""
         version = read_version_from_cmd(cmd, PATTERN["google-chrome"])

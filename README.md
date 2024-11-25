@@ -16,6 +16,7 @@ The Python application uses `pywinauto` for automation.
 - Have an Excel file filled with settings which will be configured on the Strategy Tester. This will be referred to as "Settings". Intructions on filling it up are under the **"Instructions on filling the Settings file"** section.
 - Have a blank Excel file which stores extracted data from back test reports. This will be referred to as "Back Test Data".
 - MT4 should exist on the desktop
+- The Expert Advisors that are mentioned in the Settings file should exist in the MT4 terminal. Their inputs which are mentioned in the Settings file should be present in the Inputs popup of the Expert Advisor.
 
 ## What to do in the GUI
 - **HTML Reports folder**: This is supposed to be the path of the HTML Reports folder.
@@ -23,6 +24,7 @@ The Python application uses `pywinauto` for automation.
 - **Back Test Data file**: This is supposed to be the path the Back Test Data file.
 - **MT4 exe**: This is supposed to be the path of a terminal.exe file.
 - **MetaEditor exe**: This is supposed to be the path of a metaeditor.exe file.
+- **Chrome Profile Path**: This is supposed to be the path to a Chrome profile. Navigate to `C:\Users\[user]\AppData\Local\Google\Chrome\User Data` and select the desired "Profile" folder.
 
 Note: If the Stop button is clicked, the application will stop running after the current test is completed and not immediately. So, please be patient.
 
