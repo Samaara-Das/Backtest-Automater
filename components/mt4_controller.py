@@ -24,8 +24,8 @@ class MT4Controller:
         self.app = None
         self.tradeview = None
         self.strategy_tester = None
-        self.SETTINGS_TAB = {'name': 'Settings', 'coords': (45, 992)}
-        self.REPORT_TAB = {'name': 'Report', 'coords': (214, 992)}
+        self.SETTINGS_TAB = {'name': 'Settings', 'coords': (46, 1007)}
+        self.REPORT_TAB = {'name': 'Report', 'coords': (213, 1012)}
 
     def number_in_filename(self, filename):
         """
@@ -107,8 +107,16 @@ class MT4Controller:
             modified_code = original_code
 
             for prop in properties_string.split(','):
-                name, value = prop.split('=')
+                prop = prop.strip()
+                if '=' not in prop:
+                    self.logger.warning(f"Malformed property '{prop}'. Expected format 'name=value'. Skipping.")
+                    continue
+                # Ensure only one split in case value contains '='
+                name, value = prop.split('=', 1)
                 name, value = name.strip(), value.strip()
+                if not name or not value:
+                    self.logger.warning(f"Incomplete property '{prop}'. Both name and value are required. Skipping.")
+                    continue
                 changed_code = self.change_input_value(modified_code, name, value)
                 if changed_code:
                     modified_code = changed_code
@@ -117,10 +125,10 @@ class MT4Controller:
                     self.logger.info(f"Value of property '{name}' failed to be modified. Skipping.")
 
             copy(modified_code)
-            send_keys('^v') # Paste the modified code back into the editor
-            send_keys('{F7}') # Compile
+            send_keys('^v')  # Paste the modified code back into the editor
+            send_keys('{F7}')  # Compile
             sleep(1)
-            send_keys('^{F4}') # Close the mq4 file
+            send_keys('^{F4}')  # Close the mq4 file
             self.logger.info("Compiled file and closed it.")
             return True
         except Exception as e:

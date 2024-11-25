@@ -25,9 +25,8 @@ class ChromeBrowser:
             chrome_options.add_argument('--headless') 
         
         chrome_options.add_experimental_option("detach", keep_open)
-        chrome_options.add_argument(f"--user-data-dir={chrome_profile_path}")
 
-        cmd = "powershell -command \"&{(Get-Item 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe').VersionInfo.ProductVersion}\""
+        cmd = "powershell -command \"&{(Get-Item 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe').VersionInfo.ProductVersion}\""
         version = read_version_from_cmd(cmd, PATTERN["google-chrome"])
         service = ChromeDriverManager(driver_version=version).install()
         self.driver = webdriver.Chrome(service=ChromeService(service), options=chrome_options)
