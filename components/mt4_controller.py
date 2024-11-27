@@ -787,7 +787,7 @@ class StrategyTester:
             if not self.mt4.tester_switch_tab(self.mt4.REPORT_TAB):  # Switch to Report tab
                 self.logger.error(f"Failed to switch to Report tab in the Strategy Tester. Exiting")
             
-            click('right', (221, 963))  # Simulate right-click to open the context menu
+            click('right', (238, 932))  # Simulate right-click to open the context menu
             self.logger.info("Right-clicked to open the context menu.")
 
             # Access the context menu and click on the "Save as Report" option
